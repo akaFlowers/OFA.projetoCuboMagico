@@ -55,7 +55,7 @@ namespace projetoCuboMagico.Persistencia
                 this.conexao.Close();
             }
 
-        }
+        } 
 
         public bool testarConexao()
         {
