@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS bdcubomagico;
 CREATE DATABASE bdCuboMagico;
 
 USE bdCuboMagico;
@@ -61,7 +62,8 @@ email VARCHAR(100) NOT NULL,
 telefone VARCHAR(14),
 celular VARCHAR(15) NOT NULL,
 endereco VARCHAR(120) NOT NULL,
-idUsuario INT REFERENCES Usuario
+idUsuario INT REFERENCES Usuario,
+PRIMARY KEY(id)
 );
 
 CREATE TABLE IF NOT EXISTS Gerente(
@@ -74,7 +76,8 @@ email VARCHAR(100) NOT NULL,
 telefone VARCHAR(14),
 celular VARCHAR(15) NOT NULL,
 endereco VARCHAR(120) NOT NULL,
-idUsuario INT REFERENCES Usuario
+idUsuario INT REFERENCES Usuario,
+PRIMARY KEY(id)
 );
 
 CREATE TABLE IF NOT EXISTS Fornecedor(
