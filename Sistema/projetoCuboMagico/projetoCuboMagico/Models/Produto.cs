@@ -9,15 +9,41 @@ namespace projetoCuboMagico.Models
     public class Produto
     {
         [Display(Name = "ID"), Key]
-        private int id { get; set; }
+        private int id;
 
         [Display(Name = "Nome"), MaxLength(100)]
-        private string nome { get; set; }
+        private string nome;
 
-        [Display(Name = "Tipo"), Key]
-        private string tipo { get; set; }
+        [Display(Name = "Tipo"), MaxLength(30)]
+        private string tipo;
 
-        [Display(Name = "Desgin"), Key]
-        private string design { get; set; }
+        [Display(Name = "Desgin"), MaxLength(30)]
+        private string design;
+
+        public int _id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string _nome
+        {
+            get { return nome; }
+            set { nome = value; }
+        }
+
+        public string _tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
+        }
+
+        public string _design
+        {
+            get { return design; }
+            set { design = value; }
+        }
+
+
     }
 }
