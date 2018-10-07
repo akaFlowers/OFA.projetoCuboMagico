@@ -11,7 +11,7 @@ namespace projetoCuboMagico.Persistencia
 {
     public class Conexao
     {
-        private MySqlConnection conexao = new MySqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+        public static MySqlConnection conexao = new MySqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
 
         //Construtor
         public Conexao()
@@ -19,12 +19,6 @@ namespace projetoCuboMagico.Persistencia
 
         }
 
-        //Getters And Setters
-        public MySqlConnection _conexao
-        {
-            get { return this.conexao; }
-            set { this.conexao = value; }
-        }
 
         //Codigo
 
@@ -33,9 +27,9 @@ namespace projetoCuboMagico.Persistencia
 
             try
             {
-                if (this.conexao.State == ConnectionState.Closed)
+                if (conexao.State == ConnectionState.Closed)
                 {
-                    this.conexao.Open();
+                    conexao.Open();
 
                 }
                 return true;
@@ -50,16 +44,16 @@ namespace projetoCuboMagico.Persistencia
         }
         public void fecharConexao()
         {
-            if (this.conexao.State == ConnectionState.Closed)
+            if (conexao.State == ConnectionState.Closed)
             {
-                this.conexao.Close();
+                conexao.Close();
             }
 
         } 
 
         public bool testarConexao()
         {
-            if (this.conexao != null && conexao.State != ConnectionState.Closed)
+            if (conexao != null && conexao.State != ConnectionState.Closed)
                 return true;
             else
                 return false;

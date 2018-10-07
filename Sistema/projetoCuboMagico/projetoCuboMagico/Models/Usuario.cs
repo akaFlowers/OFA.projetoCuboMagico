@@ -20,5 +20,29 @@ namespace projetoCuboMagico.Models
         [Display(Name = "Nivel de Acesso"), Key]
         private string nivelAcesso { get; set; }
 
+        public int _id
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string _usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
+        public string _senha
+        {
+            get { return senha; }
+            set { senha = value; }
+        }
+
+        public string _nivelAcesso
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
     }
 }
