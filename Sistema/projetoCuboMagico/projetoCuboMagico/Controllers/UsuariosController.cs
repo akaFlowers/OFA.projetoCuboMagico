@@ -16,7 +16,7 @@ namespace projetoCuboMagico.Controllers
             Usuario usuario = new Usuario();
             UsuariosRepository repository = new UsuariosRepository();
             // TODO: Add insert logic here
-            usuario._usuario = "joaoaa";
+            usuario._usuario = "joaoaadwdwdwdwd";
             usuario._senha = "123a4";
             usuario._nivelAcesso = "Administraador";
 

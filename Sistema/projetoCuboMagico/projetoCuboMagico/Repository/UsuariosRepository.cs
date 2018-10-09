@@ -28,7 +28,7 @@ namespace projetoCuboMagico.Repository
 
                 return true;
             }
-            catch (MySqlException)
+            catch (Exception)
             {
                 return false;
             }
@@ -112,6 +112,70 @@ namespace projetoCuboMagico.Repository
             }
         }
 
+        public bool deletarUsuario(int id)
+        {
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SP_deletarUsuario", Conexao.conexao);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+        }
 
+
+        public bool alterarUsuario(Usuario usuario)
+        {
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SP_alterarUsuario", Conexao.conexao);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID", usuario._id);
+                cmd.Parameters.AddWithValue("@usuario", usuario._usuario);
+                cmd.Parameters.AddWithValue("@senha", usuario._senha);
+                cmd.Parameters.AddWithValue("@nivelAcesso", usuario._nivelAcesso);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+
+            }
+        }
+
+
+        public int trazerIdUsuario()
+        {
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao);
+                dr = cmd.ExecuteReader();
+                return Convert.ToInt32(dr["ID"]);
+            }
+            catch
+            {
+                return 0;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+        }
     }
 }

@@ -90,6 +90,27 @@ namespace projetoCuboMagico.Repository
             }
         }
 
+        public bool deletarCliente(int id)
+        {
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SP_deletarCliente", Conexao.conexao);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID", id);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+        }
+
 
     }
 }

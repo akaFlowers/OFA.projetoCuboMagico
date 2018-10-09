@@ -79,18 +79,19 @@ INSERT INTO Usuario(usuario, senha, nivelAcesso) VALUES(
 	usuario,
     senha,
     nivelAcesso
-    );
+);
 END $$
 DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_alterarUsuario $$
-CREATE PROCEDURE SP_alterarUsuario(IN usuario VARCHAR(100), IN senha VARCHAR(100), IN nivelAcesso VARCHAR(30))
+CREATE PROCEDURE SP_alterarUsuario(IN ID INT, IN usuario VARCHAR(100), IN senha VARCHAR(100), IN nivelAcesso VARCHAR(30))
 BEGIN
 UPDATE Usuario SET
 	Usuario.usuario = usuario,
 	Usuario.senha = senha,
     Usuario.nivelAcesso = nivelAcesso;
+WHERE Usuario.id = ID;
 END $$
 DELIMITER ;
 
@@ -121,9 +122,36 @@ DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_consultaUsuarioPorEmail $$
-CREATE PROCEDURE SP_consultUsuarioPorEmail(IN email VARCHAR(100))
+CREATE PROCEDURE SP_consultaUsuarioPorEmail(IN email VARCHAR(100))
 BEGIN
 SELECT Cliente.email, Usuario.usuario, Usuario.senha, Usuario.nivelAcesso FROM Usuario JOIN Cliente ON Cliente.idUsuario = Usuario.id
 WHERE cliente.email = email;
 END $$
 DELIMITER ;
+
+
+/*PROCEDURES LIVROS*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_IncluirLivro $$
+CREATE PROCEDURE SP_incluirLivro(IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGenero INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
+BEGIN
+INSERT INTO Livro(nome, autor, idGenero, dataPublicacao, editora) VALUES(
+	nome,
+	autor,
+    idGenero,
+    dataPublicacao,
+    editora
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarLivro $$
+CREATE PROCEDURE SP_deletarLivro(IN ID INT)
+BEGIN
+DELETE FROM Livro WHERE Livro.id = ID;
+END $$
+DELIMITER ;
+
+
+
