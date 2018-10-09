@@ -40,8 +40,8 @@ namespace projetoCuboMagico.Models
 
         public string _nivelAcesso
         {
-            get { return usuario; }
-            set { usuario = value; }
+            get { return nivelAcesso; }
+            set { nivelAcesso = value; }
         }
 
     }

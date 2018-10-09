@@ -28,7 +28,7 @@ DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_alterarCliente $$
-CREATE PROCEDURE SP_alterarCliente(IN nome VARCHAR(100), IN sobrenome VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN tamCamiseta VARCHAR(5), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN cep VARCHAR(9), IN estado VARCHAR(50), IN cidade VARCHAR(65), IN bairro VARCHAR(65), IN rua VARCHAR(65), IN numero VARCHAR(10), IN complemento VARCHAR(100), IN pais VARCHAR(70), IN idUsuario INT)
+CREATE PROCEDURE SP_alterarCliente(IN id INT, IN nome VARCHAR(100), IN sobrenome VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN tamCamiseta VARCHAR(5), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN cep VARCHAR(9), IN estado VARCHAR(50), IN cidade VARCHAR(65), IN bairro VARCHAR(65), IN rua VARCHAR(65), IN numero VARCHAR(10), IN complemento VARCHAR(100), IN pais VARCHAR(70), IN idUsuario INT)
 BEGIN
 UPDATE Cliente SET 
 Cliente.nome = nome,
@@ -48,7 +48,8 @@ Cliente.rua = rua,
 Cliente.numero = numero,
 Cliente.complemento = complemento,
 Cliente.pais = pais,
-Cliente.idUsuario = idUsuario;
+Cliente.idUsuario = idUsuario
+WHERE Cliente.id = id;
 END $$
 DELIMITER ;
 
@@ -85,7 +86,7 @@ DELIMITER ;
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_alterarUsuario $$
 CREATE PROCEDURE SP_alterarUsuario(IN usuario VARCHAR(100), IN senha VARCHAR(100), IN nivelAcesso VARCHAR(30))
-BEGINs
+BEGIN
 UPDATE Usuario SET
 	Usuario.usuario = usuario,
 	Usuario.senha = senha,

@@ -118,6 +118,12 @@ namespace projetoCuboMagico.Models
             set { telefone = value; }
         }
 
+        public string _celular
+        {
+            get { return celular; }
+            set { celular = value; }
+        }
+
         public string _cep
         {
             get { return cep; }

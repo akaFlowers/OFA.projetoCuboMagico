@@ -13,24 +13,21 @@ namespace projetoCuboMagico.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            try
-            {
-                Usuario usuario = new Usuario();
-                UsuariosRepository repository = new UsuariosRepository();
-                // TODO: Add insert logic here
+            Usuario usuario = new Usuario();
+            UsuariosRepository repository = new UsuariosRepository();
+            // TODO: Add insert logic here
+            usuario._usuario = "joaoaa";
+            usuario._senha = "123a4";
+            usuario._nivelAcesso = "Administraador";
 
-                if (repository.incluirUsuario(usuario))
-                {
-                    return View("Funcionou");
-                }
-                else
-                {
-                    return View("Não funcionou");
-                }
-            }
-            catch
+
+            if (repository.incluirUsuario(usuario))
             {
-                return View();
+                return View("Funcionou");
+            }
+            else
+            {
+                return View("Não funcionou");
             }
         }
 

@@ -20,10 +20,10 @@ namespace projetoCuboMagico.Repository
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirUsuario", Conexao.conexao);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@usuario", usuario._usuario);
                 cmd.Parameters.AddWithValue("@senha", usuario._senha);
                 cmd.Parameters.AddWithValue("@nivelAcesso", usuario._nivelAcesso);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
 
                 return true;

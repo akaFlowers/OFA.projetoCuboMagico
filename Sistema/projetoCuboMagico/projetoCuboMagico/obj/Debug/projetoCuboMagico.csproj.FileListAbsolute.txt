@@ -197,3 +197,5 @@ C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\
 C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\obj\Debug\projetoCuboMagico.csproj.CopyComplete
 C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\obj\Debug\projetoCuboMagico.dll
 C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\obj\Debug\projetoCuboMagico.pdb
+C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
+C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Google.Protobuf.dll
