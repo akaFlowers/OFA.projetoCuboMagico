@@ -166,7 +166,15 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao);
                 dr = cmd.ExecuteReader();
-                return Convert.ToInt32(dr["ID"]);
+                if (dr.Read())
+                {
+                    return Convert.ToInt32(dr["ID"]);
+                }
+                else
+                {
+                    return 0;
+                }
+                
             }
             catch
             {
@@ -175,6 +183,7 @@ namespace projetoCuboMagico.Repository
             finally
             {
                 conexao.fecharConexao();
+                dr.Close();
             }
         }
     }

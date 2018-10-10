@@ -146,6 +146,23 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarLivro $$
+CREATE PROCEDURE SP_alterarLivro(IN ID INT, IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGenero INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
+BEGIN
+UPDATE Livro SET
+Livro.nome = nome,
+Livro.autor = autor,
+Livro.idGenero = idGenero,
+Livro.dataPublicacao = dataPublicacao,
+Livro.editora = editora
+WHERE Livro.id = ID;
+END $$
+DELIMITER ;
+
+
+
+
+DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_deletarLivro $$
 CREATE PROCEDURE SP_deletarLivro(IN ID INT)
 BEGIN
