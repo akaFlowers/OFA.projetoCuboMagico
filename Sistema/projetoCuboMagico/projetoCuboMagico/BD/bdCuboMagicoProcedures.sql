@@ -171,4 +171,84 @@ END $$
 DELIMITER ;
 
 
+/*PROCEDURES PRODUTOS*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirProduto $$
+CREATE PROCEDURE SP_incluirProduto(IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
+BEGIN
+INSERT INTO Livro(nome, tipo, design) VALUES(
+nome,
+tipo,
+design
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarProduto $$
+CREATE PROCEDURE SP_deletarProduto(IN ID INT)
+BEGIN
+DELETE FROM Produto WHERE Produto.id = ID;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarProduto $$
+CREATE PROCEDURE SP_alterarProduto(IN ID INT, IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
+BEGIN
+UPDATE Produto SET
+	Produto.nome = nome,
+    Produto.tipo = tipo,
+    Produto.design = design
+WHERE Produto.id = ID;
+END $$
+DELIMITER ;
+
+
+/* PROCEDURES FUNCIONARIOS*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirFuncionario $$
+CREATE PROCEDURE SP_incluirFuncionario(IN nomeCompleto VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN endereco VARCHAR(120), IN idUsuario INT)
+BEGIN
+INSERT INTO Funcionario(nomeCompleto, dataNascimento, sexo, cpf, email, telefone, celular, endereco, idUsuario) VALUES(
+nomeCompleto,
+dataNascimento,
+sexo,
+cpf,
+email,
+telefone,
+celular,
+endereco,
+idUsuario
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarFuncionario $$
+CREATE PROCEDURE SP_deletarFuncionario(IN ID INT)
+BEGIN
+DELETE FROM Funcionario WHERE Funcio.id = ID;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarFuncionario $$
+CREATE PROCEDURE SP_alterarFuncionario(IN ID INT, IN nomeCompleto VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN endereco VARCHAR(120), IN idUsuario INT)
+BEGIN
+UPDATE Funcionario SET
+	Funcionario.nomeCompleto = nomeCompleto,
+	Funcionario.dataNascimento = dataNascimento,
+	Funcionario.sexo = sexo,
+	Funcionario.cpf = cpf,
+	Funcionario.email = email,
+	Funcionario.telefone = telefone,
+	Funcionario.celular = celular,
+	Funcionario.endereco = endereco,
+	Funcionario.idUsuario = idUsuario
+WHERE Funcionario.id = ID;
+END $$
+DELIMITER ;
+
+
 
