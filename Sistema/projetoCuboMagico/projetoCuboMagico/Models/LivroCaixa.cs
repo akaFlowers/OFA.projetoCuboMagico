@@ -7,7 +7,22 @@ namespace projetoCuboMagico.Models
 {
     public class LivroCaixa
     {
-        private int idCaixa { get; set; }
-        private int idLivro { get; set; }
+        private int idCaixa;
+        private int idLivro;
+
+        public int _idCaixa
+        {
+            get { return idCaixa; }
+            set { idCaixa = value; }
+        }
+
+        public int _idLivro
+        {
+            get { return idLivro; }
+            set { idLivro = value; }
+        }
+
+
+
     }
 }

@@ -129,7 +129,6 @@ WHERE cliente.email = email;
 END $$
 DELIMITER ;
 
-
 /*PROCEDURES LIVROS*/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_IncluirLivro $$
@@ -158,9 +157,6 @@ Livro.editora = editora
 WHERE Livro.id = ID;
 END $$
 DELIMITER ;
-
-
-
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_deletarLivro $$
@@ -228,7 +224,7 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_deletarFuncionario $$
 CREATE PROCEDURE SP_deletarFuncionario(IN ID INT)
 BEGIN
-DELETE FROM Funcionario WHERE Funcio.id = ID;
+DELETE FROM Funcionario WHERE Funcionario.id = ID;
 END $$
 DELIMITER ;
 
@@ -247,6 +243,201 @@ UPDATE Funcionario SET
 	Funcionario.endereco = endereco,
 	Funcionario.idUsuario = idUsuario
 WHERE Funcionario.id = ID;
+END $$
+DELIMITER ;
+
+/*PROCEDURES GERENTE*/
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirGerente $$
+CREATE PROCEDURE SP_incluirGerente(IN nomeCompleto VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN endereco VARCHAR(120), IN idUsuario INT)
+BEGIN
+INSERT INTO Gerente(nomeCompleto, dataNascimento, sexo, cpf, email, telefone, celular, endereco, idUsuario) VALUES(
+nomeCompleto,
+dataNascimento,
+sexo,
+cpf,
+email,
+telefone,
+celular,
+endereco,
+idUsuario
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarGerente $$
+CREATE PROCEDURE SP_deletarGerente(IN ID INT)
+BEGIN
+DELETE FROM Gerente WHERE Gerente.id = ID;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarGerente $$
+CREATE PROCEDURE SP_alterarGerente(IN ID INT, IN nomeCompleto VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN endereco VARCHAR(120), IN idUsuario INT)
+BEGIN
+UPDATE Gerente SET
+	Gerente.nomeCompleto = nomeCompleto,
+	Gerente.dataNascimento = dataNascimento,
+	Gerente.sexo = sexo,
+	Gerente.cpf = cpf,
+	Gerente.email = email,
+	Gerente.telefone = telefone,
+	Gerente.celular = celular,
+	Gerente.endereco = endereco,
+	Gerente.idUsuario = idUsuario
+WHERE Gerente.id = ID;
+END $$
+DELIMITER ;
+
+/* PROCEDURES FORNECEDORES*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirFornecedor $$
+CREATE PROCEDURE SP_incluirFornecedor(IN nome VARCHAR(100), IN email VARCHAR(100), IN telefone VARCHAR(14), IN cnpj VARCHAR(19), IN pais VARCHAR(100))
+BEGIN
+INSERT INTO Fornecedor(nome, email, telefone, cnpj, pais) VALUES(
+nome,
+email,
+telefone,
+cnpj,
+pais
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarFornecedor $$
+CREATE PROCEDURE SP_alterarFornecedor(IN ID INT, IN nome VARCHAR(100), IN email VARCHAR(100), IN telefone VARCHAR(14), IN cnpj VARCHAR(19), IN pais VARCHAR(100))
+BEGIN
+UPDATE Fornecedor SET
+	Fornecedor.nome = nome,
+    Fornecedor.email = email,
+    Forncedor.telefone = telefone,
+    Fornecedor.cnpj = cnpj,
+    Fornecedor.pais = pais
+WHERE Fornecedor.id = ID;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarFornecedor $$
+CREATE PROCEDURE SP_deletarFornecedor(IN ID INT)
+BEGIN
+DELETE FROM Fornecedor WHERE Fornecedor.id = ID;
+END $$
+DELIMITER ;
+
+/*PROCEDURES GENEROS*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirGenero $$
+CREATE PROCEDURE SP_incluirGenero(IN genero VARCHAR(50), IN subGenero VARCHAR(60))
+BEGIN
+INSERT INTO Genero(genero, subGenero) VALUES(
+genero,
+subGenero
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarGenero $$
+CREATE PROCEDURE SP_alterarGenero(IN ID INT, IN genero VARCHAR(50), IN subGenero VARCHAR(60))
+BEGIN
+UPDATE Genero SET
+Genero.genero = genero,
+Genero.subGenero = subGenero
+WHERE Generp.id = ID;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarGenero $$
+CREATE PROCEDURE SP_deletarGenero(IN ID INT)
+BEGIN
+DELETE FROM Genero WHERE Genero.id = ID;
+END $$
+DELIMITER ;
+
+/* PROCEDURE CARTAO CREDITOS */
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirCartaoCredito $$
+CREATE PROCEDURE SP_incluirCartaoCredito(IN nomeImpresso VARCHAR(100), IN numero VARCHAR(50), IN cpf VARCHAR(15), IN validade VARCHAR(6), IN cvv VARCHAR(5))
+BEGIN
+INSERT INTO CartaoCredito(nomeImpresso, cpf, validade, cvv) VALUES(
+nomeImpresso,
+numero,
+cpf,
+validade,
+cvv
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarCartaoCredito $$
+CREATE PROCEDURE SP_alterarCartaoCredito(IN ID INT, IN nomeImpresso VARCHAR(100), IN numero VARCHAR(50), IN cpf VARCHAR(15), IN validade VARCHAR(6), IN cvv VARCHAR(5))
+BEGIN
+UPDATE CartaoCredito SET
+CartaoCredito.nomeImpresso = nomeImpresso,
+CartaoCredtio.numero = numero,
+CartaoCredito.cpf = cpf,
+CartaoCredito.validade = validade,
+CartaoCredito.cvv = cvv
+WHERE CartaoCredito.numero = numero;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_deletarCartaoCredito $$
+CREATE PROCEDURE SP_deletarCartaoCredito(IN ID INT)
+BEGIN
+DELETE FROM CartaoCredito WHERE CartaoCredito.id = ID;
+END $$
+DELIMITER ;
+
+/* PROCEDURES CAIXA */
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirCaixa $$
+CREATE PROCEDURE SP_incluirCaixa(IN idCliente INT, IN dataGerada DATETIME)
+BEGIN
+INSERT INTO Caixa(idCliente, dataGerada) VALUES(
+idCliente,
+dataGerada
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirProdutoCaixa $$
+CREATE PROCEDURE SP_incluirProdutoCaixa(IN idCaixa INT, IN idProduto INT)
+BEGIN
+INSERT INTO ProdutoCaixa(idCaixa, idProduto) VALUES(
+idCaixa,
+idProduto
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirLivroCaixa $$
+CREATE PROCEDURE SP_incluirLivroCaixa(IN idCaixa INT, IN idLivro INT)
+BEGIN
+INSERT INTO LivroCaixa(idCaixa, idLivro) VALUES(
+idCaixa,
+idLivro
+);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_alterarCaixaIdCliente $$
+CREATE PROCEDURE SP_alterarCaixa(IN ID INT, IN idCliente INT)
+BEGIN
+UPDATE Caixa SET
+Caixa.idCliente = idCliente
+WHERE Caixa.id = ID;
 END $$
 DELIMITER ;
 

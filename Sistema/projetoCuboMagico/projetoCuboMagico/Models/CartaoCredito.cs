@@ -11,6 +11,9 @@ namespace projetoCuboMagico.Models
         [Display(Name = "Nome Impresso"), MaxLength(100)]
         private string nomeImpresso;
 
+        [Display(Name = "Número"), MaxLength(50)]
+        private string numero;
+
         [Display(Name = "CPF"), MaxLength(15)]
         private string cpf;
 
@@ -30,6 +33,13 @@ namespace projetoCuboMagico.Models
         {
             get { return cpf; }
             set { cpf = value; }
+        }
+
+
+        public string _numero
+        {
+            get { return numero; }
+            set { numero = value; }
         }
 
         public string _validade
