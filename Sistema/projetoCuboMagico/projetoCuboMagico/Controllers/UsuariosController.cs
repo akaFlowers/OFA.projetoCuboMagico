@@ -13,22 +13,9 @@ namespace projetoCuboMagico.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            Usuario usuario = new Usuario();
-            UsuariosRepository repository = new UsuariosRepository();
-            // TODO: Add insert logic here
-            usuario._usuario = "joaoaadwdwdwdwd";
-            usuario._senha = "123a4";
-            usuario._nivelAcesso = "Administraador";
-
-
-            if (repository.incluirUsuario(usuario))
-            {
-                return View("Funcionou");
-            }
-            else
-            {
-                return View("Não funcionou");
-            }
+            UsuariosRepository usuariosRepository = new UsuariosRepository();
+            List<Usuario> usuario = usuariosRepository.listarTodos().ToList();
+            return View(usuario);
         }
 
         // GET: Usuarios/Details/5

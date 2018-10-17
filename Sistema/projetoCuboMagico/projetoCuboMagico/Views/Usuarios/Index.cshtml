@@ -1,7 +1,50 @@
-﻿
+﻿@model IEnumerable<projetoCuboMagico.Models.Usuario>
+
 @{
-    ViewBag.Title = "Index";
+    ViewData["Title"] = "Usuarios";
 }
 
-<h2>Index</h2>
-
+<div class="page-header">
+    <h2>@ViewData["Title"]</h2>
+</div>
+<div style="padding-bottom: 15px;" class="text-right">
+    <a asp-action="Create" class="btn btn-success">Cadastrar</a>
+</div>
+<div class="table-responsive">
+    @if (Model.Any())
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(u => u._id)</th>
+                    <th>@Html.DisplayNameFor(u => u.usuario)</th>
+                    <th>@Html.DisplayNameFor(u => u._senha)</th>
+                    <th>@Html.DisplayNameFor(u => u._nivelAcesso)</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var usuario in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(u => usuario._id)</td>
+                        <td>@Html.DisplayFor(u => usuario._usuario)</td>
+                        <td>@Html.DisplayFor(u => usuario._senha)</td>
+                        <td>@Html.DisplayFor(u => usuario._nivelAcesso)</td>
+                        <td>
+                            @Html.ActionLink("Detalhes", "Details", new { id = usuario._id }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Editar", "Edit", new { id = usuario._id }, new { @class = "btn btn-warning" })
+                            @Html.ActionLink("Deletar", "Delete", new { id = usuario._id }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            <p>Não há funcionários cadastrados.</p>
+        </div>
+    }
+</div>

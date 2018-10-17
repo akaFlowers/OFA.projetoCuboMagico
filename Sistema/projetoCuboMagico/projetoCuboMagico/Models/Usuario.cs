@@ -9,16 +9,16 @@ namespace projetoCuboMagico.Models
     public class Usuario
     {
         [Display(Name = "ID"), Key]
-        private int id;
+        public int id { get; set; }
 
         [Display(Name = "Usuário"), MinLength(2), MaxLength(50)]
-        private string usuario;
+        public string usuario { get; set; }
 
         [Display(Name = "Senha"), MinLength(5), MaxLength(50)]
-        private string senha;
+        public string senha { get; set; }
 
         [Display(Name = "Nivel de Acesso"), MaxLength(30)]
-        private string nivelAcesso;
+        public string nivelAcesso;
 
         public int _id
         {

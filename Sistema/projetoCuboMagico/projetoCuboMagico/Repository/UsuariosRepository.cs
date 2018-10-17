@@ -3,8 +3,10 @@ using projetoCuboMagico.Models;
 using projetoCuboMagico.Persistencia;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 
 namespace projetoCuboMagico.Repository
 {
@@ -13,6 +15,39 @@ namespace projetoCuboMagico.Repository
         Conexao conexao = new Conexao();
         MySqlDataReader dr;
         MySqlCommand cmd;
+
+
+        public IEnumerable<Usuario> listarTodos()
+        {
+            List<Usuario> usuario = new List<Usuario>();
+
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SP_listarTodosUsuarios", Conexao.conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Usuario usuarios = new Usuario();
+                    usuarios._id = Convert.ToInt32(dr["id"]);
+                    usuarios._usuario = dr["usuario"].ToString();
+                    usuarios.senha = dr["senha"].ToString();
+                    usuarios._nivelAcesso = dr["nivelAcesso"].ToString();
+                    usuario.Add(usuarios);
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                conexao.fecharConexao();
+            }
+            return usuario;
+        }
 
         public bool incluirUsuario(Usuario usuario)
         {
