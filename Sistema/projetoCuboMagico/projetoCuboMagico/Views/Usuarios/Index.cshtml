@@ -8,7 +8,7 @@
     <h2>@ViewData["Title"]</h2>
 </div>
 <div style="padding-bottom: 15px;" class="text-right">
-    <a asp-action="Create" class="btn btn-success">Cadastrar</a>
+    @Html.ActionLink("Cadastrar", "Create", null, new { @class = "btn btn-success" })
 </div>
 <div class="table-responsive">
     @if (Model.Any())
@@ -16,10 +16,10 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(u => u._id)</th>
-                    <th>@Html.DisplayNameFor(u => u.usuario)</th>
-                    <th>@Html.DisplayNameFor(u => u._senha)</th>
-                    <th>@Html.DisplayNameFor(u => u._nivelAcesso)</th>
+                    <th>@Html.DisplayNameFor(u => u.Id)</th>
+                    <th>@Html.DisplayNameFor(u => u.Usuarioo)</th>
+                    <th>@Html.DisplayNameFor(u => u.Senha)</th>
+                    <th>@Html.DisplayNameFor(u => u.NivelAcesso)</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -27,14 +27,14 @@
                 @foreach (var usuario in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(u => usuario._id)</td>
-                        <td>@Html.DisplayFor(u => usuario._usuario)</td>
-                        <td>@Html.DisplayFor(u => usuario._senha)</td>
-                        <td>@Html.DisplayFor(u => usuario._nivelAcesso)</td>
+                        <td>@Html.DisplayFor(u => usuario.Id)</td>
+                        <td>@Html.DisplayFor(u => usuario.Usuarioo)</td>
+                        <td>@Html.DisplayFor(u => usuario.Senha)</td>
+                        <td>@Html.DisplayFor(u => usuario.NivelAcesso)</td>
                         <td>
-                            @Html.ActionLink("Detalhes", "Details", new { id = usuario._id }, new { @class = "btn btn-info" })
-                            @Html.ActionLink("Editar", "Edit", new { id = usuario._id }, new { @class = "btn btn-warning" })
-                            @Html.ActionLink("Deletar", "Delete", new { id = usuario._id }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Detalhes", "Details", new { id = usuario.Id }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Editar", "Edit", new { id = usuario.Id }, new { @class = "btn btn-warning" })
+                            @Html.ActionLink("Deletar", "Delete", new { id = usuario.Id }, new { @class = "btn btn-danger" })
                         </td>
                     </tr>
                 }

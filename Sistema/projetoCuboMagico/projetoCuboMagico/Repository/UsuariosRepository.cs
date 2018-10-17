@@ -30,10 +30,10 @@ namespace projetoCuboMagico.Repository
                 while (dr.Read())
                 {
                     Usuario usuarios = new Usuario();
-                    usuarios._id = Convert.ToInt32(dr["id"]);
-                    usuarios._usuario = dr["usuario"].ToString();
-                    usuarios.senha = dr["senha"].ToString();
-                    usuarios._nivelAcesso = dr["nivelAcesso"].ToString();
+                    usuarios.Id = Convert.ToInt32(dr["id"]);
+                    usuarios.Usuarioo = dr["usuario"].ToString();
+                    usuarios.Senha = dr["senha"].ToString();
+                    usuarios.NivelAcesso = dr["nivelAcesso"].ToString();
                     usuario.Add(usuarios);
                 }
 
@@ -45,8 +45,40 @@ namespace projetoCuboMagico.Repository
             finally
             {
                 conexao.fecharConexao();
+                dr.Close();
             }
             return usuario;
+        }
+
+        public Usuario consultaPorID(int id)
+        {
+            Usuario usuario = new Usuario();
+            try
+            {
+                
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SELECT * FROM Usuario WHERE Usuario.id = @id", Conexao.conexao);
+                cmd.Parameters.AddWithValue("@id", id);
+                dr = cmd.ExecuteReader();
+
+                if(dr.Read())
+                {
+                    usuario.Id = Convert.ToInt32(dr["id"]);
+                    usuario.Usuarioo = dr["usuario"].ToString();
+                    usuario.Senha = dr["senha"].ToString();
+                    usuario.NivelAcesso = dr["nivelAcesso"].ToString();
+                }
+                return usuario;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conexao.fecharConexao();
+                dr.Close();
+            }
         }
 
         public bool incluirUsuario(Usuario usuario)
@@ -56,9 +88,9 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirUsuario", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@usuario", usuario._usuario);
-                cmd.Parameters.AddWithValue("@senha", usuario._senha);
-                cmd.Parameters.AddWithValue("@nivelAcesso", usuario._nivelAcesso);
+                cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
+                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+                cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
                 cmd.ExecuteNonQuery();
 
                 return true;
@@ -116,12 +148,12 @@ namespace projetoCuboMagico.Repository
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_consultaPorUsuario", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@usuario", usuario._usuario);
+                cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    if (usuario._senha == dr["senha"].ToString())
+                    if (usuario.Senha == dr["senha"].ToString())
                     {
                         //AUTENTICADO
                     }
@@ -176,20 +208,20 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_alterarUsuario", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", usuario._id);
-                cmd.Parameters.AddWithValue("@usuario", usuario._usuario);
-                cmd.Parameters.AddWithValue("@senha", usuario._senha);
-                cmd.Parameters.AddWithValue("@nivelAcesso", usuario._nivelAcesso);
+                cmd.Parameters.AddWithValue("@ID", usuario.Id);
+                cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
+                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+                cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
             finally
             {
-
+                conexao.fecharConexao();
             }
         }
 
