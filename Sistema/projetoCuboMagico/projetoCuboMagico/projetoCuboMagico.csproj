@@ -46,7 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -148,7 +148,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -166,7 +168,15 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CaixasRepository.cs" />
+    <Compile Include="Repository\CartaoCreditoRepository.cs" />
     <Compile Include="Repository\ClientesRepository.cs" />
+    <Compile Include="Repository\FornecedoresRepository.cs" />
+    <Compile Include="Repository\FuncionariosRepository.cs" />
+    <Compile Include="Repository\GenerosRepository.cs" />
+    <Compile Include="Repository\GerentesRepository.cs" />
+    <Compile Include="Repository\LivrosRepository.cs" />
+    <Compile Include="Repository\ProdutosRepository.cs" />
     <Compile Include="Repository\UsuariosRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +227,16 @@
     <Content Include="Views\Usuarios\Delete.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Livros\Index.cshtml" />
+    <Content Include="Views\Livros\Create.cshtml" />
+    <Content Include="Views\Livros\Delete.cshtml" />
+    <Content Include="Views\Livros\Edit.cshtml" />
+    <Content Include="Views\Livros\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

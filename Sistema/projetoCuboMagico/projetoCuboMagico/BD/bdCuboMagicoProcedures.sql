@@ -1,5 +1,13 @@
 /*PROCEDURES CLIENTES*/
 DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_listarTodosClientes $$
+CREATE PROCEDURE SP_listarTodosClientes()
+BEGIN
+SELECT * FROM Cliente;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_incluirCliente $$
 CREATE PROCEDURE SP_incluirCliente(IN nome VARCHAR(100), IN sobrenome VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN tamCamiseta VARCHAR(5), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN cep VARCHAR(9), IN estado VARCHAR(50), IN cidade VARCHAR(65), IN bairro VARCHAR(65), IN rua VARCHAR(65), IN numero VARCHAR(10), IN complemento VARCHAR(100), IN pais VARCHAR(70), IN idUsuario INT)
 BEGIN
@@ -99,7 +107,7 @@ BEGIN
 UPDATE Usuario SET
 	Usuario.usuario = usuario,
 	Usuario.senha = senha,
-    Usuario.nivelAcesso = nivelAcesso;
+    Usuario.nivelAcesso = nivelAcesso
 WHERE Usuario.id = ID;
 END $$
 DELIMITER ;
@@ -139,6 +147,16 @@ END $$
 DELIMITER ;
 
 /*PROCEDURES LIVROS*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_listarTodosLivros $$
+CREATE PROCEDURE SP_listarTodosLivros()
+BEGIN
+SELECT * FROM Livro;
+END $$
+DELIMITER ;
+
+
+
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_IncluirLivro $$
 CREATE PROCEDURE SP_incluirLivro(IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGenero INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
@@ -441,7 +459,7 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_alterarCaixaIdCliente $$
+DROP PROCEDURE IF EXISTS SP_alterarCaixa $$
 CREATE PROCEDURE SP_alterarCaixa(IN ID INT, IN idCliente INT)
 BEGIN
 UPDATE Caixa SET

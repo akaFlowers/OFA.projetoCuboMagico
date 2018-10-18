@@ -59,7 +59,6 @@ C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico
 C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
 C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Newtonsoft.Json.dll
 C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Web.Helpers.dll
@@ -199,3 +198,4 @@ C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\
 C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\obj\Debug\projetoCuboMagico.pdb
 C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
 C:\Users\joaov\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Google.Protobuf.dll
+C:\Users\3binfo\Documents\akaFlowers\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
