@@ -27,6 +27,18 @@ INSERT INTO Cliente(nome, sobrenome, dataNascimento, sexo, tamCamiseta, cpf, ema
 1
 );
 
+INSERT INTO Funcionario(nomeCompleto, dataNascimento, sexo, cpf, email, telefone, celular, endereco, idUsuario) VALUES(
+'João Vitor Lima de Brito',
+'05/10/2000',
+'Masculino',
+'478.926.78.16',
+'joao.vitor9964@outlook.com.br',
+'(11)3719-3418',
+'(11)99281-6711',
+'Av. Kenkit Simomoto, 27, Jaguaré, Bloco 1 apto 16',
+1
+);
+
 INSERT INTO Genero(genero, subGenero) VALUES(
 'Terror',
 'Terror Piscológico'
@@ -39,4 +51,5 @@ INSERT INTO Livro(nome, autor, idGenero, dataPublicacao, editora) VALUES(
 '25/12/1980',
 'Saraiva'
 );
+
 

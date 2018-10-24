@@ -9,50 +9,21 @@ namespace projetoCuboMagico.Models
     public class CartaoCredito
     {
         [Display(Name = "Nome Impresso"), MaxLength(100)]
-        private string nomeImpresso;
+        public string NomeImpresso { get; set; }
 
         [Display(Name = "Número"), MaxLength(50)]
-        private string numero;
+        public string Numero { get; set; }
 
         [Display(Name = "CPF"), MaxLength(15)]
-        private string cpf;
+        public string Cpf { get; set; }
 
         [Display(Name = "Validade"), MaxLength(6)]
-        private string validade;
+        public string Validade { get; set; }
 
         [Display(Name = "CVV"), MaxLength(5)]
-        private string cvv;
-
-        public string _nomeImpresso
-        {
-            get { return nomeImpresso; }
-            set { nomeImpresso = value; }
-        }
-
-        public string _cpf
-        {
-            get { return cpf; }
-            set { cpf = value; }
-        }
+        public string Cvv { get; set; }
 
 
-        public string _numero
-        {
-            get { return numero; }
-            set { numero = value; }
-        }
-
-        public string _validade
-        {
-            get { return validade; }
-            set { validade = value; }
-        }
-
-        public string _cvv
-        {
-            get { return cvv; }
-            set { cvv = value; }
-        }
 
 
     }

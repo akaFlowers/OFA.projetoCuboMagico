@@ -155,7 +155,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Caixa.cs" />
+    <Compile Include="Models\Brinde.cs" />
+    <Compile Include="Models\Unboxing.cs" />
     <Compile Include="Models\CartaoCredito.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Fornecedor.cs" />
@@ -164,11 +165,11 @@
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Livro.cs" />
     <Compile Include="Models\LivroCaixa.cs" />
-    <Compile Include="Models\ProdutoCaixa.cs" />
+    <Compile Include="Models\BrindeCaixa.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CaixasRepository.cs" />
+    <Compile Include="Repository\UnboxingsRepository.cs" />
     <Compile Include="Repository\CartaoCreditoRepository.cs" />
     <Compile Include="Repository\ClientesRepository.cs" />
     <Compile Include="Repository\FornecedoresRepository.cs" />
@@ -176,7 +177,7 @@
     <Compile Include="Repository\GenerosRepository.cs" />
     <Compile Include="Repository\GerentesRepository.cs" />
     <Compile Include="Repository\LivrosRepository.cs" />
-    <Compile Include="Repository\ProdutosRepository.cs" />
+    <Compile Include="Repository\BrindesRepository.cs" />
     <Compile Include="Repository\UsuariosRepository.cs" />
   </ItemGroup>
   <ItemGroup>

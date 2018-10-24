@@ -8,7 +8,7 @@ using System.Web;
 
 namespace projetoCuboMagico.Repository
 {
-    public class ProdutosRepository
+    public class BrindesRepository
     {
         Conexao conexao = new Conexao();
         MySqlCommand cmd;

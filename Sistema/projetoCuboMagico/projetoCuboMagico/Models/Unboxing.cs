@@ -6,17 +6,15 @@ using System.Web;
 
 namespace projetoCuboMagico.Models
 {
-    public class Genero
+    public class Unboxing
     {
         [Display(Name = "ID"), Key]
         public int Id { get; set; }
 
-        [Display(Name = "Gênero"), MaxLength(50)]
-        public string Generoo { get; set; }
+        [Display(Name = "Data Gerada")]
+        public DateTime DataGerada { get; set; }
 
-        [Display(Name = "Sub-Gênero"), MaxLength(60)]
-        public string SubGenero { get; set; }
-
+        public int IdCliente { get; set; }
 
     }
 }

@@ -9,57 +9,23 @@ namespace projetoCuboMagico.Models
     public class Fornecedor
     {
         [Display(Name = "ID"), Key]
-        private int id;
+        public int Id { get; set; }
 
         [Display(Name = "Nome"), MaxLength(100)]
-        private string nome;
+        public string Nome { get; set; }
 
         [Display(Name = "E-Mail"), MaxLength(100)]
-        private string email;
+        public string Email { get; set; }
 
         [Display(Name = "Telefone "), MaxLength(14)]
-        private string telefone;
+        public string Telefone { get; set; }
 
         [Display(Name = "CNPJ"), Key]
-        private string cnpj;
+        public string Cnpj { get; set; }
 
         [Display(Name = "País"), Key]
-        private string pais;
+        public string Pais { get; set; }
 
-        public int _id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public string _nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
-
-        public string _email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-
-        public string _telefone
-        {
-            get { return telefone; }
-            set { telefone = value; }
-        }
-
-        public string _cnpj
-        {
-            get { return cnpj; }
-            set { cnpj = value; }
-        }
-
-        public string _pais
-        {
-            get { return pais; }
-            set { pais = value; }
-        }
+       
     }
 }

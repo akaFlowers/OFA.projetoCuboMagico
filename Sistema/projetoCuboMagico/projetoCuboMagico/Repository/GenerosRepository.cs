@@ -20,8 +20,8 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirGenero", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@genero", genero._genero);
-                cmd.Parameters.AddWithValue("@subGenero", genero._subGenero);
+                cmd.Parameters.AddWithValue("@genero", genero.Generoo);
+                cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -42,9 +42,9 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_alterarGenero", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", genero._id);
-                cmd.Parameters.AddWithValue("@genero", genero._genero);
-                cmd.Parameters.AddWithValue("@subGenero", genero._subGenero);
+                cmd.Parameters.AddWithValue("@ID", genero.Id);
+                cmd.Parameters.AddWithValue("@genero", genero.Generoo);
+                cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
                 cmd.ExecuteNonQuery();
 
                 return true;

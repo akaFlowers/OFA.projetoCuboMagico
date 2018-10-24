@@ -20,11 +20,11 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirFornecedor", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nome", fornecedor._nome);
-                cmd.Parameters.AddWithValue("@email", fornecedor._email);
-                cmd.Parameters.AddWithValue("@telefone", fornecedor._telefone);
-                cmd.Parameters.AddWithValue("@cnpj", fornecedor._cnpj);
-                cmd.Parameters.AddWithValue("@pais", fornecedor._pais);
+                cmd.Parameters.AddWithValue("@nome", fornecedor.Nome);
+                cmd.Parameters.AddWithValue("@email", fornecedor.Email);
+                cmd.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
+                cmd.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
+                cmd.Parameters.AddWithValue("@pais", fornecedor.Pais);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -45,12 +45,12 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_alterarFornecedor", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", fornecedor._id);
-                cmd.Parameters.AddWithValue("@nome", fornecedor._nome);
-                cmd.Parameters.AddWithValue("@email", fornecedor._email);
-                cmd.Parameters.AddWithValue("@telefone", fornecedor._telefone);
-                cmd.Parameters.AddWithValue("@cnpj", fornecedor._cnpj);
-                cmd.Parameters.AddWithValue("@pais", fornecedor._pais);
+                cmd.Parameters.AddWithValue("@ID", fornecedor.Id);
+                cmd.Parameters.AddWithValue("@nome", fornecedor.Nome);
+                cmd.Parameters.AddWithValue("@email", fornecedor.Email);
+                cmd.Parameters.AddWithValue("@telefone", fornecedor.Telefone);
+                cmd.Parameters.AddWithValue("@cnpj", fornecedor.Cnpj);
+                cmd.Parameters.AddWithValue("@pais", fornecedor.Pais);
                 cmd.ExecuteNonQuery();
                 return true;
             }

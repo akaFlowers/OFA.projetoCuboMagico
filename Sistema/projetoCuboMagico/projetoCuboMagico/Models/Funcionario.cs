@@ -9,93 +9,35 @@ namespace projetoCuboMagico.Models
     public class Funcionario
     {
         [Display(Name = "ID"), Key]
-        private int id;
+        public int Id { get; set; }
 
         [Display(Name = "Nome Completo"), MaxLength(110)]
-        private string nomeCompleto;
+        public string NomeCompleto { get; set; }
 
         [Display(Name = "Data Nascimento"), MaxLength(10)]
-        private string dataNascimento;
+        public string DataNascimento { get; set; }
 
         [Display(Name = "Sexo"), MaxLength(10)]
-        private string sexo;
+        public string Sexo { get; set; }
 
         [Display(Name = "CPF"), MaxLength(15)]
-        private string cpf;
+        public string Cpf { get; set; }
 
         [Display(Name = "E-Mail"), MaxLength(100)]
-        private string email;
+        public string Email { get; set; }
 
         [Display(Name = "Telefone"), MaxLength(14)]
-        private string telefone;
+        public string Telefone { get; set; }
 
         [Display(Name = "Celular"), MaxLength(15)]
-        private string celular;
+        public string Celular { get; set; }
 
         [Display(Name = "Endereço"), MaxLength(120)]
-        private string endereco;
+        public string Endereco { get; set; }
 
-        private int idUsuario;
+        public int IdUsuario { get; set; }
 
-        public int _id
-        {
-            get { return id; }
-            set { id = value; }
-        }
-
-        public string _nomeCompleto
-        {
-            get { return nomeCompleto; }
-            set { nomeCompleto = value; }
-        }
-
-        public string _dataNascimento
-        {
-            get { return dataNascimento; }
-            set { dataNascimento = value; }
-        }
-
-        public string _sexo
-        {
-            get { return sexo; }
-            set { sexo = value; }
-        }
-
-        public string _cpf
-        {
-            get { return cpf; }
-            set { cpf = value; }
-        }
-
-        public string _email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-
-        public string _telefone
-        {
-            get { return telefone; }
-            set { telefone = value; }
-        }
-
-        public string _celular
-        {
-            get { return celular; }
-            set { celular = value; }
-        }
-
-        public string _endereco
-        {
-            get { return endereco; }
-            set { endereco = value; }
-        }
-
-        public int _idUsuario
-        {
-            get { return idUsuario; }
-            set { idUsuario = value; }
-        }
+        
 
     }
 }

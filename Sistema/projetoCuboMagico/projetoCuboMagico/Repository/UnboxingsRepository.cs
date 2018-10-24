@@ -8,20 +8,20 @@ using System.Web;
 
 namespace projetoCuboMagico.Repository
 {
-    public class CaixasRepository
+    public class UnboxingsRepository
     {
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
 
-        public bool incluirCaixa(Caixa caixa)
+        public bool incluirCaixa(Unboxing unboxing)
         {
             try
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirCaixa", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCliente", caixa._idCliente);
-                cmd.Parameters.AddWithValue("@dataGerada", caixa._dataGerada);
+                cmd.Parameters.AddWithValue("@idCliente", unboxing.IdCliente);
+                cmd.Parameters.AddWithValue("@dataGerada", unboxing.DataGerada);
                 cmd.ExecuteNonQuery();
 
                 return true;
@@ -43,8 +43,8 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_ incluirLivroCaixa", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCaixa", livroCaixa._idCaixa);
-                cmd.Parameters.AddWithValue("@idLivro", livroCaixa._idLivro);
+                cmd.Parameters.AddWithValue("@idCaixa", livroCaixa.IdCaixa);
+                cmd.Parameters.AddWithValue("@idLivro", livroCaixa.IdLivro);
                 cmd.ExecuteNonQuery();
                 
                 return true;
@@ -60,15 +60,15 @@ namespace projetoCuboMagico.Repository
 
         }
 
-        public bool incluirProdutoCaixa(ProdutoCaixa produtoCaixa)
+        public bool incluirProdutoCaixa(BrindeCaixa brindeCaixa)
         {
             try
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirProdutoCaixa", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCaixa", produtoCaixa._idCaixa);
-                cmd.Parameters.AddWithValue("@idProduto", produtoCaixa._idProduto);
+                cmd.Parameters.AddWithValue("@idCaixa", brindeCaixa.IdCaixa);
+                cmd.Parameters.AddWithValue("@idProduto", brindeCaixa.IdBrinde);
                 cmd.ExecuteNonQuery();
 
                 return true;

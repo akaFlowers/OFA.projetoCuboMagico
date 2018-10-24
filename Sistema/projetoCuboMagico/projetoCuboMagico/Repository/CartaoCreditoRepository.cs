@@ -19,10 +19,11 @@ namespace projetoCuboMagico.Repository
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirCartaoCredito", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito._nomeImpresso);
-                cmd.Parameters.AddWithValue("@cpf", cartaoCredito._cpf);
-                cmd.Parameters.AddWithValue("@validade", cartaoCredito._validade);
-                cmd.Parameters.AddWithValue("@cvv", cartaoCredito._cvv);
+                cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito.NomeImpresso);
+                cmd.Parameters.AddWithValue("@numero", cartaoCredito.Numero);
+                cmd.Parameters.AddWithValue("@cpf", cartaoCredito.Cpf);
+                cmd.Parameters.AddWithValue("@validade", cartaoCredito.Validade);
+                cmd.Parameters.AddWithValue("@cvv", cartaoCredito.Cvv);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -43,11 +44,11 @@ namespace projetoCuboMagico.Repository
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_alterarCartaoCredito", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito._nomeImpresso);
-                cmd.Parameters.AddWithValue("@numero", cartaoCredito._numero);
-                cmd.Parameters.AddWithValue("@cpf", cartaoCredito._cpf);
-                cmd.Parameters.AddWithValue("@validade", cartaoCredito._validade);
-                cmd.Parameters.AddWithValue("cvv", cartaoCredito._cvv);
+                cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito.NomeImpresso);
+                cmd.Parameters.AddWithValue("@numero", cartaoCredito.Numero);
+                cmd.Parameters.AddWithValue("@cpf", cartaoCredito.Cpf);
+                cmd.Parameters.AddWithValue("@validade", cartaoCredito.Validade);
+                cmd.Parameters.AddWithValue("cvv", cartaoCredito.Cvv);
                 cmd.ExecuteNonQuery();
 
                 return true;

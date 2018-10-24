@@ -5,12 +5,10 @@ using System.Web;
 
 namespace projetoCuboMagico.Models
 {
-    public class LivroCaixa
+    public class BrindeCaixa
     {
         public int IdCaixa { get; set; }
-        public int IdLivro { get; set; }
-
-
+        public int IdBrinde { get; set; }
 
 
     }
