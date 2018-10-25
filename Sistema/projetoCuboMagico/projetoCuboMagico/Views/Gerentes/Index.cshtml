@@ -30,19 +30,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var funcionario in Model)
+                @foreach (var gerente in Model)
                 {
                 <tr>
-                    <td>@Html.DisplayFor(f => funcionario.Id)</td>
-                    <td>@Html.DisplayFor(f => funcionario.NomeCompleto)</td>
-                    <td>@Html.DisplayFor(f => funcionario.DataNascimento)</td>
-                    <td>@Html.DisplayFor(f => funcionario.Sexo)</td>
-                    <td>@Html.DisplayFor(f => funcionario.Cpf)</td>
-                    <td>@Html.DisplayFor(f => funcionario.Email)</td>
-                    <td>@Html.DisplayFor(f => funcionario.Telefone)</td>
-                    <td>@Html.DisplayFor(f => funcionario.Celular)</td>
-                    <td>@Html.DisplayFor(f => funcionario.Endereco)</td>
-                    <td>@Html.DisplayFor(f => funcionario.IdUsuario)</td>
+                    <td>@Html.DisplayFor(g => gerente.Id)</td>
+                    <td>@Html.DisplayFor(f => gerente.NomeCompleto)</td>
+                    <td>@Html.DisplayFor(f => gerente.DataNascimento)</td>
+                    <td>@Html.DisplayFor(f => gerente.Sexo)</td>
+                    <td>@Html.DisplayFor(f => gerente.Cpf)</td>
+                    <td>@Html.DisplayFor(f => gerente.Email)</td>
+                    <td>@Html.DisplayFor(f => gerente.Telefone)</td>
+                    <td>@Html.DisplayFor(f => gerente.Celular)</td>
+                    <td>@Html.DisplayFor(f => gerente.Endereco)</td>
+                    <td>@Html.DisplayFor(f => gerente.IdUsuario)</td>
 
                     <td>
                         @Html.ActionLink("Detalhes", "Details", new { id = funcionario.Id }, new { @class = "btn btn-info" })

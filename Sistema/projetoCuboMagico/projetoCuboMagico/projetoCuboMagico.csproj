@@ -245,10 +245,10 @@
     <Content Include="Views\Funcionarios\Delete.cshtml" />
     <Content Include="Views\Funcionarios\Details.cshtml" />
     <Content Include="Views\Funcionarios\Edit.cshtml" />
+    <Content Include="Views\Gerentes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Gerentes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
