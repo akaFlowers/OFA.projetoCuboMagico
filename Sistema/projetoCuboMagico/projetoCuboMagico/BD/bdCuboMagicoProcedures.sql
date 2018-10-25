@@ -194,12 +194,21 @@ END $$
 DELIMITER ;
 
 
-/*PROCEDURES PRODUTOS*/
+/*PROCEDURES BRINDES*/
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_incluirProduto $$
-CREATE PROCEDURE SP_incluirProduto(IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
+DROP PROCEDURE IF EXISTS SP_listarTodosBrindes $$
+CREATE PROCEDURE SP_listarTodosBrindes()
 BEGIN
-INSERT INTO Livro(nome, tipo, design) VALUES(
+SELECT * FROM Brinde;
+END $$
+DELIMITER ;
+
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_incluirBrinde $$
+CREATE PROCEDURE SP_incluirBrinde(IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
+BEGIN
+INSERT INTO Brinde(nome, tipo, design) VALUES(
 nome,
 tipo,
 design
@@ -208,22 +217,22 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_deletarProduto $$
-CREATE PROCEDURE SP_deletarProduto(IN ID INT)
+DROP PROCEDURE IF EXISTS SP_deletarBrinde $$
+CREATE PROCEDURE SP_deletarBrinde(IN ID INT)
 BEGIN
-DELETE FROM Produto WHERE Produto.id = ID;
+DELETE FROM Brinde WHERE brinde.id = ID;
 END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_alterarProduto $$
-CREATE PROCEDURE SP_alterarProduto(IN ID INT, IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
+DROP PROCEDURE IF EXISTS SP_alterarBrinde $$
+CREATE PROCEDURE SP_alterarBrinde(IN ID INT, IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
 BEGIN
-UPDATE Produto SET
-	Produto.nome = nome,
-    Produto.tipo = tipo,
-    Produto.design = design
-WHERE Produto.id = ID;
+UPDATE Brinde SET
+	Brinde.nome = nome,
+    Brinde.tipo = tipo,
+    Brinde.design = design
+WHERE Brinde.id = ID;
 END $$
 DELIMITER ;
 

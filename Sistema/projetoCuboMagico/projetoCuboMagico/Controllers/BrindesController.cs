@@ -8,38 +8,37 @@ using System.Web.Mvc;
 
 namespace projetoCuboMagico.Controllers
 {
-    public class GerentesController : Controller
+    public class BrindesController : Controller
     {
-        GerentesRepository gerentesRepository = new GerentesRepository();
-        // GET: Gerentes
+        BrindesRepository brindesRepository = new BrindesRepository();
+        // GET: Brindes
         public ActionResult Index()
         {
-            List<Gerente> gerente = gerentesRepository.listarTodos().ToList();
-            return View(gerente);
+            List<Brinde> brinde = brindesRepository.listarTodos().ToList();
+            return View(brinde);
         }
 
-        // GET: Gerentes/Details/5
+        // GET: Brindes/Details/5
         public ActionResult Details(int id)
         {
-            return View(gerentesRepository.consultaPorID(id));
+            return View(brindesRepository.consultaPorID(id));
         }
 
-        // GET: Gerentes/Create
-        [HttpGet]
+        // GET: Brindes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Gerentes/Create
+        // POST: Brindes/Create
         [HttpPost]
-        public ActionResult Create(Gerente gerente)
+        public ActionResult Create(Brinde brinde)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    gerentesRepository.incluirGerente(gerente);
+                    brindesRepository.incluirBrinde(brinde);
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -48,23 +47,22 @@ namespace projetoCuboMagico.Controllers
             {
                 ModelState.AddModelError(String.Empty, e.Message);
             }
-            return View(gerente);
+            return View(brinde);
         }
 
-        // GET: Gerentes/Edit/5
-        [HttpGet]
+        // GET: Brindes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(gerentesRepository.consultaPorID(id));
+            return View(brindesRepository.consultaPorID(id));
         }
 
-        // POST: Gerentes/Edit/5
+        // POST: Brindes/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, Gerente gerente)
+        public ActionResult Edit(int id, Brinde brinde)
         {
             try
             {
-                gerentesRepository.alterarGerente(gerente);
+                brindesRepository.alterarBrinde(brinde);
 
                 return RedirectToAction("Index");
             }
@@ -72,30 +70,29 @@ namespace projetoCuboMagico.Controllers
             {
                 ModelState.AddModelError(string.Empty, e.Message);
             }
-            return View(gerente);
+            return View(brinde);
         }
 
-        // GET: Gerentes/Delete/5
+        // GET: Brindes/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(gerentesRepository.consultaPorID(id));
+            return View(brindesRepository.consultaPorID(id));
         }
 
-        // POST: Gerentes/Delete/5
+        // POST: Brindes/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Gerente gerente)
+        public ActionResult Delete(int id, Brinde brinde)
         {
             try
             {
-                gerentesRepository.deletarGerente(id);
+                brindesRepository.deletarBrinde(id);
 
                 return RedirectToAction("Index");
             }
-            catch (Exception e)
+            catch
             {
-                ModelState.AddModelError(string.Empty, e.Message);
+                return View();
             }
-            return View(gerente);
         }
     }
 }

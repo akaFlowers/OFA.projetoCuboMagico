@@ -3,6 +3,7 @@ using projetoCuboMagico.Models;
 using projetoCuboMagico.Persistencia;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -13,6 +14,84 @@ namespace projetoCuboMagico.Repository
 
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
+        MySqlDataReader dr;
+
+
+        public IEnumerable<Gerente> listarTodos()
+        {
+            List<Gerente> gerente = new List<Gerente>();
+
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SP_listarTodosGerentes", Conexao.conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Gerente gerentes = new Gerente();
+                    gerentes.Id = Convert.ToInt32(dr["id"]);
+                    gerentes.NomeCompleto = dr["nomeCompleto"].ToString();
+                    gerentes.DataNascimento = dr["dataNascimento"].ToString();
+                    gerentes.Sexo = dr["sexo"].ToString();
+                    gerentes.Cpf = dr["cpf"].ToString();
+                    gerentes.Email = dr["email"].ToString();
+                    gerentes.Telefone = dr["telefone"].ToString();
+                    gerentes.Celular = dr["celular"].ToString();
+                    gerentes.Endereco = dr["endereco"].ToString();
+                    gerentes.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                    gerente.Add(gerentes);
+                }
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                conexao.fecharConexao();
+                dr.Close();
+            }
+            return gerente;
+        }
+
+        public Gerente consultaPorID(int id)
+        {
+            Gerente gerente = new Gerente();
+            try
+            {
+
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SELECT * FROM Gerente WHERE Gerente.id = @id", Conexao.conexao);
+                cmd.Parameters.AddWithValue("@id", id);
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    gerente.Id = Convert.ToInt32(dr["id"]);
+                    gerente.NomeCompleto = dr["nomeCompleto"].ToString();
+                    gerente.DataNascimento = dr["dataNascimento"].ToString();
+                    gerente.Sexo = dr["sexo"].ToString();
+                    gerente.Cpf = dr["cpf"].ToString();
+                    gerente.Email = dr["email"].ToString();
+                    gerente.Telefone = dr["telefone"].ToString();
+                    gerente.Celular = dr["celular"].ToString();
+                    gerente.Endereco = dr["endereco"].ToString();
+                    gerente.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                }
+                return gerente;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conexao.fecharConexao();
+                dr.Close();
+            }
+        }
 
         public bool incluirGerente(Gerente gerente)
         {
@@ -20,7 +99,7 @@ namespace projetoCuboMagico.Repository
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirGerente", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@nomeCompleto", gerente.NomeCompleto);
                 cmd.Parameters.AddWithValue("@dataNascimento", gerente.DataNascimento);
                 cmd.Parameters.AddWithValue("@sexo", gerente.Sexo);
@@ -33,9 +112,9 @@ namespace projetoCuboMagico.Repository
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -55,9 +134,9 @@ namespace projetoCuboMagico.Repository
 
                 return true;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -70,8 +149,8 @@ namespace projetoCuboMagico.Repository
             try
             {
                 conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_alterarFuncionari", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd = new MySqlCommand("SP_alterarGerente", Conexao.conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID", gerente.Id);
                 cmd.Parameters.AddWithValue("@nomeCompleto", gerente.NomeCompleto);
                 cmd.Parameters.AddWithValue("@dataNascimento", gerente.DataNascimento);
@@ -85,9 +164,9 @@ namespace projetoCuboMagico.Repository
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
             finally
             {

@@ -9,7 +9,7 @@ namespace projetoCuboMagico.Models
     public class Brinde
     {
         [Display(Name = "ID"), Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Nome"), MaxLength(100)]
         public string Nome { get; set; }

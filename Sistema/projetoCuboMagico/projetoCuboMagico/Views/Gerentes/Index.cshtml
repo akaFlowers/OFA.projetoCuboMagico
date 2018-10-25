@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<projetoCuboMagico.Models.Gerente>
 
 @{
-    ViewData["Title"] = "Funcionarios";
+    ViewData["Title"] = "Gerentes";
 }
 
 <div class="page-header">
@@ -45,9 +45,9 @@
                     <td>@Html.DisplayFor(f => gerente.IdUsuario)</td>
 
                     <td>
-                        @Html.ActionLink("Detalhes", "Details", new { id = funcionario.Id }, new { @class = "btn btn-info" })
-                        @Html.ActionLink("Editar", "Edit", new { id = funcionario.Id }, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("Deletar", "Delete", new { id = funcionario.Id }, new { @class = "btn btn-danger" })
+                        @Html.ActionLink("Detalhes", "Details", new { id = gerente.Id }, new { @class = "btn btn-info" })
+                        @Html.ActionLink("Editar", "Edit", new { id = gerente.Id }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Deletar", "Delete", new { id = gerente.Id }, new { @class = "btn btn-danger" })
                     </td>
                 </tr>
                 }
@@ -57,7 +57,7 @@
     else
     {
         <div class="alert alert-danger">
-            <p>Não há funcionários cadastrados.</p>
+            <p>Não há Gerentes cadastrados.</p>
         </div>
     }
 </div>

@@ -342,10 +342,18 @@ DELIMITER ;
 
 /*PROCEDURES BRINDES*/
 DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_listarTodosBrindes $$
+CREATE PROCEDURE SP_listarTodosBrindes()
+BEGIN
+SELECT * FROM Brinde;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_incluirBrinde $$
 CREATE PROCEDURE SP_incluirBrinde(IN nome VARCHAR(100), IN tipo VARCHAR(30), IN design VARCHAR(60))
 BEGIN
-INSERT INTO Produto(nome, tipo, design) VALUES(
+INSERT INTO Brinde(nome, tipo, design) VALUES(
 nome,
 tipo,
 design
@@ -375,7 +383,8 @@ DELIMITER ;
 
 
 /* PROCEDURES FUNCIONARIOS*/
-DELIMITER $$
+DELI
+,3MITER $$
 DROP PROCEDURE IF EXISTS SP_listarTodosFuncionarios $$
 CREATE PROCEDURE SP_listarTodosFuncionarios()
 BEGIN
@@ -428,6 +437,15 @@ END $$
 DELIMITER ;
 
 /*PROCEDURES GERENTE*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_listarTodosGerentes $$
+CREATE PROCEDURE SP_listarTodosGerentes()
+BEGIN
+SELECT * FROM Gerente;
+END $$
+DELIMITER ;
+
+
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_incluirGerente $$

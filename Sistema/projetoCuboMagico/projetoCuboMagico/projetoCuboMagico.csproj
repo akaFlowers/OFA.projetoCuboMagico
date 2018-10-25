@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BrindesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\FuncionariosController.cs" />
     <Compile Include="Controllers\GerentesController.cs" />
@@ -246,6 +247,15 @@
     <Content Include="Views\Funcionarios\Details.cshtml" />
     <Content Include="Views\Funcionarios\Edit.cshtml" />
     <Content Include="Views\Gerentes\Index.cshtml" />
+    <Content Include="Views\Gerentes\Create.cshtml" />
+    <Content Include="Views\Gerentes\Edit.cshtml" />
+    <Content Include="Views\Gerentes\Details.cshtml" />
+    <Content Include="Views\Gerentes\Delete.cshtml" />
+    <Content Include="Views\Brindes\Index.cshtml" />
+    <Content Include="Views\Brindes\Create.cshtml" />
+    <Content Include="Views\Brindes\Details.cshtml" />
+    <Content Include="Views\Brindes\Delete.cshtml" />
+    <Content Include="Views\Brindes\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
