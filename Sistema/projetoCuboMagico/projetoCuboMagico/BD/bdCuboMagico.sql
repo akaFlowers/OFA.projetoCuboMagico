@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS bdcubomagico;
+DROP DATABASE IF EXISTS bdCuboMagico;
 
 CREATE DATABASE bdCuboMagico;
 
@@ -376,6 +376,14 @@ DELIMITER ;
 
 /* PROCEDURES FUNCIONARIOS*/
 DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_listarTodosFuncionarios $$
+CREATE PROCEDURE SP_listarTodosFuncionarios()
+BEGIN
+SELECT * FROM Funcionario;
+END $$
+DELIMITER ;
+
+DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_incluirFuncionario $$
 CREATE PROCEDURE SP_incluirFuncionario(IN nomeCompleto VARCHAR(100), IN dataNascimento VARCHAR(10), IN sexo VARCHAR(10), IN cpf VARCHAR(15), IN email VARCHAR(100), IN telefone VARCHAR(14), IN celular VARCHAR(15), IN endereco VARCHAR(120), IN idUsuario INT)
 BEGIN
@@ -572,10 +580,10 @@ DELIMITER ;
 
 /* PROCEDURES CAIXA */
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_incluirCaixa $$
-CREATE PROCEDURE SP_incluirCaixa(IN idCliente INT, IN dataGerada DATETIME)
+DROP PROCEDURE IF EXISTS SP_incluirUnboxing $$
+CREATE PROCEDURE SP_incluirUnboxing(IN idCliente INT, IN dataGerada DATETIME)
 BEGIN
-INSERT INTO Caixa(idCliente, dataGerada) VALUES(
+INSERT INTO Unboxing(idCliente, dataGerada) VALUES(
 idCliente,
 dataGerada
 );
@@ -583,34 +591,34 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_incluirBrindeCaixa $$
-CREATE PROCEDURE SP_incluirBrindeCaixa(IN idCaixa INT, IN idBrinde INT)
+DROP PROCEDURE IF EXISTS SP_incluirBrindeUnboxing $$
+CREATE PROCEDURE SP_incluirBrindeUnboxing(IN idUnboxing INT, IN idBrinde INT)
 BEGIN
-INSERT INTO ProdutoCaixa(idCaixa, idBrinde) VALUES(
-idCaixa,
+INSERT INTO ProdutoUnboxing(idUnboxing, idBrinde) VALUES(
+idUnboxing,
 idBrinde
 );
 END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_incluirLivroCaixa $$
-CREATE PROCEDURE SP_incluirLivroCaixa(IN idCaixa INT, IN idLivro INT)
+DROP PROCEDURE IF EXISTS SP_incluirLivroUnboxing $$
+CREATE PROCEDURE SP_incluirLivroUnboxing(IN idCaixa INT, IN idLivro INT)
 BEGIN
-INSERT INTO LivroCaixa(idCaixa, idLivro) VALUES(
-idCaixa,
+INSERT INTO LivroUnboxing(idUnboxing, idLivro) VALUES(
+idUnboxing,
 idLivro
 );
 END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_alterarCaixa $$
-CREATE PROCEDURE SP_alterarCaixa(IN ID INT, IN idCliente INT)
+DROP PROCEDURE IF EXISTS SP_alterarUnboxing $$
+CREATE PROCEDURE SP_alterarUnboxing(IN ID INT, IN idCliente INT)
 BEGIN
-UPDATE Caixa SET
-Caixa.idCliente = idCliente
-WHERE Caixa.id = ID;
+UPDATE Unboxing SET
+Unboxing.idCliente = idCliente
+WHERE Unboxing.id = ID;
 END $$
 DELIMITER ;
 

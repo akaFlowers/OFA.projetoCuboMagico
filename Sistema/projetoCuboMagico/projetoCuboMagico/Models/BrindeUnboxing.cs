@@ -5,7 +5,7 @@ using System.Web;
 
 namespace projetoCuboMagico.Models
 {
-    public class BrindeCaixa
+    public class BrindeUnboxing
     {
         public int IdCaixa { get; set; }
         public int IdBrinde { get; set; }

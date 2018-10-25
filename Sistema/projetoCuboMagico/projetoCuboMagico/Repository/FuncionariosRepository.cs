@@ -3,6 +3,7 @@ using projetoCuboMagico.Models;
 using projetoCuboMagico.Persistencia;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,89 @@ namespace projetoCuboMagico.Repository
     {
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
+        MySqlDataReader dr;
+
+
+
+        public IEnumerable<Funcionario> listarTodos()
+        {
+            List<Funcionario> funcionario = new List<Funcionario>();
+
+            try
+            {
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SP_listarTodosFuncionarios", Conexao.conexao);
+                cmd.CommandType = CommandType.StoredProcedure;
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Funcionario funcionarios = new Funcionario();
+                    funcionarios.Id = Convert.ToInt32(dr["id"]);
+                    funcionarios.NomeCompleto = dr["nomeCompleto"].ToString();
+                    funcionarios.DataNascimento = dr["dataNascimento"].ToString();
+                    funcionarios.Sexo = dr["sexo"].ToString();
+                    funcionarios.Cpf = dr["cpf"].ToString();
+                    funcionarios.Email = dr["email"].ToString();
+                    funcionarios.Telefone = dr["telefone"].ToString();
+                    funcionarios.Celular = dr["celular"].ToString();
+                    funcionarios.Endereco = dr["endereco"].ToString();
+                    funcionarios.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+
+                    funcionario.Add(funcionarios);
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conexao.fecharConexao();
+                dr.Close();
+            }
+            return funcionario;
+        }
+
+        public Funcionario consultaPorID(int id)
+        {
+            Funcionario funcionario = new Funcionario();
+            try
+            {
+
+                conexao.abrirConexao();
+                cmd = new MySqlCommand("SELECT * FROM Funcionario WHERE Funcionario.id = @id", Conexao.conexao);
+                cmd.Parameters.AddWithValue("@id", id);
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    Funcionario funcionarios = new Funcionario();
+                    funcionarios.Id = Convert.ToInt32(dr["id"]);
+                    funcionarios.NomeCompleto = dr["nomeCompleto"].ToString();
+                    funcionarios.DataNascimento = dr["dataNascimento"].ToString();
+                    funcionarios.Sexo = dr["sexo"].ToString();
+                    funcionarios.Cpf = dr["cpf"].ToString();
+                    funcionarios.Email = dr["email"].ToString();
+                    funcionarios.Telefone = dr["telefone"].ToString();
+                    funcionarios.Celular = dr["celular"].ToString();
+                    funcionarios.Endereco = dr["endereco"].ToString();
+                    funcionarios.IdUsuario = Convert.ToInt32(dr["idUsuario"]);
+                }
+                return funcionario;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                conexao.fecharConexao();
+                dr.Close();
+            }
+        }
+
+
 
         public bool incluirFuncionario(Funcionario funcionario)
         {

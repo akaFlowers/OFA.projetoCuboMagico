@@ -53,3 +53,5 @@ INSERT INTO Livro(nome, autor, idGenero, dataPublicacao, editora) VALUES(
 );
 
 
+SELECT * FROM Funcionario
+

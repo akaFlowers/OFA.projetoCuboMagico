@@ -149,6 +149,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\FuncionariosController.cs" />
+    <Compile Include="Controllers\GerentesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LivrosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -164,8 +166,8 @@
     <Compile Include="Models\Gerente.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Livro.cs" />
-    <Compile Include="Models\LivroCaixa.cs" />
-    <Compile Include="Models\BrindeCaixa.cs" />
+    <Compile Include="Models\LivroUnboxing.cs" />
+    <Compile Include="Models\BrindeUnboxing.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Persistencia\Conexao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,9 +240,15 @@
     <Content Include="Views\Livros\Delete.cshtml" />
     <Content Include="Views\Livros\Edit.cshtml" />
     <Content Include="Views\Livros\Details.cshtml" />
+    <Content Include="Views\Funcionarios\Index.cshtml" />
+    <Content Include="Views\Funcionarios\Create.cshtml" />
+    <Content Include="Views\Funcionarios\Delete.cshtml" />
+    <Content Include="Views\Funcionarios\Details.cshtml" />
+    <Content Include="Views\Funcionarios\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Gerentes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

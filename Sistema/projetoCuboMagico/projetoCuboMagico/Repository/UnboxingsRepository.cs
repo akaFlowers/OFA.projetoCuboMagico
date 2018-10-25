@@ -13,12 +13,12 @@ namespace projetoCuboMagico.Repository
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
 
-        public bool incluirCaixa(Unboxing unboxing)
+        public bool incluirUnboxing(Unboxing unboxing)
         {
             try
             {
                 conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_incluirCaixa", Conexao.conexao);
+                cmd = new MySqlCommand("SP_incluirUnboxing", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCliente", unboxing.IdCliente);
                 cmd.Parameters.AddWithValue("@dataGerada", unboxing.DataGerada);
@@ -36,15 +36,15 @@ namespace projetoCuboMagico.Repository
             }
         }
 
-        public bool incluirLivroCaixa(LivroCaixa livroCaixa)
+        public bool incluirLivroUnboxing(LivroUnboxing livroUnboxing)
         {
             try
             {
                 conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_ incluirLivroCaixa", Conexao.conexao);
+                cmd = new MySqlCommand("SP_ incluirLivroUnboxing", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCaixa", livroCaixa.IdCaixa);
-                cmd.Parameters.AddWithValue("@idLivro", livroCaixa.IdLivro);
+                cmd.Parameters.AddWithValue("@idUnboxing", livroUnboxing.IdCaixa);
+                cmd.Parameters.AddWithValue("@idLivro", livroUnboxing.IdLivro);
                 cmd.ExecuteNonQuery();
                 
                 return true;
@@ -60,15 +60,15 @@ namespace projetoCuboMagico.Repository
 
         }
 
-        public bool incluirProdutoCaixa(BrindeCaixa brindeCaixa)
+        public bool incluirProdutoUnboxing(BrindeUnboxing brindeUnboxing)
         {
             try
             {
                 conexao.abrirConexao();
                 cmd = new MySqlCommand("SP_incluirProdutoCaixa", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCaixa", brindeCaixa.IdCaixa);
-                cmd.Parameters.AddWithValue("@idProduto", brindeCaixa.IdBrinde);
+                cmd.Parameters.AddWithValue("@idUnboxing", brindeUnboxing.IdCaixa);
+                cmd.Parameters.AddWithValue("@idProduto", brindeUnboxing.IdBrinde);
                 cmd.ExecuteNonQuery();
 
                 return true;
