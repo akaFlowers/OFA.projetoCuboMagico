@@ -1,4 +1,4 @@
-﻿@model IEnumerable<projetoCuboMagico.Models.Brinde>
+﻿@model IEnumerable<projetoCuboMagico.Models.Genero>
 
 @{
     ViewData["Title"] = "Usuarios";
@@ -16,25 +16,23 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(b => b.Id)</th>
-                    <th>@Html.DisplayNameFor(b => b.Nome)</th>
-                    <th>@Html.DisplayNameFor(b => b.Tipo)</th>
-                    <th>@Html.DisplayNameFor(b => b.Design)</th>
+                    <th>@Html.DisplayNameFor(g => g.Id)</th>
+                    <th>@Html.DisplayNameFor(g => g.Generoo)</th>
+                    <th>@Html.DisplayNameFor(g => g.SubGenero)</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var brinde in Model)
+                @foreach (var genero in Model)
                 {
                     <tr>
-                        <td>@Html.DisplayFor(b => brinde.Id)</td>
-                        <td>@Html.DisplayFor(b => brinde.Nome)</td>
-                        <td>@Html.DisplayFor(b => brinde.Tipo)</td>
-                        <td>@Html.DisplayFor(b => brinde.Design)</td>
+                        <td>@Html.DisplayFor(g => genero.Id)</td>
+                        <td>@Html.DisplayFor(g => genero.Generoo)</td>
+                        <td>@Html.DisplayFor(g => genero.SubGenero)</td>
                         <td>
-                            @Html.ActionLink("Detalhes", "Details", new { id = brinde.Id }, new { @class = "btn btn-info" })
-                            @Html.ActionLink("Editar", "Edit", new { id = brinde.Id }, new { @class = "btn btn-warning" })
-                            @Html.ActionLink("Deletar", "Delete", new { id = brinde.Id }, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Detalhes", "Details", new { id = genero.Id }, new { @class = "btn btn-info" })
+                            @Html.ActionLink("Editar", "Edit", new { id = genero.Id }, new { @class = "btn btn-warning" })
+                            @Html.ActionLink("Deletar", "Delete", new { id = genero.Id }, new { @class = "btn btn-danger" })
                         </td>
                     </tr>
                 }
