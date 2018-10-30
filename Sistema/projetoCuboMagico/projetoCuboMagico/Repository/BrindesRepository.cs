@@ -21,28 +21,28 @@ namespace projetoCuboMagico.Repository
 
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_listarTodosBrindes", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (cmd = new MySqlCommand("SP_listarTodosBrindes", Conexao.conexao))
                 {
-                    Brinde brindes = new Brinde();
-                    brindes.Id = Convert.ToInt32(dr["id"]);
-                    brindes.Nome = dr["nome"].ToString();
-                    brindes.Tipo = dr["tipo"].ToString();
-                    brindes.Design = dr["design"].ToString();
-                    brinde.Add(brindes);
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Brinde brindes = new Brinde();
+                        brindes.Id = Convert.ToInt32(dr["id"]);
+                        brindes.Nome = dr["nome"].ToString();
+                        brindes.Tipo = dr["tipo"].ToString();
+                        brindes.Design = dr["design"].ToString();
+                        brinde.Add(brindes);
+                    }
                 }
-
             }
-            catch
+            catch(Exception e)
             {
-
+                throw new Exception(e.Message);
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
             return brinde;
@@ -53,20 +53,22 @@ namespace projetoCuboMagico.Repository
             Brinde brinde = new Brinde();
             try
             {
-
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SELECT * FROM Brinde WHERE Brinde.id = @id", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@id", id);
-                dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                using (cmd = new MySqlCommand("SELECT * FROM Brinde WHERE Brinde.id = @id", Conexao.conexao))
                 {
-                    brinde.Id = Convert.ToInt32(dr["id"]);
-                    brinde.Nome = dr["nome"].ToString();
-                    brinde.Tipo = dr["tipo"].ToString();
-                    brinde.Design = dr["design"].ToString();
+                    conexao.abrirConexao();
+
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        brinde.Id = Convert.ToInt32(dr["id"]);
+                        brinde.Nome = dr["nome"].ToString();
+                        brinde.Tipo = dr["tipo"].ToString();
+                        brinde.Design = dr["design"].ToString();
+                    }
+                    return brinde;
                 }
-                return brinde;
             }
             catch (Exception e)
             {
@@ -74,7 +76,6 @@ namespace projetoCuboMagico.Repository
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
         }
@@ -97,10 +98,6 @@ namespace projetoCuboMagico.Repository
             catch(Exception e)
             {
                 throw new Exception(e.Message);
-            }
-            finally
-            {
-                conexao.fecharConexao();
             }
         }
 
@@ -143,10 +140,6 @@ namespace projetoCuboMagico.Repository
             {
 
                 throw new Exception(e.Message);
-            }
-            finally
-            {
-                conexao.fecharConexao();
             }
         }
 

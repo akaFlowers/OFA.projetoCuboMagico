@@ -20,31 +20,30 @@ namespace projetoCuboMagico.Repository
         public IEnumerable<Usuario> listarTodos()
         {
             List<Usuario> usuario = new List<Usuario>();
-
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_listarTodosUsuarios", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (cmd = new MySqlCommand("SP_listarTodosUsuarios", Conexao.conexao))
                 {
-                    Usuario usuarios = new Usuario();
-                    usuarios.Id = Convert.ToInt32(dr["id"]);
-                    usuarios.Usuarioo = dr["usuario"].ToString();
-                    usuarios.Senha = dr["senha"].ToString();
-                    usuarios.NivelAcesso = dr["nivelAcesso"].ToString();
-                    usuario.Add(usuarios);
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Usuario usuarios = new Usuario();
+                        usuarios.Id = Convert.ToInt32(dr["id"]);
+                        usuarios.Usuarioo = dr["usuario"].ToString();
+                        usuarios.Senha = dr["senha"].ToString();
+                        usuarios.NivelAcesso = dr["nivelAcesso"].ToString();
+                        usuario.Add(usuarios);
+                    }
                 }
-
             }
-            catch
+            catch(Exception e)
             {
-
+                throw new Exception(e.Message);
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
             return usuario;
@@ -55,20 +54,21 @@ namespace projetoCuboMagico.Repository
             Usuario usuario = new Usuario();
             try
             {
-                
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SELECT * FROM Usuario WHERE Usuario.id = @id", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@id", id);
-                dr = cmd.ExecuteReader();
-
-                if(dr.Read())
+                using (cmd = new MySqlCommand("SELECT * FROM Usuario WHERE Usuario.id = @id", Conexao.conexao))
                 {
-                    usuario.Id = Convert.ToInt32(dr["id"]);
-                    usuario.Usuarioo = dr["usuario"].ToString();
-                    usuario.Senha = dr["senha"].ToString();
-                    usuario.NivelAcesso = dr["nivelAcesso"].ToString();
+                    conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        usuario.Id = Convert.ToInt32(dr["id"]);
+                        usuario.Usuarioo = dr["usuario"].ToString();
+                        usuario.Senha = dr["senha"].ToString();
+                        usuario.NivelAcesso = dr["nivelAcesso"].ToString();
+                    }
+                    return usuario;
                 }
-                return usuario;
+
             }
             catch(Exception e)
             {
@@ -76,7 +76,6 @@ namespace projetoCuboMagico.Repository
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
         }
@@ -85,23 +84,20 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_incluirUsuario", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
-                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
-                cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
-                cmd.ExecuteNonQuery();
-
-                return true;
+                using (cmd = new MySqlCommand("SP_incluirUsuario", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
+                    cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+                    cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -109,36 +105,36 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_consultUsuarioPorEmail", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@email", email);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
+                using (cmd = new MySqlCommand("SP_consultUsuarioPorEmail", Conexao.conexao))
                 {
-                    if(senha == dr["senha"].ToString() )
+                    conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
                     {
-                        //AUTENTICADO
+                        if (senha == dr["senha"].ToString())
+                        {
+                            //AUTENTICADO
+                        }
+                        else
+                        {
+                            //SENHA INCORRETA
+                        }
                     }
                     else
                     {
-                        //SENHA INCORRETA
+                        //EMAIL NÃO ENCOTRADO
                     }
                 }
-                else
-                {
-                    //EMAIL NÃO ENCOTRADO
-                }
-
             }
-            catch(MySqlException)
+            catch(Exception e)
             {
-
+                throw new Exception(e.Message);
             }
             finally
             {
                 dr.Close();
-                conexao.fecharConexao();
             }
         }
 
@@ -146,31 +142,32 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_consultaPorUsuario", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
+                using (cmd = new MySqlCommand("SP_consultaPorUsuario", Conexao.conexao))
                 {
-                    if (usuario.Senha == dr["senha"].ToString())
+                    conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
                     {
-                        //AUTENTICADO
+                        if (usuario.Senha == dr["senha"].ToString())
+                        {
+                            //AUTENTICADO
+                        }
+                        else
+                        {
+                            //SENHA INCORRETA
+                        }
                     }
                     else
                     {
-                        //SENHA INCORRETA
+                        //USUARIO NÃO ENCOTRADO
                     }
                 }
-                else
-                {
-                    //USUARIO NÃO ENCOTRADO
-                }
-
             }
-            catch (MySqlException)
+            catch (Exception e)
             {
-
+                throw new Exception(e.Message);
             }
             finally
             {
@@ -183,20 +180,18 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_deletarUsuario", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", id);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_deletarUsuario", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -205,23 +200,21 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_alterarUsuario", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", usuario.Id);
-                cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
-                cmd.Parameters.AddWithValue("@senha", usuario.Senha);
-                cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_alterarUsuario", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", usuario.Id);
+                    cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
+                    cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+                    cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
-            }
-            finally
-            {
-                conexao.fecharConexao();
             }
         }
 
@@ -230,26 +223,26 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao);
-                dr = cmd.ExecuteReader();
-                if (dr.Read())
+                using (cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao))
                 {
-                    return Convert.ToInt32(dr["ID"]);
-                }
-                else
-                {
-                    return 0;
-                }
-                
+                    conexao.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        return Convert.ToInt32(dr["ID"]);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }                
             }
-            catch
+            catch(Exception e)
             {
-                return 0;
+                throw new Exception(e.Message);
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
         }

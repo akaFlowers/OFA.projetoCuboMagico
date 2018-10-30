@@ -17,21 +17,19 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_incluirGenero", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@genero", genero.Generoo);
-                cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_incluirGenero", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@genero", genero.Generoo);
+                    cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -39,23 +37,21 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_alterarGenero", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", genero.Id);
-                cmd.Parameters.AddWithValue("@genero", genero.Generoo);
-                cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
-                cmd.ExecuteNonQuery();
+                using (cmd = new MySqlCommand("SP_alterarGenero", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", genero.Id);
+                    cmd.Parameters.AddWithValue("@genero", genero.Generoo);
+                    cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
+                    cmd.ExecuteNonQuery();
 
-                return true;
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -64,21 +60,18 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_deletarGenero", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", ID);
-                cmd.ExecuteNonQuery();
-
-                return true;
+                using (cmd = new MySqlCommand("SP_deletarGenero", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
     }

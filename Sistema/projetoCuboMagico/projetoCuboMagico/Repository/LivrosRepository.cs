@@ -19,26 +19,26 @@ namespace projetoCuboMagico.Repository
         public IEnumerable<Livro> listarTodos()
         {
             List<Livro> livro = new List<Livro>();
-
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_listarTodosLivros", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                dr = cmd.ExecuteReader();
-                while (dr.Read())
+                using (cmd = new MySqlCommand("SP_listarTodosLivros", Conexao.conexao))
                 {
-                    Livro livros = new Livro();
-                    livros.Id = Convert.ToInt32(dr["id"]);
-                    livros.Nome = dr["nome"].ToString();
-                    livros.Autor = dr["autor"].ToString();
-                    livros.IdGenero = dr["idGenero"].ToString();
-                    livros.DataPublicacao = dr["dataPublicacao"].ToString();
-                    livros.Editora = dr["editora"].ToString();
-                    
-                    livro.Add(livros);
-                }
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        Livro livros = new Livro();
+                        livros.Id = Convert.ToInt32(dr["id"]);
+                        livros.Nome = dr["nome"].ToString();
+                        livros.Autor = dr["autor"].ToString();
+                        livros.IdGenero = dr["idGenero"].ToString();
+                        livros.DataPublicacao = dr["dataPublicacao"].ToString();
+                        livros.Editora = dr["editora"].ToString();
 
+                        livro.Add(livros);
+                    }
+                }
             }
             catch(Exception e)
             {
@@ -46,7 +46,6 @@ namespace projetoCuboMagico.Repository
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
             return livro;
@@ -57,22 +56,22 @@ namespace projetoCuboMagico.Repository
             Livro livro = new Livro();
             try
             {
-
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SELECT * FROM Livro WHERE Livro.id = @id", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@id", id);
-                dr = cmd.ExecuteReader();
-
-                if (dr.Read())
+                using (cmd = new MySqlCommand("SELECT * FROM Livro WHERE Livro.id = @id", Conexao.conexao))
                 {
-                    livro.Id = Convert.ToInt32(dr["id"]);
-                    livro.Nome = dr["nome"].ToString();
-                    livro.Autor = dr["autor"].ToString();
-                    livro.IdGenero = dr["idGenero"].ToString();
-                    livro.DataPublicacao = dr["dataPublicacao"].ToString();
-                    livro.Editora = dr["editora"].ToString();
-                }
-                return livro;
+                    conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@id", id);
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        livro.Id = Convert.ToInt32(dr["id"]);
+                        livro.Nome = dr["nome"].ToString();
+                        livro.Autor = dr["autor"].ToString();
+                        livro.IdGenero = dr["idGenero"].ToString();
+                        livro.DataPublicacao = dr["dataPublicacao"].ToString();
+                        livro.Editora = dr["editora"].ToString();
+                    }
+                    return livro;
+                }              
             }
             catch (Exception e)
             {
@@ -80,7 +79,6 @@ namespace projetoCuboMagico.Repository
             }
             finally
             {
-                conexao.fecharConexao();
                 dr.Close();
             }
         }
@@ -89,24 +87,22 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_incluirLivro", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nome", livro.Nome);
-                cmd.Parameters.AddWithValue("@autor", livro.Autor);
-                cmd.Parameters.AddWithValue("@idGenero", livro.IdGenero);
-                cmd.Parameters.AddWithValue("@dataPublicacao", livro.DataPublicacao);
-                cmd.Parameters.AddWithValue("@editora", livro.Editora);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_incluirLivro", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@nome", livro.Nome);
+                    cmd.Parameters.AddWithValue("@autor", livro.Autor);
+                    cmd.Parameters.AddWithValue("@idGenero", livro.IdGenero);
+                    cmd.Parameters.AddWithValue("@dataPublicacao", livro.DataPublicacao);
+                    cmd.Parameters.AddWithValue("@editora", livro.Editora);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -114,24 +110,22 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                cmd = new MySqlCommand("SP_alterarLivro", Conexao.conexao);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", livro.Id);
-                cmd.Parameters.AddWithValue("@nome", livro.Nome);
-                cmd.Parameters.AddWithValue("@autor", livro.Autor);
-                cmd.Parameters.AddWithValue("@idGenero", livro.IdGenero);
-                cmd.Parameters.AddWithValue("@dataPublicacao", livro.DataPublicacao);
-                cmd.Parameters.AddWithValue("@editora", livro.Editora);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_alterarLivro", Conexao.conexao))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", livro.Id);
+                    cmd.Parameters.AddWithValue("@nome", livro.Nome);
+                    cmd.Parameters.AddWithValue("@autor", livro.Autor);
+                    cmd.Parameters.AddWithValue("@idGenero", livro.IdGenero);
+                    cmd.Parameters.AddWithValue("@dataPublicacao", livro.DataPublicacao);
+                    cmd.Parameters.AddWithValue("@editora", livro.Editora);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
-            }
-            finally
-            {
-
             }
         }
 
@@ -139,20 +133,18 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_deletarLivro", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", id);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_deletarLivro", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
     }

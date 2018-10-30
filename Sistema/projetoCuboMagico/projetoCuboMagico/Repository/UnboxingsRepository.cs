@@ -26,13 +26,9 @@ namespace projetoCuboMagico.Repository
 
                 return true;
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -40,48 +36,40 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_ incluirLivroUnboxing", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idUnboxing", livroUnboxing.IdCaixa);
-                cmd.Parameters.AddWithValue("@idLivro", livroUnboxing.IdLivro);
-                cmd.ExecuteNonQuery();
-                
-                return true;
+                using (cmd = new MySqlCommand("SP_ incluirLivroUnboxing", Conexao.conexao);)
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idUnboxing", livroUnboxing.IdCaixa);
+                    cmd.Parameters.AddWithValue("@idLivro", livroUnboxing.IdLivro);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
-            finally
-            {
-                conexao.fecharConexao();
-            }
-
         }
 
         public bool incluirProdutoUnboxing(BrindeUnboxing brindeUnboxing)
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_incluirProdutoCaixa", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idUnboxing", brindeUnboxing.IdCaixa);
-                cmd.Parameters.AddWithValue("@idProduto", brindeUnboxing.IdBrinde);
-                cmd.ExecuteNonQuery();
-
-                return true;
+                using (cmd = new MySqlCommand("SP_incluirProdutoCaixa", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@idUnboxing", brindeUnboxing.IdCaixa);
+                    cmd.Parameters.AddWithValue("@idProduto", brindeUnboxing.IdBrinde);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
+                throw new Exception(e.Message);
             }
-            finally
-            {
-                conexao.fecharConexao();
-            }
-        }
-        
+        }       
     }
 }

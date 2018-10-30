@@ -17,23 +17,22 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_incluirCartaoCredito", Conexao.conexao);
-                cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito.NomeImpresso);
-                cmd.Parameters.AddWithValue("@numero", cartaoCredito.Numero);
-                cmd.Parameters.AddWithValue("@cpf", cartaoCredito.Cpf);
-                cmd.Parameters.AddWithValue("@validade", cartaoCredito.Validade);
-                cmd.Parameters.AddWithValue("@cvv", cartaoCredito.Cvv);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (cmd = new MySqlCommand("SP_incluirCartaoCredito", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito.NomeImpresso);
+                    cmd.Parameters.AddWithValue("@numero", cartaoCredito.Numero);
+                    cmd.Parameters.AddWithValue("@cpf", cartaoCredito.Cpf);
+                    cmd.Parameters.AddWithValue("@validade", cartaoCredito.Validade);
+                    cmd.Parameters.AddWithValue("@cvv", cartaoCredito.Cvv);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -41,25 +40,24 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_alterarCartaoCredito", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito.NomeImpresso);
-                cmd.Parameters.AddWithValue("@numero", cartaoCredito.Numero);
-                cmd.Parameters.AddWithValue("@cpf", cartaoCredito.Cpf);
-                cmd.Parameters.AddWithValue("@validade", cartaoCredito.Validade);
-                cmd.Parameters.AddWithValue("cvv", cartaoCredito.Cvv);
-                cmd.ExecuteNonQuery();
+                using (cmd = new MySqlCommand("SP_alterarCartaoCredito", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@nomeImpresso", cartaoCredito.NomeImpresso);
+                    cmd.Parameters.AddWithValue("@numero", cartaoCredito.Numero);
+                    cmd.Parameters.AddWithValue("@cpf", cartaoCredito.Cpf);
+                    cmd.Parameters.AddWithValue("@validade", cartaoCredito.Validade);
+                    cmd.Parameters.AddWithValue("cvv", cartaoCredito.Cvv);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
 
-                return true;
+
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
 
@@ -67,21 +65,18 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                conexao.abrirConexao();
-                cmd = new MySqlCommand("SP_deletarCartaoCredito", Conexao.conexao);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID", ID);
-                cmd.ExecuteNonQuery();
-
-                return true;
+                using (cmd = new MySqlCommand("SP_deletarCartaoCredito", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
-            catch
+            catch(Exception e)
             {
-                return false;
-            }
-            finally
-            {
-                conexao.fecharConexao();
+                throw new Exception(e.Message);
             }
         }
     }
