@@ -70,6 +70,19 @@ INSERT INTO brinde(nome, tipo, design) VALUES(
 'Interiores'
 );
 
+INSERT INTO LivrosSorteadosCliente VAlues(
+1,
+1
+);
 
-SELECT * FROM Funcionario
 
+
+
+/*SELECT Cliente.nome, Livro.id , Livro.NOME, Genero.genero, Genero.subGenero FROM Cliente, Livro, Genero
+WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
+INNER JOIN Livro ON idLivro = Livro.id)
+INNER JOIN Genero ON Livro.idGenero = Genero.id)
+INNER JOIN Cliente ON idCliente = Cliente.id)
+WHERE Cliente.id = 1) AND Cliente.id = 1 AND Genero.genero IN ('Terror')
+ORDER BY Cliente.nome;
+*/
