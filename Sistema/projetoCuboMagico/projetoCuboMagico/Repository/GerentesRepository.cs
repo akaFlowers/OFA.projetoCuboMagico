@@ -95,7 +95,7 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                using (cmd = new MySqlCommand("SP_incluirGerente", Conexao.conexao);)
+                using (cmd = new MySqlCommand("SP_incluirGerente", Conexao.conexao))
                 {
                     conexao.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;

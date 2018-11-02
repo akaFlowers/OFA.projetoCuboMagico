@@ -70,7 +70,7 @@ INSERT INTO brinde(nome, tipo, design) VALUES(
 'Interiores'
 );
 
-INSERT INTO LivrosSorteadosCliente VAlues(
+/*INSERT INTO LivrosSorteadosCliente VAlues(
 1,
 1
 );
@@ -78,7 +78,8 @@ INSERT INTO LivrosSorteadosCliente VAlues(
 
 
 
-/*SELECT Cliente.nome, Livro.id , Livro.NOME, Genero.genero, Genero.subGenero FROM Cliente, Livro, Genero
+/*
+SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, Genero.genero, Genero.subGenero FROM Cliente, Livro, Genero, (SELECT @i:=0)A
 WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
 INNER JOIN Livro ON idLivro = Livro.id)
 INNER JOIN Genero ON Livro.idGenero = Genero.id)

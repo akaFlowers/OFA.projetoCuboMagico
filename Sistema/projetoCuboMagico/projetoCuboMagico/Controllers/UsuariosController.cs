@@ -98,5 +98,41 @@ namespace projetoCuboMagico.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(Usuario usuario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    string autenticacao = usuariosRepository.autenticarPorUsuario(usuario);
+                    if ( autenticacao.Equals("Autenticado"))
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else if(autenticacao.Equals("Senha Incorreta!"))
+                    {
+                        ModelState.AddModelError(string.Empty, autenticacao);
+                    }
+                    else if (autenticacao.Equals("Usuário não encontrado"))
+                    {
+                        ModelState.AddModelError(string.Empty, autenticacao);
+                    }
+                }
+                
+            }
+            catch(Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+            }
+            return View(usuario);
+        }
     }
 }

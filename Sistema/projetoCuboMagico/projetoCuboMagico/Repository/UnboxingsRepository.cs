@@ -36,7 +36,7 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                using (cmd = new MySqlCommand("SP_ incluirLivroUnboxing", Conexao.conexao);)
+                using (cmd = new MySqlCommand("SP_ incluirLivroUnboxing", Conexao.conexao))
                 {
                     conexao.abrirConexao();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;

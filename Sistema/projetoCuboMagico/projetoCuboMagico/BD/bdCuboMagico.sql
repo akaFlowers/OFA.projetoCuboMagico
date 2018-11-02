@@ -644,7 +644,19 @@ WHERE Unboxing.id = ID;
 END $$
 DELIMITER ;
 
-
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_livrosSorteadosGenero $$
+CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_genero VARCHAR(50))
+BEGIN
+SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, Genero.genero, Genero.subGenero FROM Cliente, Livro, Genero, (SELECT @i:=0)A
+WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
+INNER JOIN Livro ON idLivro = Livro.id)
+INNER JOIN Genero ON Livro.idGenero = Genero.id)
+INNER JOIN Cliente ON idCliente = Cliente.id)
+WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND Genero.genero IN (sp_genero) 
+ORDER BY Cliente.nome;
+END $$
+DELIMITER ;
 
 
 

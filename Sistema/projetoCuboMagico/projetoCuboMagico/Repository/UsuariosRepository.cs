@@ -138,7 +138,7 @@ namespace projetoCuboMagico.Repository
             }
         }
 
-        public void autenticarPorUsuario(Usuario usuario)
+        public string autenticarPorUsuario(Usuario usuario)
         {
             try
             {
@@ -152,16 +152,16 @@ namespace projetoCuboMagico.Repository
                     {
                         if (usuario.Senha == dr["senha"].ToString())
                         {
-                            //AUTENTICADO
+                            return "Autenticado";
                         }
                         else
                         {
-                            //SENHA INCORRETA
+                            return "Senha Incorreta!";
                         }
                     }
                     else
                     {
-                        //USUARIO NÃO ENCOTRADO
+                        return "Usuário não encontrado";
                     }
                 }
             }
