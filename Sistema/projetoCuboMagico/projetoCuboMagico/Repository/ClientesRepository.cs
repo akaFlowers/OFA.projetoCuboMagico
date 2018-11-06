@@ -132,7 +132,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@numero", cliente.Numero);
                     cmd.Parameters.AddWithValue("@complemento", cliente.Complemento);
                     cmd.Parameters.AddWithValue("@pais", cliente.Pais);
-                    cmd.Parameters.AddWithValue("@idUsuario", cliente.IdUsuario);
+                    cmd.Parameters.AddWithValue("@idUsuario", trazerIdUsuario());
                     cmd.ExecuteNonQuery();
                     return true;
                 }
@@ -200,6 +200,34 @@ namespace projetoCuboMagico.Repository
                 throw new Exception(e.Message);
             }
 
+        }
+
+        public int trazerIdUsuario()
+        {
+            try
+            {
+                using (cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        return Convert.ToInt32(dr["ID"]);
+                    }
+                    else
+                    {
+                        return 0;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                dr.Close();
+            }
         }
     }
 }

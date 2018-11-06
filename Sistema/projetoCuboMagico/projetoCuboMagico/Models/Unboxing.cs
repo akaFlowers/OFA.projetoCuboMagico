@@ -16,5 +16,9 @@ namespace projetoCuboMagico.Models
 
         public int IdCliente { get; set; }
 
+        public LivroUnboxing livroUnboxing { get; set; }
+
+        public BrindeUnboxing brindeUnboxing { get; set; }
+
     }
 }

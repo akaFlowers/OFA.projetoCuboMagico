@@ -37,6 +37,8 @@ namespace projetoCuboMagico.Models
 
         public int IdUsuario { get; set; }
 
+        public Usuario usuario { get; set; }
+
 
     }
 }

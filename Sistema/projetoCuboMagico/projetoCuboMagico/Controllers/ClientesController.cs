@@ -28,18 +28,21 @@ namespace projetoCuboMagico.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+
             return View();
         }
 
         // POST: Clientes/Create
         [HttpPost]
-        public ActionResult Create(Cliente cliente)
+        public ActionResult Create(ClienteUsuarioView clienteUsuario)
         {
             try
             {
+
+
                 if (ModelState.IsValid)
                 {
-                    clientesRepository.incluirCliente(cliente);
+                    //clientesRepository.incluirCliente(cliente);
                     return RedirectToAction(nameof(Index));
                 }
 
@@ -48,7 +51,7 @@ namespace projetoCuboMagico.Controllers
             {
                 ModelState.AddModelError(String.Empty, e.Message);
             }
-            return View(cliente);
+            return View(clienteUsuario);
         }
 
         // GET: Clientes/Edit/5

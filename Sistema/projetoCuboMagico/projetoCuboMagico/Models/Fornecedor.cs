@@ -20,10 +20,10 @@ namespace projetoCuboMagico.Models
         [Display(Name = "Telefone "), MaxLength(14)]
         public string Telefone { get; set; }
 
-        [Display(Name = "CNPJ"), Key]
+        [Display(Name = "CNPJ")]
         public string Cnpj { get; set; }
 
-        [Display(Name = "País"), Key]
+        [Display(Name = "País")]
         public string Pais { get; set; }
 
        
