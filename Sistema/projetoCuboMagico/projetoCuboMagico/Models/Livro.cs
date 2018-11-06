@@ -18,7 +18,7 @@ namespace projetoCuboMagico.Models
         public string Autor { get; set; }
 
         [Display(Name = "Gênero"), MaxLength(15)]
-        public string IdGenero { get; set; }
+        public string IdGeneroLivro { get; set; }
 
         [Display(Name = "Data Publicação"), MaxLength(11)]
         public string DataPublicacao { get; set; }

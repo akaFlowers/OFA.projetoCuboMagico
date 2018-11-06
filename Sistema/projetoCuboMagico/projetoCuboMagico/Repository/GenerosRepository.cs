@@ -13,15 +13,15 @@ namespace projetoCuboMagico.Repository
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
 
-        public bool incluirGenero(Genero genero)
+        public bool incluirGenero(GeneroLivro genero)
         {
             try
             {
-                using (cmd = new MySqlCommand("SP_incluirGenero", Conexao.conexao))
+                using (cmd = new MySqlCommand("SP_incluirGeneroLivro", Conexao.conexao))
                 {
                     conexao.abrirConexao();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@genero", genero.Generoo);
+                    cmd.Parameters.AddWithValue("@generoLivro", genero.GeneroLivroo);
                     cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
                     cmd.ExecuteNonQuery();
                     return true;
@@ -33,16 +33,16 @@ namespace projetoCuboMagico.Repository
             }
         }
 
-        public bool alterarGenero(Genero genero)
+        public bool alterarGenero(GeneroLivro genero)
         {
             try
             {
-                using (cmd = new MySqlCommand("SP_alterarGenero", Conexao.conexao))
+                using (cmd = new MySqlCommand("SP_alterarGeneroLivro", Conexao.conexao))
                 {
                     conexao.abrirConexao();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", genero.Id);
-                    cmd.Parameters.AddWithValue("@genero", genero.Generoo);
+                    cmd.Parameters.AddWithValue("@generoLivro", genero.GeneroLivroo);
                     cmd.Parameters.AddWithValue("@subGenero", genero.SubGenero);
                     cmd.ExecuteNonQuery();
 
@@ -60,7 +60,7 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
-                using (cmd = new MySqlCommand("SP_deletarGenero", Conexao.conexao))
+                using (cmd = new MySqlCommand("SP_deletarGeneroLivro", Conexao.conexao))
                 {
                     conexao.abrirConexao();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;

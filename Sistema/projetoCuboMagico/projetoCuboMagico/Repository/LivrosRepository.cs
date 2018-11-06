@@ -32,7 +32,7 @@ namespace projetoCuboMagico.Repository
                         livros.Id = Convert.ToInt32(dr["id"]);
                         livros.Nome = dr["nome"].ToString();
                         livros.Autor = dr["autor"].ToString();
-                        livros.IdGenero = dr["idGenero"].ToString();
+                        livros.IdGeneroLivro = dr["idGeneroLivro"].ToString();
                         livros.DataPublicacao = dr["dataPublicacao"].ToString();
                         livros.Editora = dr["editora"].ToString();
 
@@ -66,7 +66,7 @@ namespace projetoCuboMagico.Repository
                         livro.Id = Convert.ToInt32(dr["id"]);
                         livro.Nome = dr["nome"].ToString();
                         livro.Autor = dr["autor"].ToString();
-                        livro.IdGenero = dr["idGenero"].ToString();
+                        livro.IdGeneroLivro = dr["idGeneroLivro"].ToString();
                         livro.DataPublicacao = dr["dataPublicacao"].ToString();
                         livro.Editora = dr["editora"].ToString();
                     }
@@ -93,7 +93,7 @@ namespace projetoCuboMagico.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@nome", livro.Nome);
                     cmd.Parameters.AddWithValue("@autor", livro.Autor);
-                    cmd.Parameters.AddWithValue("@idGenero", livro.IdGenero);
+                    cmd.Parameters.AddWithValue("@idGeneroLivro", livro.IdGeneroLivro);
                     cmd.Parameters.AddWithValue("@dataPublicacao", livro.DataPublicacao);
                     cmd.Parameters.AddWithValue("@editora", livro.Editora);
                     cmd.ExecuteNonQuery();
@@ -116,7 +116,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@ID", livro.Id);
                     cmd.Parameters.AddWithValue("@nome", livro.Nome);
                     cmd.Parameters.AddWithValue("@autor", livro.Autor);
-                    cmd.Parameters.AddWithValue("@idGenero", livro.IdGenero);
+                    cmd.Parameters.AddWithValue("@idGeneroLivro", livro.IdGeneroLivro);
                     cmd.Parameters.AddWithValue("@dataPublicacao", livro.DataPublicacao);
                     cmd.Parameters.AddWithValue("@editora", livro.Editora);
                     cmd.ExecuteNonQuery();

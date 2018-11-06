@@ -37,7 +37,7 @@ PRIMARY KEY(id),
 UNIQUE(cpf)
 )DEFAULT CHARSET = utf8;
 
-CREATE TABLE IF NOT EXISTS Genero(
+CREATE TABLE IF NOT EXISTS GeneroLivro(
 id INT AUTO_INCREMENT,
 genero VARCHAR(50) NOT NULL,
 subGenero VARCHAR(60) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS Livro(
 id INT AUTO_INCREMENT,
 nome VARCHAR(100) NOT NULL,
 autor VARCHAR(50) NOT NULL,
-idGenero INT REFERENCES Genero,
+idGeneroLivro INT REFERENCES GeneroLivro,
 dataPublicacao VARCHAR(10),
 editora VARCHAR(80) NOT NULL,
 PRIMARY KEY(ID)
@@ -120,9 +120,9 @@ cvv VARCHAR(5) NOT NULL,
 UNIQUE(cpf)
 )DEFAULT CHARSET = utf8;
 
-CREATE TABLE IF NOT EXISTS GeneroCliente(
+CREATE TABLE IF NOT EXISTS GeneroLivroCliente(
 idCliente INT REFERENCES Cliente,
-idGenero INT REFERENCES Genero
+idGeneroLivro INT REFERENCES Genero
 )DEFAULT CHARSET = utf8;
 
 CREATE TABLE IF NOT EXISTS Assinatura(
@@ -310,12 +310,12 @@ DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_IncluirLivro $$
-CREATE PROCEDURE SP_incluirLivro(IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGenero INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
+CREATE PROCEDURE SP_incluirLivro(IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGeneroLivro INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
 BEGIN
 INSERT INTO Livro(nome, autor, idGenero, dataPublicacao, editora) VALUES(
 	nome,
 	autor,
-    idGenero,
+    idGeneroLivro,
     dataPublicacao,
     editora
 );
@@ -324,12 +324,12 @@ DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_alterarLivro $$
-CREATE PROCEDURE SP_alterarLivro(IN ID INT, IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGenero INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
+CREATE PROCEDURE SP_alterarLivro(IN ID INT, IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGeneroLivro INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
 BEGIN
 UPDATE Livro SET
 Livro.nome = nome,
 Livro.autor = autor,
-Livro.idGenero = idGenero,
+Livro.idGeneroLivro = idGeneroLivro,
 Livro.dataPublicacao = dataPublicacao,
 Livro.editora = editora
 WHERE Livro.id = ID;
@@ -646,14 +646,14 @@ DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_livrosSorteadosGenero $$
-CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_genero VARCHAR(50))
+CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_generoLivro VARCHAR(50))
 BEGIN
-SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, Genero.genero, Genero.subGenero FROM Cliente, Livro, Genero, (SELECT @i:=0)A
+SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.genero, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
 WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
 INNER JOIN Livro ON idLivro = Livro.id)
-INNER JOIN Genero ON Livro.idGenero = Genero.id)
+INNER JOIN GeneroLivro ON Livro.idGenero = GeneroLivro.id)
 INNER JOIN Cliente ON idCliente = Cliente.id)
-WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND Genero.genero IN (sp_genero) 
+WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND GeneroLivro.generoLivro IN (sp_Livro) 
 ORDER BY Cliente.nome;
 END $$
 DELIMITER ;

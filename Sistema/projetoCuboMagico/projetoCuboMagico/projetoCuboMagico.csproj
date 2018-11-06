@@ -159,12 +159,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Brinde.cs" />
-    <Compile Include="Models\ClienteUsuarioView.cs" />
     <Compile Include="Models\Unboxing.cs" />
     <Compile Include="Models\CartaoCredito.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Fornecedor.cs" />
-    <Compile Include="Models\Genero.cs" />
+    <Compile Include="Models\GeneroLivro.cs" />
     <Compile Include="Models\Gerente.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\Livro.cs" />
@@ -256,11 +255,11 @@
     <Content Include="Views\Brindes\Details.cshtml" />
     <Content Include="Views\Brindes\Delete.cshtml" />
     <Content Include="Views\Brindes\Edit.cshtml" />
-    <Content Include="Views\Generos\Index.cshtml" />
-    <Content Include="Views\Generos\Create.cshtml" />
-    <Content Include="Views\Generos\Details.cshtml" />
-    <Content Include="Views\Generos\Delete.cshtml" />
-    <Content Include="Views\Generos\Edit.cshtml" />
+    <Content Include="Views\GeneroLivros\Index.cshtml" />
+    <Content Include="Views\GeneroLivros\Create.cshtml" />
+    <Content Include="Views\GeneroLivros\Details.cshtml" />
+    <Content Include="Views\GeneroLivros\Delete.cshtml" />
+    <Content Include="Views\GeneroLivros\Edit.cshtml" />
     <Content Include="Views\Usuarios\Login.cshtml" />
     <Content Include="Views\Clientes\Create.cshtml" />
     <Content Include="Views\Fornecedores\Create.cshtml" />
