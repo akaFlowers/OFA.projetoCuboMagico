@@ -9,7 +9,7 @@ using System.Web;
 namespace projetoCuboMagico.Repository
 {
     public class ClientesRepository
-    {
+    { 
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
         MySqlDataReader dr;

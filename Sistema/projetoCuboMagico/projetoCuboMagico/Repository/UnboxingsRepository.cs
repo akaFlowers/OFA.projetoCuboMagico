@@ -52,7 +52,7 @@ namespace projetoCuboMagico.Repository
             {
                 throw new Exception(e.Message);
             }
-        }
+        } 
 
         public bool incluirProdutoUnboxing(BrindeUnboxing brindeUnboxing)
         {

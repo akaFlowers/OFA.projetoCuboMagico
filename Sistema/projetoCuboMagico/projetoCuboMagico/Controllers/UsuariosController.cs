@@ -12,7 +12,7 @@ namespace projetoCuboMagico.Controllers
 {
     public class UsuariosController : Controller
     {
-        UsuariosRepository usuariosRepository = new UsuariosRepository();
+        UsuariosRepository usuariosRepository = new UsuariosRepository(); 
         // GET: Usuarios
         public ActionResult Index()
         {

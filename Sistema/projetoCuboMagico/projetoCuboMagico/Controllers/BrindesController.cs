@@ -11,7 +11,7 @@ namespace projetoCuboMagico.Controllers
     public class BrindesController : Controller
     {
         BrindesRepository brindesRepository = new BrindesRepository();
-        // GET: Brindes
+        // GET: Brindes 
         public ActionResult Index()
         {
             List<Brinde> brinde = brindesRepository.listarTodos().ToList();

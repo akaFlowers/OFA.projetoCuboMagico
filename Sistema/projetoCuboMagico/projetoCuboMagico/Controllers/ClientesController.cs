@@ -12,7 +12,7 @@ namespace projetoCuboMagico.Controllers
     {
         ClientesRepository clientesRepository = new ClientesRepository();
         // GET: Clientes
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             List<Cliente> cliente = clientesRepository.listarTodos().ToList();
             return View(cliente);

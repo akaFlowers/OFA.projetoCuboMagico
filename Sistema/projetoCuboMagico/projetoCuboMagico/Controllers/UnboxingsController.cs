@@ -82,7 +82,7 @@ namespace projetoCuboMagico.Controllers
             }
             catch
             {
-                return View();
+                return View(); 
             }
         }
 

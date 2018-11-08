@@ -12,7 +12,7 @@ namespace projetoCuboMagico.Repository
 {
     public class UsuariosRepository
     {
-        Conexao conexao = new Conexao();
+        Conexao conexao = new Conexao(); 
         MySqlDataReader dr;
         MySqlCommand cmd;
 
