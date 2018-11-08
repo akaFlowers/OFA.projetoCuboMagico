@@ -138,6 +138,36 @@ namespace projetoCuboMagico.Repository
             }
         }
 
+        public Usuario consultaPorEmail(string email)
+        {
+            try
+            {
+                using (cmd = new MySqlCommand("SP_consultaUsuarioPorEmail", Conexao.conexao))
+                {
+                    Usuario usuario = new Usuario();
+                    conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        usuario.Usuarioo = dr["usuario"].ToString();
+                        usuario.Senha = dr["senha"].ToString();
+                        usuario.NivelAcesso = dr["nivelAcesso"].ToString();
+                    }
+                    return usuario;
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                dr.Close();
+            }
+        }
+
         public string autenticarPorUsuario(Usuario usuario)
         {
             try

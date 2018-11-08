@@ -13,7 +13,7 @@ namespace projetoCuboMagico.Repository
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
 
-        public bool incluirGenero(GeneroLivro genero)
+        public bool incluirGeneroLivro(GeneroLivro genero)
         {
             try
             {
@@ -33,7 +33,7 @@ namespace projetoCuboMagico.Repository
             }
         }
 
-        public bool alterarGenero(GeneroLivro genero)
+        public bool alterarGeneroLivro(GeneroLivro genero)
         {
             try
             {
@@ -56,7 +56,7 @@ namespace projetoCuboMagico.Repository
         }
 
 
-        public bool deletarGenero(int ID)
+        public bool deletarGeneroLivro(int ID)
         {
             try
             {

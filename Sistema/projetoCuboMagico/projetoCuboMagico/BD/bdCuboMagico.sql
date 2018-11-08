@@ -39,7 +39,7 @@ UNIQUE(cpf)
 
 CREATE TABLE IF NOT EXISTS GeneroLivro(
 id INT AUTO_INCREMENT,
-genero VARCHAR(50) NOT NULL,
+generoLivro VARCHAR(50) NOT NULL,
 subGenero VARCHAR(60) NOT NULL,
 PRIMARY KEY(id)
 )DEFAULT CHARSET = utf8;
@@ -122,7 +122,7 @@ UNIQUE(cpf)
 
 CREATE TABLE IF NOT EXISTS GeneroLivroCliente(
 idCliente INT REFERENCES Cliente,
-idGeneroLivro INT REFERENCES Genero
+idGeneroLivro INT REFERENCES GeneroLivro
 )DEFAULT CHARSET = utf8;
 
 CREATE TABLE IF NOT EXISTS Assinatura(
@@ -312,7 +312,7 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_IncluirLivro $$
 CREATE PROCEDURE SP_incluirLivro(IN nome VARCHAR(100), IN autor VARCHAR(50), IN idGeneroLivro INT, IN dataPublicacao VARCHAR(10), IN editora VARCHAR(80))
 BEGIN
-INSERT INTO Livro(nome, autor, idGenero, dataPublicacao, editora) VALUES(
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
 	nome,
 	autor,
     idGeneroLivro,
@@ -534,32 +534,32 @@ DELIMITER ;
 
 /*PROCEDURES GENEROS*/
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_incluirGenero $$
-CREATE PROCEDURE SP_incluirGenero(IN genero VARCHAR(50), IN subGenero VARCHAR(60))
+DROP PROCEDURE IF EXISTS SP_incluirGeneroLivro $$
+CREATE PROCEDURE SP_incluirGeneroLivro(IN generoLivro VARCHAR(50), IN subGenero VARCHAR(60))
 BEGIN
-INSERT INTO Genero(genero, subGenero) VALUES(
-genero,
+INSERT INTO GeneroLivro(generoLivro, subGenero) VALUES(
+generoLivro,
 subGenero
 );
 END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_alterarGenero $$
-CREATE PROCEDURE SP_alterarGenero(IN ID INT, IN genero VARCHAR(50), IN subGenero VARCHAR(60))
+DROP PROCEDURE IF EXISTS SP_alterarGeneroLivro $$
+CREATE PROCEDURE SP_alterarGeneroLivro(IN ID INT, IN generoLivro VARCHAR(50), IN subGenero VARCHAR(60))
 BEGIN
-UPDATE Genero SET
-Genero.genero = genero,
-Genero.subGenero = subGenero
-WHERE Generp.id = ID;
+UPDATE GeneroLivro SET
+GeneroLivro.generoLivro = generoLivro,
+GeneroLivro.subGenero = subGenero
+WHERE GeneroLivro.id = ID;
 END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_deletarGenero $$
-CREATE PROCEDURE SP_deletarGenero(IN ID INT)
+DROP PROCEDURE IF EXISTS SP_deletarGeneroLivro $$
+CREATE PROCEDURE SP_deletarGeneroLivro(IN ID INT)
 BEGIN
-DELETE FROM Genero WHERE Genero.id = ID;
+DELETE FROM GeneroLivro WHERE GeneroLivro.id = ID;
 END $$
 DELIMITER ;
 
@@ -648,13 +648,22 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_livrosSorteadosGenero $$
 CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_generoLivro VARCHAR(50))
 BEGIN
-SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.genero, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
+SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
 WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
 INNER JOIN Livro ON idLivro = Livro.id)
-INNER JOIN GeneroLivro ON Livro.idGenero = GeneroLivro.id)
+INNER JOIN GeneroLivro ON Livro.idGeneroLivro = GeneroLivro.id)
 INNER JOIN Cliente ON idCliente = Cliente.id)
 WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND GeneroLivro.generoLivro IN (sp_Livro) 
 ORDER BY Cliente.nome;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_consultarGeneroCliente $$
+CREATE PROCEDURE SP_consultarGeneroCliente(IN idCliente INT)
+BEGIN
+SELECT Cliente.nome FROM Cliente JOIN GeneroLivroCliente ON Cliente.id = GeneroLivroCliente.id
+WHERE Cliente.id = idCliente;                                                                        
 END $$
 DELIMITER ;
 

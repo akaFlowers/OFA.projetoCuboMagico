@@ -3,6 +3,8 @@ using projetoCuboMagico.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -133,6 +135,71 @@ namespace projetoCuboMagico.Controllers
                 ModelState.AddModelError(string.Empty, e.Message);
             }
             return View(usuario);
+        }
+
+        [HttpGet]
+        public ActionResult RedefinirSenha()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RedefinirSenha(Cliente cliente)
+        {
+            try
+            {
+                Usuario usuario = new Usuario();
+                usuario = usuariosRepository.consultaPorEmail(cliente.Email);
+                if(usuario.Usuarioo != null)
+                {
+                    using (MailMessage mail = new MailMessage())
+                    {
+                        //Adicione os emails que você vai mandar a mensagem
+                        mail.From = new MailAddress("joao.vitor9524@gmail.com");
+                        mail.To.Add(cliente.Email);
+
+                        //Conteudo do email
+                        mail.Subject = ("Redefinição de senha"); //Assunto
+                        mail.Body = ("Redefina sua senha clicando no link http://localhost:54502/AlterarSenha?usuarioo=" + usuario.Usuarioo); //Corpo do email
+
+                        //Enviar o email
+                        SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new NetworkCredential("joao.vitor9524@gmail.com", "MinhaSenhashaushauas");
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Email invalido!!");
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AlterarSenha(string usuario)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AlterarSenha(Usuario usuario)
+        {
+            try
+            {
+                return View("Login");
+            }
+            catch(Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+            }
+            return View();
         }
     }
 }

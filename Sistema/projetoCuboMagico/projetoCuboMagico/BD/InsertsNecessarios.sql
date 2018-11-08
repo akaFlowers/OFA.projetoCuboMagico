@@ -51,12 +51,12 @@ INSERT INTO Gerente(nomeCompleto, dataNascimento, sexo, cpf, email, telefone, ce
 1
 );
 
-INSERT INTO Genero(genero, subGenero) VALUES(
+INSERT INTO GeneroLivro(generoLivro, subGenero) VALUES(
 'Terror',
 'Terror Piscológico'
 );
 
-INSERT INTO Livro(nome, autor, idGenero, dataPublicacao, editora) VALUES(
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
 'O ilumidado',
 'Stephen King',
 '1',

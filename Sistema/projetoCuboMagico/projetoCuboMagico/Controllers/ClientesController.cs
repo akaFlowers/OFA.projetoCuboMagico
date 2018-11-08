@@ -34,7 +34,7 @@ namespace projetoCuboMagico.Controllers
 
         // POST: Clientes/Create
         [HttpPost]
-        public ActionResult Create(ClienteUsuarioView clienteUsuario)
+        public ActionResult Create(Cliente cliente)
         {
             try
             {
@@ -51,7 +51,7 @@ namespace projetoCuboMagico.Controllers
             {
                 ModelState.AddModelError(String.Empty, e.Message);
             }
-            return View(clienteUsuario);
+            return View(cliente);
         }
 
         // GET: Clientes/Edit/5

@@ -3,6 +3,7 @@ using projetoCuboMagico.Models;
 using projetoCuboMagico.Persistencia;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,7 @@ namespace projetoCuboMagico.Repository
 {
     public class UnboxingsRepository
     {
+        ClientesRepository clientesRepository = new ClientesRepository();
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
 
@@ -70,6 +72,31 @@ namespace projetoCuboMagico.Repository
             {
                 throw new Exception(e.Message);
             }
-        }       
+        }
+        
+        public DataTable buscarGeneroCliente(int id)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                MySqlDataAdapter adp = new MySqlDataAdapter();
+                Cliente cliente = new Cliente();
+                cliente = clientesRepository.consultaPorID(id);
+                using (cmd = new MySqlCommand("SP_livrosSorteadosGenero", Conexao.conexao))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("", id);
+                }
+                return dt;
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
+        }
     }
 }
