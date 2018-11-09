@@ -86,18 +86,5 @@ namespace projetoCuboMagico.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult GerarCaixa(int idCliente)
-        {
-            try
-            {
-
-
-            }
-            catch
-            {
-
-            }
-        }
     }
 }

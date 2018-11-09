@@ -114,27 +114,30 @@ namespace projetoCuboMagico.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    string autenticacao = usuariosRepository.autenticarPorUsuario(usuario);
-                    if ( autenticacao.Equals("Autenticado"))
+                    var user = usuariosRepository.autenticarPorUsuario(usuario);
+                    if(user.Usuarioo != null)
                     {
-                        return RedirectToAction("Index");
+                       if(usuario.Senha == user.Senha)
+                        {
+                            Session["usuarioLogado"] = user;
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError(string.Empty, "Senha incorreta");
+                        }
                     }
-                    else if(autenticacao.Equals("Senha Incorreta!"))
+                    else
                     {
-                        ModelState.AddModelError(string.Empty, autenticacao);
+                        ModelState.AddModelError(string.Empty, "Usuario não encotrado!");
                     }
-                    else if (autenticacao.Equals("Usuário não encontrado"))
-                    {
-                        ModelState.AddModelError(string.Empty, autenticacao);
-                    }
-                }
-                
+                }               
             }
             catch(Exception e)
             {
                 ModelState.AddModelError(string.Empty, e.Message);
             }
-            return View(usuario);
+            return View();
         }
 
         [HttpGet]

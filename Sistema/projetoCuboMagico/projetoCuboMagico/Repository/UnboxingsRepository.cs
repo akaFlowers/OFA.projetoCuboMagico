@@ -89,9 +89,9 @@ namespace projetoCuboMagico.Repository
                 }
                 return dt;
             }
-            catch
+            catch(Exception e)
             {
-
+                throw new Exception(e.Message);
             }
             finally
             {

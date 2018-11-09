@@ -35,6 +35,8 @@ namespace projetoCuboMagico.Repository
                         usuarios.Senha = dr["senha"].ToString();
                         usuarios.NivelAcesso = dr["nivelAcesso"].ToString();
                         usuario.Add(usuarios);
+
+                        
                     }
                 }
             }
@@ -168,31 +170,25 @@ namespace projetoCuboMagico.Repository
             }
         }
 
-        public string autenticarPorUsuario(Usuario usuario)
+        public Usuario autenticarPorUsuario(Usuario usuario)
         {
             try
             {
                 using (cmd = new MySqlCommand("SP_consultaPorUsuario", Conexao.conexao))
                 {
+                    Usuario usuarioLogado = new Usuario();
                     conexao.abrirConexao();
                     cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
                     cmd.CommandType = CommandType.StoredProcedure;
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        if (usuario.Senha == dr["senha"].ToString())
-                        {
-                            return "Autenticado";
-                        }
-                        else
-                        {
-                            return "Senha Incorreta!";
-                        }
+                        usuarioLogado.Id = Convert.ToInt32(dr["id"]);
+                        usuarioLogado.Usuarioo = dr["usuario"].ToString();
+                        usuarioLogado.Senha = dr["senha"].ToString();
+                        usuarioLogado.NivelAcesso = dr["nivelAcesso"].ToString();
                     }
-                    else
-                    {
-                        return "Usuário não encontrado";
-                    }
+                    return usuarioLogado;
                 }
             }
             catch (Exception e)
