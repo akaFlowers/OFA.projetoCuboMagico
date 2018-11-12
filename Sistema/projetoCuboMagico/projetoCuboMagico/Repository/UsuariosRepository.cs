@@ -245,13 +245,14 @@ namespace projetoCuboMagico.Repository
         }
 
 
-        public int trazerIdUsuario()
+        public int trazerIdUsuario(string usuario)
         {
             try
             {
-                using (cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao))
+                using (cmd = new MySqlCommand("SELECT Usuario.id AS ID FROM Usuario WHERE Usuario.usuario = @USUARIO", Conexao.conexao))
                 {
                     conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@USUARIO", usuario);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {

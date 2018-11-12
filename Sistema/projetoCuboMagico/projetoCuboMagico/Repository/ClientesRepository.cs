@@ -119,6 +119,7 @@ namespace projetoCuboMagico.Repository
         {
             try
             {
+                int idUser = trazerIdUsuario(cliente.Usuario.Usuarioo);
                 using (cmd = new MySqlCommand("SP_incluirCliente", Conexao.conexao))
                 {
                     conexao.abrirConexao();
@@ -129,7 +130,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@sexo", cliente.Sexo);
                     cmd.Parameters.AddWithValue("@tamCamiseta", cliente.TamCamiseta);
                     cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
-                    cmd.Parameters.AddWithValue("email", cliente.Email);
+                    cmd.Parameters.AddWithValue("@email", cliente.Email);
                     cmd.Parameters.AddWithValue("@telefone", cliente.Telefone);
                     cmd.Parameters.AddWithValue("@celular", cliente.Celular);
                     cmd.Parameters.AddWithValue("@cep", cliente.Cep);
@@ -139,8 +140,8 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@rua", cliente.Rua);
                     cmd.Parameters.AddWithValue("@numero", cliente.Numero);
                     cmd.Parameters.AddWithValue("@complemento", cliente.Complemento);
-                    cmd.Parameters.AddWithValue("@pais", cliente.Pais);
-                    cmd.Parameters.AddWithValue("@idUsuario", trazerIdUsuario());
+                    cmd.Parameters.AddWithValue("@pais", cliente.Pais);                   
+                    cmd.Parameters.AddWithValue("@idUsuario", idUser);
                     cmd.ExecuteNonQuery();
                     return true;
                 }
@@ -158,8 +159,7 @@ namespace projetoCuboMagico.Repository
                 using (cmd = new MySqlCommand("SP_alterarCliente", Conexao.conexao))
                 {
                     conexao.abrirConexao();
-
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@id", cliente.Id);
                     cmd.Parameters.AddWithValue("@nome", cliente.Nome);
                     cmd.Parameters.AddWithValue("@sobrenome", cliente.Sobrenome);
@@ -167,7 +167,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@sexo", cliente.Sexo);
                     cmd.Parameters.AddWithValue("@tamCamiseta", cliente.TamCamiseta);
                     cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
-                    cmd.Parameters.AddWithValue("email", cliente.Email);
+                    cmd.Parameters.AddWithValue("@email", cliente.Email);
                     cmd.Parameters.AddWithValue("@telefone", cliente.Telefone);
                     cmd.Parameters.AddWithValue("@celular", cliente.Celular);
                     cmd.Parameters.AddWithValue("@cep", cliente.Cep);
@@ -178,7 +178,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@numero", cliente.Numero);
                     cmd.Parameters.AddWithValue("@complemento", cliente.Complemento);
                     cmd.Parameters.AddWithValue("@pais", cliente.Pais);
-                    cmd.Parameters.AddWithValue("@idUsuario", cliente.IdUsuario);
+                    cmd.Parameters.AddWithValue("@idUsuario", cliente.Usuario.Id);
                     cmd.ExecuteNonQuery();
                     return true;
                 }
@@ -210,13 +210,14 @@ namespace projetoCuboMagico.Repository
 
         }
 
-        public int trazerIdUsuario()
+        public int trazerIdUsuario(string usuario)
         {
             try
             {
-                using (cmd = new MySqlCommand("SELECT COUNT(id) AS ID FROM Usuario", Conexao.conexao))
+                using (cmd = new MySqlCommand("SELECT Usuario.id AS ID FROM Usuario WHERE Usuario.usuario = @USUARIO", Conexao.conexao))
                 {
                     conexao.abrirConexao();
+                    cmd.Parameters.AddWithValue("@USUARIO", usuario);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
@@ -228,7 +229,7 @@ namespace projetoCuboMagico.Repository
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }

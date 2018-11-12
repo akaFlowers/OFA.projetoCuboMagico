@@ -11,6 +11,7 @@ namespace projetoCuboMagico.Controllers
     public class ClientesController : Controller
     {
         ClientesRepository clientesRepository = new ClientesRepository();
+        UsuariosRepository usuariosRepository = new UsuariosRepository();
         // GET: Clientes
         public ActionResult Index() 
         {
@@ -38,14 +39,14 @@ namespace projetoCuboMagico.Controllers
         {
             try
             {
-
-
                 if (ModelState.IsValid)
                 {
-                    //clientesRepository.incluirCliente(cliente);
+                    if (usuariosRepository.incluirUsuario(cliente.Usuario))
+                    {
+                        clientesRepository.incluirCliente(cliente);
+                    }
                     return RedirectToAction(nameof(Index));
                 }
-
             }
             catch (Exception e)
             {
@@ -67,8 +68,10 @@ namespace projetoCuboMagico.Controllers
         {
             try
             {
-                clientesRepository.alterarCliente(cliente);
-
+                if (usuariosRepository.alterarUsuario(cliente.Usuario))
+                {
+                    clientesRepository.alterarCliente(cliente);
+                }
                 return RedirectToAction("Index");
             }
             catch(Exception e)
