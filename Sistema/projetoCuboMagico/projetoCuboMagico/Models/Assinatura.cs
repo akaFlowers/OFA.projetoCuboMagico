@@ -9,16 +9,20 @@ namespace projetoCuboMagico.Models
     public class Assinatura
     {
         [Display(Name = "ID"), Key]
-        private int id { get; set; }
+        public int Id { get; set; }
+
+        [Display(Name = "ID Cliente")]
+        public int IdCliente { get; set; }
 
         [Display(Name = "Nome"), MaxLength(100)]
-        private string name { get; set; }
+        public string Nome { get; set; }
 
         [Display(Name = "Tipo"), MaxLength(80)]
-        private string tipo { get; set; }
+        public string Tipo { get; set; }
 
-        [Display(Name = "Valor"), MaxLength(6)]
-        private decimal valor { get; set; }
+        [Display(Name = "Valor"), MaxLength(10)]
+        public decimal Valor { get; set; }
 
+        public Cliente Cliente { get; set; } = new Cliente();
     }
 }

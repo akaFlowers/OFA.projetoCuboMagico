@@ -14,6 +14,7 @@ namespace projetoCuboMagico.Repository
         ClientesRepository clientesRepository = new ClientesRepository();
         Conexao conexao = new Conexao();
         MySqlCommand cmd;
+        MySqlDataReader dr;
 
         public bool incluirUnboxing(Unboxing unboxing)
         {
@@ -96,6 +97,40 @@ namespace projetoCuboMagico.Repository
             finally
             {
 
+            }
+        }
+
+        public Assinatura trazerAssinaturaCliente(int id)
+        {
+            try
+            {
+                Assinatura assinatura = new Assinatura();
+                using (cmd = new MySqlCommand("SP_trazerAssinaturaCliente", Conexao.conexao))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        assinatura.Id = Convert.ToInt32(dr["idAssinatura"]);
+                        assinatura.Nome = dr["nomeAssinatura"].ToString();
+                        assinatura.Tipo = dr["tipo"].ToString();
+                        assinatura.IdCliente = id;
+                        assinatura.Cliente.Cpf = dr["cpf"].ToString();
+                        assinatura.Cliente.Nome = dr["nome"].ToString();
+                        assinatura.Cliente.Id = Convert.ToInt32(dr["id"]);
+                        assinatura.Valor = Convert.ToDecimal(dr["valor"]);
+                    }
+                }
+                return assinatura;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                dr.Close();
             }
         }
     }

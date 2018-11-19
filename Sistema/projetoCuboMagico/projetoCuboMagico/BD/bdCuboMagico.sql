@@ -662,14 +662,14 @@ DELIMITER ;
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_livrosSorteadosGenero $$
-CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_generoLivro VARCHAR(50))
+CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_generoLivro1 VARCHAR(50), IN sp_generoLivro2 VARCHAR(50), IN sp_generoLivro3 VARCHAR(50), IN sp_generoLivro4 VARCHAR(50), IN sp_generoLivro5 VARCHAR(50))
 BEGIN
 SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
 WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
 INNER JOIN Livro ON idLivro = Livro.id)
 INNER JOIN GeneroLivro ON Livro.idGeneroLivro = GeneroLivro.id)
 INNER JOIN Cliente ON idCliente = Cliente.id)
-WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND GeneroLivro.generoLivro IN (sp_Livro) 
+WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND GeneroLivro.generoLivro IN (sp_generoLivro1, sp_GeneroLivro2, sp_generoLivro3, sp_generoLivro4, sp_generoLivro5) 
 ORDER BY Cliente.nome;
 END $$
 DELIMITER ;
@@ -681,5 +681,15 @@ BEGIN
 SELECT Genero.idGeneroLivro FROM Cliente
 JOIN GeneroLivroCliente ON Cliente.id = GeneroLivroCliente.id
 WHERE Cliente.id = idCliente;                                                                        
+END $$
+DELIMITER ;
+
+/*PROCEDURES BOX */
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_trazerAssinaturaCliente $$
+CREATE PROCEDURE SP_trazerAssinaturaCliente(IN ID INT)
+BEGIN
+SELECT Cliente.id, Cliente.nome, Cliente.cpf, Assinatura.id AS idAssinatura, Assinatura.nome AS nomeAssinatura, Assinatura.tipo, Assinatura.valor FROM Assinatura JOIN Cliente ON Assinatura.idCliente = Cliente.id
+WHERE Cliente.id = 1;
 END $$
 DELIMITER ;

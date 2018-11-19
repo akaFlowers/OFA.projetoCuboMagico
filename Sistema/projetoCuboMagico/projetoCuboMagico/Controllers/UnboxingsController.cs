@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projetoCuboMagico.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace projetoCuboMagico.Controllers
 {
     public class UnboxingsController : Controller
     {
+        UnboxingsRepository unboxingsRepository = new UnboxingsRepository();
         // GET: Unboxing
         public ActionResult Index()
         {
@@ -84,6 +86,58 @@ namespace projetoCuboMagico.Controllers
             {
                 return View(); 
             }
+        }
+
+
+        [HttpPost]
+        public ActionResult AleatorizarBox(int id)
+        {
+            try
+            {
+                var assinatura = unboxingsRepository.trazerAssinaturaCliente(id);
+                if (assinatura.Tipo.Equals("basica"))
+                {
+                    if (assinatura.Nome.Contains("Mensal"))
+                    {
+
+
+
+
+                    }
+                    else if(assinatura.Nome.Contains("Semestral"))
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else if (assinatura.Tipo.Equals("premium"))
+                {
+                    if (assinatura.Nome.Contains("Mensal"))
+                    {
+
+                    }
+                    else if (assinatura.Nome.Contains("Semestral"))
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch(Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+            }
+            return View();
         }
 
     }

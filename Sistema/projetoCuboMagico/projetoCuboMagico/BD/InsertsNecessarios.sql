@@ -56,13 +56,133 @@ INSERT INTO GeneroLivro(generoLivro, subGenero) VALUES(
 'Terror Piscológico'
 );
 
+INSERT INTO Generolivro(generoLivro, subGenero) VALUES(
+'Comédia',
+'Comédia romantica'
+);
+
+INSERT INTO GeneroLivro(generoLivro, subGenero) VALUES(
+'História',
+'Pré-historia'
+);
+
+INSERT INTO GeneroLivro(generolivro, subGenero) VALUES(
+'Infantil',
+'Educativo'
+);
+
+INSERT INTO GeneroLivro(generoLivro, subGenero) VALUES(
+'Biografia',
+'Biografia'
+);
+
+INSERT INTO GeneroLivro(GeneroLivro, subGenero) VALUES(
+'Informática',
+'Logica de Programação'
+);
+
+INSERT INTO GeneroLivro(GeneroLivro, subGenero) VALUES(
+'Economia',
+'Economia analitica'
+);
+
+INSERT INTO GeneroLivroCliente(idCliente, idGeneroLivro) VALUES(
+1,
+1
+);
+
+INSERT INTO GeneroLivroCliente(idCliente, idGeneroLivro) VALUES(
+1,
+2
+);
+
+INSERT INTO GeneroLivroCliente(idCliente, idGeneroLivro) VALUES(
+1,
+4
+);
+
+INSERT INTO GeneroLivroCliente(idCliente, idGeneroLivro) VALUES(
+1,
+6
+);
+
+INSERT INTO GeneroLivroCliente(idCliente, idGeneroLivro) VALUES(
+1,
+7
+);
+
 INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
 'O ilumidado',
 'Stephen King',
-'1',
+1,
 '25/12/1980',
 'Saraiva'
 );
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Manual da Economia',
+'Diva Benevides',
+7,
+'12/07/2017',
+'Saraiva'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Logica de programação: a construção de algoritmos e estruturas de dados',
+'André Luiz Villar',
+6,
+'25/05/2005',
+'Saraiva'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Alice no País das Maravilhas',
+'Lewis Carroll',
+4,
+'26/02/2010',
+'Zahar'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Felipe Neto - A Vida Por Trás Das Câmeras',
+'Felipe Neto',
+5,
+'20/04/2018',
+'Pixel'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Fiquei com o seu número',
+'Sophie Kinsella',
+2,
+'03/10/2011',
+'Bantam Press'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Mas tem que ser mesmo para sempre?',
+'Sophie Kinsella',
+2,
+'08/03/2018',
+'Record'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Histórias da Pré-História',
+'Alberto Moravia',
+3,
+'01/01/2003',
+'Editora 34'
+);
+
+INSERT INTO Livro(nome, autor, idGeneroLivro, dataPublicacao, editora) VALUES(
+'Misery',
+'Stephen King',
+1,
+'08/06/1987',
+'Suma'
+);
+
 
 INSERT INTO brinde(nome, tipo, design) VALUES(
 'Caixinha de Som',
@@ -71,19 +191,20 @@ INSERT INTO brinde(nome, tipo, design) VALUES(
 );
 
 /*INSERT INTO LivrosSorteadosCliente VAlues(
-1,
+1, 
 1
 );
 
 
-
+SELECT * FROM Livro JOIN GeneroLivro ON GeneroLivro.id = Livro.idGeneroLivro
+/
 
 /*
-SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, Genero.genero, Genero.subGenero FROM Cliente, Livro, Genero, (SELECT @i:=0)A
+SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
 WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
 INNER JOIN Livro ON idLivro = Livro.id)
-INNER JOIN Genero ON Livro.idGenero = Genero.id)
+INNER JOIN GeneroLivro ON Livro.idGeneroLivro = GeneroLivro.id)
 INNER JOIN Cliente ON idCliente = Cliente.id)
-WHERE Cliente.id = 1) AND Cliente.id = 1 AND Genero.genero IN ('Terror')
+WHERE Cliente.id = 1) AND Cliente.id = 1 AND GeneroLivro.generoLivro IN ('Terror', 'História') 
 ORDER BY Cliente.nome;
 */
