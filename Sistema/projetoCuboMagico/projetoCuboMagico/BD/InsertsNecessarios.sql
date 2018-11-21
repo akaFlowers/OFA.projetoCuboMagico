@@ -7,12 +7,12 @@ INSERT INTO Usuario(usuario, senha, nivelAcesso) VALUES(
 );
 
 INSERT INTO Cliente(nome, sobrenome, dataNascimento, sexo, tamCamiseta, cpf, email, telefone, celular, cep, estado, cidade, bairro, rua, numero, complemento, pais, idUsuario) VALUES(
-'João',
+'Joãoaa',
 'Lima',
 '05/10/2000',
 'Masculino',
 'G',
-'478.926.788.160',
+'478.926.789.060',
 'joao.vitor9524@gmail.com',
 '(11)3719-3418',
 '(11)99281-6711',
@@ -190,7 +190,7 @@ INSERT INTO brinde(nome, tipo, design) VALUES(
 'Interiores'
 );
 
-/*INSERT INTO LivrosSorteadosCliente VAlues(
+INSERT INTO LivrosSorteadosCliente VAlues(
 1, 
 1
 );

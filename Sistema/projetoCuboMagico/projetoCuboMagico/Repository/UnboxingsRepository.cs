@@ -96,7 +96,7 @@ namespace projetoCuboMagico.Repository
             }
             finally
             {
-
+            
             }
         }
 
@@ -133,5 +133,6 @@ namespace projetoCuboMagico.Repository
                 dr.Close();
             }
         }
+
     }
 }

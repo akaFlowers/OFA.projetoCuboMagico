@@ -661,16 +661,22 @@ END $$
 DELIMITER ;
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS SP_livrosSorteadosGenero $$
-CREATE PROCEDURE SP_livrosSorteadosGenero(IN sp_idCliente INT, IN sp_generoLivro1 VARCHAR(50), IN sp_generoLivro2 VARCHAR(50), IN sp_generoLivro3 VARCHAR(50), IN sp_generoLivro4 VARCHAR(50), IN sp_generoLivro5 VARCHAR(50))
+DROP PROCEDURE IF EXISTS SP_livrosSorteadosGeneroLivro $$
+CREATE PROCEDURE SP_livrosSorteadosGeneroLivros(IN sp_generoLivro1 VARCHAR(50), IN sp_generoLivro2 VARCHAR(50), IN sp_generoLivro3 VARCHAR(50), IN sp_generoLivro4 VARCHAR(50), IN sp_generoLivro5 VARCHAR(50))
 BEGIN
-SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
-WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
-INNER JOIN Livro ON idLivro = Livro.id)
-INNER JOIN GeneroLivro ON Livro.idGeneroLivro = GeneroLivro.id)
-INNER JOIN Cliente ON idCliente = Cliente.id)
-WHERE Cliente.id = sp_idCliente) AND Cliente.id = sp_idCliente AND GeneroLivro.generoLivro IN (sp_generoLivro1, sp_GeneroLivro2, sp_generoLivro3, sp_generoLivro4, sp_generoLivro5) 
-ORDER BY Cliente.nome;
+SELECT @i:=@i+1 AS ID, Livro.nome,GeneroLivro.generoLivro FROM (SELECT @i:=0)A, Livro
+JOIN GeneroLivro ON GeneroLivro.id = Livro.idGeneroLivro
+WHERE GeneroLivro.generoLivro IN (sp_generoLivro1, sp_generoLivro2, sp_generoLivro3, sp_generoLivro4, sp_generoLivro5);
+END $$
+DELIMITER ;
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS SP_livrosSorteadosGeneroSubGenero $$
+CREATE PROCEDURE SP_livrosSorteadosGeneroSubGenero(IN sp_generoLivro1 VARCHAR(50), IN sp_generoLivro2 VARCHAR(50), IN sp_generoLivro3 VARCHAR(50), IN sp_generoLivro4 VARCHAR(50), IN sp_generoLivro5 VARCHAR(50))
+BEGIN
+SELECT @i:=@i+1 AS ID, Livro.nome,GeneroLivro.generoLivro FROM (SELECT @i:=0)A, Livro
+JOIN GeneroLivro ON GeneroLivro.id = Livro.idGeneroLivro
+WHERE GeneroLivro.subGenero IN (sp_generoLivro1, sp_generoLivro2, sp_generoLivro3, sp_generoLivro4, sp_generoLivro5);
 END $$
 DELIMITER ;
 
