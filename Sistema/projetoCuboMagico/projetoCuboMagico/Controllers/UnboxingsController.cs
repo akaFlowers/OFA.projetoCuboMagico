@@ -88,49 +88,71 @@ namespace projetoCuboMagico.Controllers
             }
         }
 
-
-        [HttpPost]
+        [HttpGet]
         public ActionResult AleatorizarBox(int id)
         {
             try
             {
                 var assinatura = unboxingsRepository.trazerAssinaturaCliente(id);
-                if (assinatura.Tipo.Equals("basica"))
-                {
-                    if (assinatura.Nome.Contains("Mensal"))
+                
+                if (assinatura.Tipo.Equals("Mensal"))
+                {   //Assinatura básica mensal
+                    if (assinatura.Nome.Contains("Básica"))
                     {
 
 
 
 
                     }
-                    else if(assinatura.Nome.Contains("Semestral"))
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
-                }
-                else if (assinatura.Tipo.Equals("premium"))
-                {
-                    if (assinatura.Nome.Contains("Mensal"))
-                    {
-
-                    }
-                    else if (assinatura.Nome.Contains("Semestral"))
+                    //Assinatura básica semestral
+                    else if(assinatura.Nome.Contains("Premium"))
                     {
 
                     }
                     else
                     {
-
+                        ModelState.AddModelError(string.Empty, "Erro ao analisar assinatura entre em contanto com um administrador");
                     }
                 }
+                else if (assinatura.Tipo.Equals("Semestral"))
+                {
+                    //Assinatura Premium Mensal
+                    if (assinatura.Nome.Contains("Básica"))
+                    {
+
+                    }
+                    //Assinatura Premium Semestral
+                    else if (assinatura.Nome.Contains("Premium"))
+                    {
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Erro ao analisar assinatura entre em contanto com um administrador");
+                    }
+                }
+                //Assinatura Anual
+                else if(assinatura.Tipo.Equals("Anual"))
+                {
+                    //Assinatura Anual Básica
+                    if (assinatura.Nome.Contains("Básica"))
+                    {
+
+                    }
+                    //Assinatura Anual Premium
+                    else if (assinatura.Nome.Contains("Premium"))
+                    {
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Erro ao analisar assinatura entre em contanto com um administrador");
+                    }
+                }
+                //Tratamento de erro
                 else
                 {
-
+                    ModelState.AddModelError(string.Empty, "Tipo de assinatura invalida");
                 }
             }
             catch(Exception e)

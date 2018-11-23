@@ -187,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BD\bdCuboMagico.sql" />
-    <Content Include="BD\bdCuboMagicoProcedures.sql" />
+    <Content Include="BD\InsertsNecessarios.sql" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -270,10 +270,10 @@
     <Content Include="Views\Fornecedores\Delete.cshtml" />
     <Content Include="Views\Usuarios\RedefinirSenha.cshtml" />
     <Content Include="Views\Usuarios\AlterarSenha.cshtml" />
+    <Content Include="Views\Unboxings\AleatorizarBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Unboxings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

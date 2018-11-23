@@ -664,7 +664,7 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_livrosSorteadosGeneroLivro $$
 CREATE PROCEDURE SP_livrosSorteadosGeneroLivros(IN sp_generoLivro1 VARCHAR(50), IN sp_generoLivro2 VARCHAR(50), IN sp_generoLivro3 VARCHAR(50), IN sp_generoLivro4 VARCHAR(50), IN sp_generoLivro5 VARCHAR(50))
 BEGIN
-SELECT @i:=@i+1 AS ID, Livro.nome,GeneroLivro.generoLivro FROM (SELECT @i:=0)A, Livro
+SELECT @i:=@i+1 AS ID, Livro.nome, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM (SELECT @i:=0)A, Livro
 JOIN GeneroLivro ON GeneroLivro.id = Livro.idGeneroLivro
 WHERE GeneroLivro.generoLivro IN (sp_generoLivro1, sp_generoLivro2, sp_generoLivro3, sp_generoLivro4, sp_generoLivro5);
 END $$
@@ -674,7 +674,7 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_livrosSorteadosGeneroSubGenero $$
 CREATE PROCEDURE SP_livrosSorteadosGeneroSubGenero(IN sp_generoLivro1 VARCHAR(50), IN sp_generoLivro2 VARCHAR(50), IN sp_generoLivro3 VARCHAR(50), IN sp_generoLivro4 VARCHAR(50), IN sp_generoLivro5 VARCHAR(50))
 BEGIN
-SELECT @i:=@i+1 AS ID, Livro.nome,GeneroLivro.generoLivro FROM (SELECT @i:=0)A, Livro
+SELECT @i:=@i+1 AS ID, Livro.nome, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM (SELECT @i:=0)A, Livro
 JOIN GeneroLivro ON GeneroLivro.id = Livro.idGeneroLivro
 WHERE GeneroLivro.subGenero IN (sp_generoLivro1, sp_generoLivro2, sp_generoLivro3, sp_generoLivro4, sp_generoLivro5);
 END $$
@@ -684,9 +684,10 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS SP_consultarGeneroCliente $$
 CREATE PROCEDURE SP_consultarGeneroCliente(IN idCliente INT)
 BEGIN
-SELECT Genero.idGeneroLivro FROM Cliente
-JOIN GeneroLivroCliente ON Cliente.id = GeneroLivroCliente.id
-WHERE Cliente.id = idCliente;                                                                        
+SELECT @i:=@i+1 AS ID, Cliente.nome, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM (SELECT @i:=0)A, GeneroLivro
+JOIN GeneroLivroCliente ON GeneroLivroCliente.idGeneroLivro = GeneroLivro.id
+JOIN Cliente ON Cliente.id = GeneroLivroCliente.idCliente
+WHERE Cliente.id = 1;                                                                  
 END $$
 DELIMITER ;
 
@@ -696,6 +697,6 @@ DROP PROCEDURE IF EXISTS SP_trazerAssinaturaCliente $$
 CREATE PROCEDURE SP_trazerAssinaturaCliente(IN ID INT)
 BEGIN
 SELECT Cliente.id, Cliente.nome, Cliente.cpf, Assinatura.id AS idAssinatura, Assinatura.nome AS nomeAssinatura, Assinatura.tipo, Assinatura.valor FROM Assinatura JOIN Cliente ON Assinatura.idCliente = Cliente.id
-WHERE Cliente.id = 1;
+WHERE Cliente.id = ID;
 END $$
 DELIMITER ;

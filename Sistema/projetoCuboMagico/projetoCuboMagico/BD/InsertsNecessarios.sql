@@ -7,12 +7,12 @@ INSERT INTO Usuario(usuario, senha, nivelAcesso) VALUES(
 );
 
 INSERT INTO Cliente(nome, sobrenome, dataNascimento, sexo, tamCamiseta, cpf, email, telefone, celular, cep, estado, cidade, bairro, rua, numero, complemento, pais, idUsuario) VALUES(
-'Joãoaa',
+'João',
 'Lima',
 '05/10/2000',
 'Masculino',
 'G',
-'478.926.789.060',
+'478.926.789.000',
 'joao.vitor9524@gmail.com',
 '(11)3719-3418',
 '(11)99281-6711',
@@ -195,16 +195,9 @@ INSERT INTO LivrosSorteadosCliente VAlues(
 1
 );
 
-
-SELECT * FROM Livro JOIN GeneroLivro ON GeneroLivro.id = Livro.idGeneroLivro
-/
-
-/*
-SELECT @i:=@i+1 AS ID, Cliente.nome, Livro.id , Livro.NOME, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM Cliente, Livro, GeneroLivro, (SELECT @i:=0)A
-WHERE Livro.id NOT IN (SELECT idLivro FROM (((LivrosSorteadosCliente
-INNER JOIN Livro ON idLivro = Livro.id)
-INNER JOIN GeneroLivro ON Livro.idGeneroLivro = GeneroLivro.id)
-INNER JOIN Cliente ON idCliente = Cliente.id)
-WHERE Cliente.id = 1) AND Cliente.id = 1 AND GeneroLivro.generoLivro IN ('Terror', 'História') 
-ORDER BY Cliente.nome;
-*/
+INSERT INTO Assinatura(idCliente, nome, tipo, valor) VALUES(
+1,
+'Assinatura Básica Mensal',
+'Mensal',
+59.90
+)

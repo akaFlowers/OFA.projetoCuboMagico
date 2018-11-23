@@ -80,23 +80,19 @@ namespace projetoCuboMagico.Repository
             try
             {
                 DataTable dt = new DataTable();
-                MySqlDataAdapter adp = new MySqlDataAdapter();
-                Cliente cliente = new Cliente();
-                cliente = clientesRepository.consultaPorID(id);
-                using (cmd = new MySqlCommand("SP_livrosSorteadosGenero", Conexao.conexao))
+                using (cmd = new MySqlCommand("SP_consultarGeneroCliente", Conexao.conexao))
                 {
+                    conexao.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("", id);
+                    cmd.Parameters.AddWithValue("@idCliente", id);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    adp.Fill(dt);
                 }
                 return dt;
             }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
-            }
-            finally
-            {
-            
             }
         }
 
@@ -107,6 +103,7 @@ namespace projetoCuboMagico.Repository
                 Assinatura assinatura = new Assinatura();
                 using (cmd = new MySqlCommand("SP_trazerAssinaturaCliente", Conexao.conexao))
                 {
+                    conexao.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);
                     dr = cmd.ExecuteReader();
