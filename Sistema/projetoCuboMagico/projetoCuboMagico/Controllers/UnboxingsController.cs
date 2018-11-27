@@ -1,6 +1,8 @@
-﻿using projetoCuboMagico.Repository;
+﻿using projetoCuboMagico.Models;
+using projetoCuboMagico.Repository;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +12,7 @@ namespace projetoCuboMagico.Controllers
     public class UnboxingsController : Controller
     {
         UnboxingsRepository unboxingsRepository = new UnboxingsRepository();
+        DataTable dt;
         // GET: Unboxing
         public ActionResult Index()
         {
@@ -94,15 +97,23 @@ namespace projetoCuboMagico.Controllers
             try
             {
                 var assinatura = unboxingsRepository.trazerAssinaturaCliente(id);
-                
+                List<GeneroLivro> generoLivros = new List<GeneroLivro>();
+                generoLivros = unboxingsRepository.buscarGeneroCliente(id).ToList();
+                dt = new DataTable();
+                dt = unboxingsRepository.trazerLivros(generoLivros);
                 if (assinatura.Tipo.Equals("Mensal"))
                 {   //Assinatura básica mensal
                     if (assinatura.Nome.Contains("Básica"))
                     {
-
-
-
-
+                        int[] aleatorio = new int[1];
+                        int iDataTable = dt.Rows.Count;
+                        Random random = new Random();
+                        aleatorio[0] = random.Next(iDataTable);
+                        aleatorio[1] = random.Next(iDataTable);
+                        while (aleatorio[0] == aleatorio[1])
+                        {
+                            aleatorio[1] = random.Next(iDataTable);
+                        }
                     }
                     //Assinatura básica semestral
                     else if(assinatura.Nome.Contains("Premium"))

@@ -48,17 +48,42 @@
     }
 }
 
+@keyframes navIndex {
+    0% {
+        background-color: #5858FA;
+    }
+
+    20% {
+        background-color: #58FA58;
+    }
+
+    40% {
+        background-color: #F4FA58;
+    }
+
+    60% {
+        background-color: #FA8258;
+    }
+
+    80% {
+        background-color: #FA5858;
+    }
+
+    100% {
+        background-color: #5858FA;
+    }
+}
 
 
 /* TELA > LOGIN */
 
-div#interface_login {
+#interface_login {
     margin-top: -30px;
     padding: 10px;
     background-color: #2E2E2E;
 }
 
-img#icon {
+#icon {
     max-width: 100%;
     position: relative;
     top: 40px;
@@ -69,7 +94,7 @@ img#icon {
 	left: 30px;	
 }*/
 
-div#circulo {
+#circulo {
     max-width: 100%;
     border-radius: 35%;
     behavior: url(PIE.htc);
@@ -83,23 +108,13 @@ div#circulo {
     animation: myanimation 30s infinite;
     animation-delay: 2s;
 }
-/*div#tampa_icon{
-	border-radius: 35%;
-    behavior: url(PIE.htc);
-	float: left;
-	position: absolute;
-	top: 20px;
-	left: 80px;
-	width: 50px;
-	height: 50px;
-	background-color: #ffffff;
-}*/
-img#icon:active {
+
+#icon:active {
     right: -10px;
 }
 
 
-div#entrar {
+#entrar {
     background-color: #ffffff;
     box-shadow: 2px 2px 8px 3px #000000;
     width: 450px;
@@ -117,7 +132,7 @@ div#entrar {
     animation-delay: 2s;
 }
 
-div#entrar2 {
+#entrar2 {
     background-color: #ffffff;
     box-shadow: 2px 2px 8px 3px #000000;
     width: 450px;
@@ -133,7 +148,7 @@ div#entrar2 {
     animation-delay: 2s;
 }
 
-div#entrar3 {
+#entrar3 {
     background-color: #ffffff;
     box-shadow: 2px 2px 8px 3px #000000;
     width: 456px;
@@ -149,7 +164,7 @@ div#entrar3 {
     animation-delay: 2s;
 }
 
-div#entrar4 {
+#entrar4 {
     background-color: #ffffff;
     box-shadow: 20px 2px 16px 3px #ffffff;
     width: 450px;
@@ -164,40 +179,42 @@ div#entrar4 {
     animation-delay: 2s;
 }
 
-div#entrar img {
+#entrar #selo_entrar {
     max-width: 100%;
     position: relative;
     left: 110px;
     margin-top: 5px;
 }
 
-div#entrar form {
+#entrar #formEntrar {
     position: relative;
     left: 112.5px;
     margin-top: 10px;
 }
 
-    div#entrar form h2 {
-        font-family: players;
-        font-weight: 500;
-        position: relative;
-        left: 14px;
-        margin-bottom: 2px;
-    }
-
-
-input:focus, select:focus {
-    outline-width: 0;
+#entrar #titleLogin {
+    font-family: players;
+    font-weight: 500;
+    position: relative;
+    left: 14px;
+    margin-bottom: 2px;
 }
 
-
-#txtName {
+#entrar .input {
     width: 250px;
     height: 35px;
     margin-top: 5px;
     margin-left: -22px;
     border: 2px solid #000000;
     font-family: hallo;
+}
+
+.input:focus, select:focus {
+    outline-width: 0;
+}
+
+
+#entrar #txtName {
     padding-left: 5px;
     box-shadow: -4px 2px 0px 2px;
     -webkit-border-bottom-right-radius: 10px;
@@ -206,13 +223,7 @@ input:focus, select:focus {
     -webkit-border-top-left-radius: 10px;
 }
 
-#txtSenha {
-    width: 250px;
-    height: 35px;
-    margin-top: 5px;
-    margin-left: -22px;
-    border: 2px solid #000000;
-    font-family: hallo;
+#entrar #txtSenha {
     padding-left: 5px;
     margin-top: 25px;
     box-shadow: -4px 2px 0px 2px;
@@ -222,7 +233,7 @@ input:focus, select:focus {
     -webkit-border-top-left-radius: 10px;
 }
 
-div#entrar input.btn {
+#entrar .btn {
     background-color: rgba(255,255,255,.4);
     background-image: linear-gradient(to bottom, rgba(255,255,255,.1), rgba(255,255,255,.4) 49%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4));
     box-shadow: 1px 1px 15px -1px #ffffff;
@@ -237,12 +248,12 @@ div#entrar input.btn {
     transition: .3;
 }
 
-    div#entrar input.btn:hover {
+    #entrar .btn:hover {
         box-shadow: 0px 0px 15px 2px #ffffff;
         -webkit-transform: scale(1.1);
     }
 
-div#entrar h3#registro {
+#entrar #registro {
     font-size: 13pt;
     text-decoration: none;
     position: relative;
@@ -251,45 +262,46 @@ div#entrar h3#registro {
     color: #2e2e2e;
 }
 
-div#entrar a {
+#entrar #linkCadastro {
     text-decoration: none;
     color: #ffffff;
     text-align: justify;
 }
 
-    div#entrar a:hover, div#entrar h3#registro:hover {
+    #entrar #linkCadastro:hover, #entrar #registro:hover {
         color: #ffffff;
         text-decoration: underline;
     }
 
-div#entrar h3 {
+#entrar #esqSenha {
     font-size: 12pt;
     text-decoration: none;
     position: relative;
     left: 22px;
     margin-top: -8px;
+    color: 2e2e2e;
 }
 
 /* RODAPÉ */
 
-footer#rodape {
+#rodape {
     display: none;
     clear: both;
     border-top: 1px solid #585858;
     padding: 10px;
 }
 
-    footer#rodape p {
+    #rodape #p {
         text-align: center;
         margin: 20px;
     }
 
-    footer#rodape a {
+    #rodape #social {
         text-decoration: none;
         color: #000000;
     }
 
-        footer#rodape a:hover {
+        #rodape #social:hover {
             text-decoration: underline;
             color: #0174DF;
         }
@@ -297,107 +309,6 @@ footer#rodape {
 
 
 
-/* TELA > INICIO */
-body#inicio {
-    background-color: #ffffff;
-    animation: myanimation 150s infinite;
-    animation-delay: 2s;
-}
-
-div#interface_inicio {
-    background-color: #2E2E2E;
-    position: relative;
-    height: 602px;
-    padding: 0px 0px 0px 0px;
-    margin: 25px 0px -60px -5px;
-    box-shadow: -2px 1px 12px #000000;
-}
-
-nav#inicio {
-    background-color: rgba(0,0,0,.6);
-    position: relative;
-    height: 30px;
-    padding: 5px;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,.2), rgba(255,255,255,.4), rgba(255,255,255,.1) 100%, rgba(255,255,255,.4));
-}
-
-    nav#inicio h5 {
-        position: relative;
-        margin: 3px;
-        left: 1180px;
-        font-family: hallo;
-        color: #ffffff;
-    }
-
-article#principal_inicio img {
-    position: absolute;
-    top: 240px;
-    left: 585px;
-}
-
-div h1 {
-    font-size: 40pt;
-    margin: 10px;
-}
-
-nav#menu ul {
-    display: block;
-    position: relative;
-    top: -50px;
-    left: 700px;
-}
-
-nav#menu li {
-    display: inline-block;
-    background-color: #6E6E6E;
-    padding: 10px;
-    margin-right: 60px;
-    box-shadow: 3px 3px 8px #6E6E6E;
-    transition: .6s;
-}
-
-    nav#menu li:hover {
-        background-color: #424242;
-        box-shadow: none;
-        border: 1px #585858 solid;
-    }
-
-nav#menu li {
-    -webkit-border-bottom-right-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;
-    -webkit-border-top-right-radius: 10px;
-    -webkit-border-top-left-radius: 10px;
-}
-
-header#cabecalho {
-    border-bottom: 1px #585858 solid;
-    position: relative;
-    height: 100px;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-aside {
-    display: none;
-    float: left;
-    background-color: #ffffff;
-    width: 80px;
-    height: 560px;
-    border-right: 1px solid;
-    box-shadow: 1px 1px 8px #000000;
-    margin-top: 40px;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    animation: myanimation 150s infinite;
-    animation-delay: 2s;
-    transition: .4s;
-}
-
-
-    aside:hover {
-        -webkit-transform: scale(1);
-        width: 200px;
-    }
 
 
 
@@ -783,4 +694,181 @@ form#optG label {
     width: 50px;
     height: 50px;
     background-color: #A4A4A4;
+}
+
+
+
+
+/* TELA INDEX */
+body#index {
+    animation: myanimation 50s infinite;
+}
+
+#index #borda {
+    position: relative;
+    height: 20px;
+    background-color: rgba(0,0,0,.4);
+    box-shadow: 0px 0px 4px 1px #ffffff;
+}
+
+#index #cabecalho {
+    position: relative;
+    height: 120px;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,.1), rgba(255,255,255,.4) 49%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4));
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+    #index #cabecalho #imgBack {
+        position: absolute;
+    }
+
+    #index #cabecalho p {
+        position: absolute;
+        left: 10px;
+        font-family: players;
+    }
+
+    #index #cabecalho span#cubo {
+        position: relative;
+        top: -20px;
+        left: 20px;
+        font-size: 80px;
+    }
+
+    #index #cabecalho span#magico {
+        position: relative;
+        top: -60px;
+        left: 60px;
+        font-size: 45px;
+    }
+
+
+#cabecalho #menu_index ul {
+    display: block;
+    position: relative;
+    top: 50px;
+    left: 885px;
+    width: 480px;
+    height: 50px;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    box-shadow: 0px 0px 12px #000000;
+    animation: navIndex 50s infinite;
+}
+
+#cabecalho #menu_index li {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    margin: 5px 18px 5px 14px;
+    padding: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    box-shadow: 2px -2px 2px 2px #848484;
+    background-color: #BDBDBD;
+}
+
+#menu_index a {
+    color: #000000;
+}
+
+#cabecalho #menu_index li:active {
+    position: relative;
+    top: 0px;
+    border: 2px solid #A4A4A4;
+    box-shadow: none;
+}
+
+
+
+div#interface_index {
+    position: relative;
+    height: 50px;
+    background-color: #2E2E2E;
+}
+
+#selo {
+    position: relative;
+    top: 155px;
+    left: 900px;
+}
+
+#carouselIndex {
+    display: none;
+    position: absolute;
+    top: 20px;
+    left: 255px;
+}
+
+#meioco {
+    position: relative;
+    left: -365px;
+    margin-top: 0px;
+    width: 1450px;
+    height: 466px;
+    background-color: #2E2E2E;
+}
+
+#lateral_left {
+    position: absolute;
+    float: left;
+    top: 2px;
+    left: -280px;
+    width: 300px;
+    height: 466px;
+    background-color: rgba(255,255,255,.2);
+    border-top-right-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px 4px 2px 6px #ffffff;
+    transition: .6s;
+}
+
+    #lateral_left:hover {
+        position: absolute;
+        left: -20px;
+    }
+
+    #lateral_left #lateral_topo {
+        position: relative;
+        left: 19px;
+        width: 282px;
+        height: 150px;
+        border-top-right-radius: 10px;
+        border-top-right-radius: 10px;
+        border: 1px solid #ffffff;
+    }
+
+#lateral_topo #foto {
+    position: relative;
+    top: 20px;
+    left: 80px;
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+}
+
+#foto #perfil_vetor {
+    position: absolute;
+    left: 7px;
+}
+
+#lateral_topo a {
+    position: relative;
+    top: 35px;
+    left: 100px;
+    margin: 4px;
+    font-size: 16pt;
+    font-family: hallo;
+    color: #000000;
+    text-decoration: none;
+}
+
+#lateral_left a:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }

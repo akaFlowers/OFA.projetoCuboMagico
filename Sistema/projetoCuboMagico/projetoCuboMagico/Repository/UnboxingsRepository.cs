@@ -75,24 +75,37 @@ namespace projetoCuboMagico.Repository
             }
         }
         
-        public DataTable buscarGeneroCliente(int id)
+        public List<GeneroLivro> buscarGeneroCliente(int id)
         {
             try
             {
-                DataTable dt = new DataTable();
+                List<GeneroLivro> generosLivro = new List<GeneroLivro>();
                 using (cmd = new MySqlCommand("SP_consultarGeneroCliente", Conexao.conexao))
                 {
                     conexao.abrirConexao();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@idCliente", id);
-                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-                    adp.Fill(dt);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        GeneroLivro generoLivro = new GeneroLivro();
+                        generoLivro.Id = Convert.ToInt32(dr["id"]);
+                        generoLivro.GeneroLivroo = dr["generoLivro"].ToString();
+                        generoLivro.SubGenero = dr["subGenero"].ToString();
+
+                        generosLivro.Add(generoLivro);
+                    }
+
                 }
-                return dt;
+                return generosLivro;
             }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                dr.Close();
             }
         }
 
@@ -128,6 +141,37 @@ namespace projetoCuboMagico.Repository
             finally
             {
                 dr.Close();
+            }
+        }
+
+
+        public DataTable trazerLivros(List<GeneroLivro> generos)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                using (cmd = new MySqlCommand("SP_livrosSorteadosGeneroLivros", Conexao.conexao))
+                {
+                    conexao.abrirConexao();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@sp_generoLivro1", generos[0].GeneroLivroo);
+                    cmd.Parameters.AddWithValue("@sp_generoLivro2", generos[1].GeneroLivroo);
+                    cmd.Parameters.AddWithValue("@sp_generoLivro3", generos[2].GeneroLivroo);
+                    cmd.Parameters.AddWithValue("@sp_generoLivro4", generos[3].GeneroLivroo);
+                    cmd.Parameters.AddWithValue("@sp_generoLivro5", generos[4].GeneroLivroo);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    adp.Fill(dt);
+
+                }
+                return dt;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+
             }
         }
 

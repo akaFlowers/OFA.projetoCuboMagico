@@ -687,7 +687,7 @@ BEGIN
 SELECT @i:=@i+1 AS ID, Cliente.nome, GeneroLivro.generoLivro, GeneroLivro.subGenero FROM (SELECT @i:=0)A, GeneroLivro
 JOIN GeneroLivroCliente ON GeneroLivroCliente.idGeneroLivro = GeneroLivro.id
 JOIN Cliente ON Cliente.id = GeneroLivroCliente.idCliente
-WHERE Cliente.id = 1;                                                                  
+WHERE Cliente.id = idCliente;                                                                  
 END $$
 DELIMITER ;
 
@@ -697,6 +697,6 @@ DROP PROCEDURE IF EXISTS SP_trazerAssinaturaCliente $$
 CREATE PROCEDURE SP_trazerAssinaturaCliente(IN ID INT)
 BEGIN
 SELECT Cliente.id, Cliente.nome, Cliente.cpf, Assinatura.id AS idAssinatura, Assinatura.nome AS nomeAssinatura, Assinatura.tipo, Assinatura.valor FROM Assinatura JOIN Cliente ON Assinatura.idCliente = Cliente.id
-WHERE Cliente.id = ID;
+WHERE Cliente.id = idCliente;
 END $$
 DELIMITER ;
