@@ -192,8 +192,20 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\_imagens\background_postit.png" />
+    <Content Include="Content\_imagens\cadastro_vetor.png" />
+    <Content Include="Content\_imagens\cartao_vetor.png" />
+    <Content Include="Content\_imagens\cube.png" />
+    <Content Include="Content\_imagens\cube_editado.png" />
+    <Content Include="Content\_imagens\finish_vetor.png" />
+    <Content Include="Content\_imagens\icon_back.ico" />
+    <Content Include="Content\_imagens\icon_back.png" />
+    <Content Include="Content\_imagens\icon_logo.ico" />
+    <Content Include="Content\_imagens\livro_vetor.png" />
+    <Content Include="Content\_imagens\pronto_vetor.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\_Fontes\_teachersStudent\readme.txt" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -201,6 +213,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="fonts\_Fontes\hallo-sans-light.otf" />
+    <Content Include="fonts\_Fontes\loveHearts.otf" />
+    <Content Include="fonts\_Fontes\mrKebab.ttf" />
+    <Content Include="fonts\_Fontes\Players.ttf" />
+    <Content Include="fonts\_Fontes\_teachersStudent\TeachersStudent-Regular.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

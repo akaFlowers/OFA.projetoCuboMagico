@@ -1,24 +1,786 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@charset "UTF-8";
+
+/* FONTES */
+@font-face {
+    font-family: hallo;
+    src: url('_fontes/hallo-sans-light.otf');
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+@font-face {
+    font-family: players;
+    src: url('_fontes/players.ttf');
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+@font-face {
+    font-family: teachers;
+    src: url('_fontes/_teachersStudent/TeachersStudent-Regular.ttf')
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+@font-face {
+    font-family: loveh;
+    src: url('_fontes/loveHearts.otf');
+}
+
+/* kEY FRAMES */
+@keyframes myanimation {
+    0% {
+        background-color: #0000FF;
+    }
+
+    20% {
+        background-color: #01DF01;
+    }
+
+    40% {
+        background-color: #FFBF00;
+    }
+
+    60% {
+        background-color: #FF4000;
+    }
+
+    80% {
+        background-color: #DF0101;
+    }
+
+    100% {
+        background-color: #0000FF;
+    }
+}
+
+
+
+/* TELA > LOGIN */
+
+div#interface_login {
+    margin-top: -30px;
+    padding: 10px;
+    background-color: #2E2E2E;
+}
+
+img#icon {
+    max-width: 100%;
+    position: relative;
+    top: 40px;
+    right: -30px;
+    transition: .5s;
+}
+/*img#icon:hover{
+	left: 30px;	
+}*/
+
+div#circulo {
+    max-width: 100%;
+    border-radius: 35%;
+    behavior: url(PIE.htc);
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    box-shadow: -5px 2px 11px 4px #000000;
+    animation: myanimation 30s infinite;
+    animation-delay: 2s;
+}
+/*div#tampa_icon{
+	border-radius: 35%;
+    behavior: url(PIE.htc);
+	float: left;
+	position: absolute;
+	top: 20px;
+	left: 80px;
+	width: 50px;
+	height: 50px;
+	background-color: #ffffff;
+}*/
+img#icon:active {
+    right: -10px;
+}
+
+
+div#entrar {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 8px 3px #000000;
+    width: 450px;
+    height: 540px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-top-left-radius: 3px;
+    position: relative;
+    padding: 20px 20px 0px 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    left: 430px;
+    animation: myanimation 30s infinite;
+    animation-delay: 2s;
+}
+
+div#entrar2 {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 8px 3px #000000;
+    width: 450px;
+    height: 540px;
+    -webkit-border-bottom-left-radius: 20px;
+    -webkit-border-top-left-radius: 8px;
+    position: absolute;
+    padding: 20px 20px 0px 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    left: 430px;
+    animation: myanimation 30s infinite;
+    animation-delay: 2s;
+}
+
+div#entrar3 {
+    background-color: #ffffff;
+    box-shadow: 2px 2px 8px 3px #000000;
+    width: 456px;
+    height: 540px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    position: absolute;
+    padding: 20px 20px 0px 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    left: 454px;
+    animation: myanimation 30s infinite;
+    animation-delay: 2s;
+}
+
+div#entrar4 {
+    background-color: #ffffff;
+    box-shadow: 20px 2px 16px 3px #ffffff;
+    width: 450px;
+    height: 522px;
+    -webkit-border-bottom-left-radius: 20px;
+    -webkit-border-top-left-radius: 10px;
+    position: absolute;
+    padding: 20px 20px 0px 20px;
+    margin-top: 0px;
+    left: 430px;
+    animation: myanimation 30s infinite;
+    animation-delay: 2s;
+}
+
+div#entrar img {
+    max-width: 100%;
+    position: relative;
+    left: 110px;
+    margin-top: 5px;
+}
+
+div#entrar form {
+    position: relative;
+    left: 112.5px;
+    margin-top: 10px;
+}
+
+    div#entrar form h2 {
+        font-family: players;
+        font-weight: 500;
+        position: relative;
+        left: 14px;
+        margin-bottom: 2px;
+    }
+
+
+input:focus, select:focus {
+    outline-width: 0;
+}
+
+
+#txtName {
+    width: 250px;
+    height: 35px;
+    margin-top: 5px;
+    margin-left: -22px;
+    border: 2px solid #000000;
+    font-family: hallo;
+    padding-left: 5px;
+    box-shadow: -4px 2px 0px 2px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+}
+
+#txtSenha {
+    width: 250px;
+    height: 35px;
+    margin-top: 5px;
+    margin-left: -22px;
+    border: 2px solid #000000;
+    font-family: hallo;
+    padding-left: 5px;
+    margin-top: 25px;
+    box-shadow: -4px 2px 0px 2px;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+}
+
+div#entrar input.btn {
+    background-color: rgba(255,255,255,.4);
+    background-image: linear-gradient(to bottom, rgba(255,255,255,.1), rgba(255,255,255,.4) 49%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4));
+    box-shadow: 1px 1px 15px -1px #ffffff;
+    width: 130px;
+    height: 30px;
+    padding-top: 0px;
+    text-align: center;
+    vertical-align: top;
+    margin-top: 30px;
+    position: relative;
+    left: 50px;
+    transition: .3;
+}
+
+    div#entrar input.btn:hover {
+        box-shadow: 0px 0px 15px 2px #ffffff;
+        -webkit-transform: scale(1.1);
+    }
+
+div#entrar h3#registro {
+    font-size: 13pt;
+    text-decoration: none;
+    position: relative;
+    left: 41px;
+    margin-top: 12px;
+    color: #2e2e2e;
+}
+
+div#entrar a {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: justify;
+}
+
+    div#entrar a:hover, div#entrar h3#registro:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+div#entrar h3 {
+    font-size: 12pt;
+    text-decoration: none;
+    position: relative;
+    left: 22px;
+    margin-top: -8px;
+}
+
+/* RODAPÉ */
+
+footer#rodape {
+    display: none;
+    clear: both;
+    border-top: 1px solid #585858;
+    padding: 10px;
+}
+
+    footer#rodape p {
+        text-align: center;
+        margin: 20px;
+    }
+
+    footer#rodape a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+        footer#rodape a:hover {
+            text-decoration: underline;
+            color: #0174DF;
+        }
+
+
+
+
+/* TELA > INICIO */
+body#inicio {
+    background-color: #ffffff;
+    animation: myanimation 150s infinite;
+    animation-delay: 2s;
+}
+
+div#interface_inicio {
+    background-color: #2E2E2E;
+    position: relative;
+    height: 602px;
+    padding: 0px 0px 0px 0px;
+    margin: 25px 0px -60px -5px;
+    box-shadow: -2px 1px 12px #000000;
+}
+
+nav#inicio {
+    background-color: rgba(0,0,0,.6);
+    position: relative;
+    height: 30px;
+    padding: 5px;
+    background-image: linear-gradient(to bottom, rgba(255,255,255,.2), rgba(255,255,255,.4), rgba(255,255,255,.1) 100%, rgba(255,255,255,.4));
+}
+
+    nav#inicio h5 {
+        position: relative;
+        margin: 3px;
+        left: 1180px;
+        font-family: hallo;
+        color: #ffffff;
+    }
+
+article#principal_inicio img {
+    position: absolute;
+    top: 240px;
+    left: 585px;
+}
+
+div h1 {
+    font-size: 40pt;
+    margin: 10px;
+}
+
+nav#menu ul {
+    display: block;
+    position: relative;
+    top: -50px;
+    left: 700px;
+}
+
+nav#menu li {
+    display: inline-block;
+    background-color: #6E6E6E;
+    padding: 10px;
+    margin-right: 60px;
+    box-shadow: 3px 3px 8px #6E6E6E;
+    transition: .6s;
+}
+
+    nav#menu li:hover {
+        background-color: #424242;
+        box-shadow: none;
+        border: 1px #585858 solid;
+    }
+
+nav#menu li {
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+}
+
+header#cabecalho {
+    border-bottom: 1px #585858 solid;
+    position: relative;
+    height: 100px;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+aside {
+    display: none;
+    float: left;
+    background-color: #ffffff;
+    width: 80px;
+    height: 560px;
+    border-right: 1px solid;
+    box-shadow: 1px 1px 8px #000000;
+    margin-top: 40px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    animation: myanimation 150s infinite;
+    animation-delay: 2s;
+    transition: .4s;
+}
+
+
+    aside:hover {
+        -webkit-transform: scale(1);
+        width: 200px;
+    }
+
+
+
+
+/* TELA CADASTRO */
+body#cadastro {
+    background-color: #2E2E2E;
+}
+
+div#barra_ind1 {
+    position: absolute;
+    top: 10px;
+    left: 350px;
+    margin: 10px 0px;
+    width: 380px;
+    height: 20px;
+    background-color: #A4A4A4;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+div#barra_ind2 {
+    position: absolute;
+    top: 10px;
+    right: 330px;
+    margin: 10px 0px;
+    width: 380px;
+    height: 20px;
+    background-color: #A4A4A4;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+div#circulo_ind1 {
+    position: absolute;
+    top: 5px;
+    left: 350px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+img.ind {
+    position: relative;
+    top: 8px;
+    left: 10px;
+}
+
+div#circulo_ind2 {
+    position: absolute;
+    top: 5px;
+    left: 656px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+div#circulo_ind3 {
+    position: absolute;
+    top: 5px;
+    right: 350px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+div#circulo_ind4 {
+    position: absolute;
+    top: 5px;
+    right: 260px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+.ind_ativo {
+    animation: myanimation .6s infinite;
+}
+
+div#livro {
+    position: relative;
+    top: 64px;
+    margin: 0px auto;
+    width: 1000px;
+    height: 500px;
+    background-color: transparent;
+    border: none;
+}
+
+div#livro_left {
+    position: relative;
+    width: 490px;
+    height: 500px;
+    padding: 10px 0px 10px 20px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 6px;
+    -webkit-border-top-left-radius: 6px;
+    border: 2px solid #000000;
+    border-right: none;
+    box-shadow: -2px 2px 8px 3px #000000;
+    animation: myanimation 150s infinite;
+    animation-delay: 2s;
+}
+
+#livro_left form {
+    position: relative;
+    margin-right: -2px;
+    padding: 5px 8px;
+    height: 474px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 2px #ffffff;
+    font-family: teachers;
+}
+
+#livro_left h2 {
+    font-family: teachers;
+    font-size: 40pt;
+    margin-bottom: -30px;
+}
+
+#livro label {
+    margin-left: 8px;
+    font-size: 20pt;
+}
+
+#livro_left input {
+    position: relative;
+    margin: 5px 0px 0px 4px;
+    padding: 4px;
+    width: 160px;
+    font-size: 15pt;
+    font-family: teachers;
+}
+
+input#date {
+    margin-left: 12px;
+}
+
+div#livro_centro {
+    position: relative;
+    top: -1000px;
+    margin: 0px auto;
+    width: 20px;
+    height: 500px;
+    -webkit-border-bottom-right-radius: 4px;
+    -webkit-border-top-right-radius: 4px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px #000000;
+    animation: myanimation 150s infinite;
+    animation-delay: 2s;
+}
+
+div#livro_right {
+    position: relative;
+    top: -500px;
+    left: 510px;
+    width: 490px;
+    height: 500px;
+    margin: 0px;
+    padding: 10px 20px 10px 0px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 4px;
+    -webkit-border-top-left-radius: 4px;
+    border: 2px solid #000000;
+    border-left: none;
+    box-shadow: 2px 2px 8px 3px #000000;
+    animation: myanimation 150s infinite;
+    animation-delay: 2s;
+}
+
+#livro_right form {
+    position: relative;
+    margin-left: -2px;
+    padding: 80px 8px 5px 8px;
+    height: 474px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 2px #ffffff;
+    font-family: teachers;
+}
+
+#livro_right input {
+    position: relative;
+    margin: 5px 0px 0px 1px;
+    padding: 4px;
+    width: 160px;
+    font-size: 15pt;
+    font-family: teachers;
+}
+
+#livro select#sexo, #livro select#est, #livro #pais option, #livro #pais optgroup, #livro #est option, #livro #est optgroup {
+    font-size: 12pt;
+    font-family: sans-light;
+}
+
+#livro select#pais {
+    font-size: 18pt;
+}
+
+#livro input.btn {
+    position: relative;
+    top: 100px;
+    left: 300px;
+    background-color: transparent;
+    padding: 4px;
+    font-size: 18pt;
+    transition: .8;
+}
+
+    #livro input.btn:hover {
+        font-size: 22pt;
+    }
+
+span.link_form {
+    padding: 4px;
+    background-color: transparent;
+    font-size: 18pt;
+    border: 1px solid #000000;
+}
+
+
+
+
+/* TELA CADASTRO2 */
+
+form#optG input {
+    margin: 0px -50px 0px 20px;
+}
+
+form#optG label {
+    margin-top: -10px;
+    font-size: 22pt;
+}
+
+
+
+
+/* TELA CADASTRO3 */
+#cadastro3 input {
+    position: relative;
+    margin: 12px 5px 35px 10px;
+    width: 160px;
+}
+
+#cadastro3 #txtPropCartao {
+    width: 200px;
+}
+
+#cadastro3 #valCartao {
+    position: relative;
+    left: 100px;
+    width: 145px;
+}
+
+#cadastro3 h3 {
+    position: relative;
+    top: 30px;
+    left: 30px;
+    padding: 5px;
+    font-size: 40pt;
+}
+
+#cadastro span {
+    position: relative;
+    left: 20px;
+    font-size: 60pt;
+}
+
+
+
+
+/* TELA CADASTRO4 */
+#pronto {
+    position: absolute;
+    top: 458px;
+    left: 883px;
+}
+
+#back {
+    position: absolute;
+    top: -10px;
+    left: 340px;
+}
+
+#cadastro4 a h4 {
+    position: absolute;
+    top: 455px;
+    left: 798px;
+    color: #2e2e2e;
+    font-size: 25pt;
+    font-family: hallo;
+    transition: .8;
+}
+
+#cadastro4 h4:hover {
+    -webkit-transform: scale(1.1);
+}
+
+#cadastro4 div#barra_ind1 {
+    position: absolute;
+    top: 70px;
+    left: 200px;
+    width: 20px;
+    height: 380px;
+    background-color: #A4A4A4;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#cadastro4 div#barra_ind2 {
+    position: absolute;
+    top: 280px;
+    left: 200px;
+    width: 20px;
+    height: 250px;
+    background-color: #A4A4A4;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+#cadastro4 div#circulo_ind1 {
+    position: absolute;
+    top: 60px;
+    left: 170px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+#cadastro4 div#circulo_ind2 {
+    position: absolute;
+    top: 210px;
+    left: 200px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+#cadastro4 div#circulo_ind3 {
+    position: absolute;
+    top: 360px;
+    left: 200px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
+}
+
+#cadastro4 div#circulo_ind4 {
+    position: absolute;
+    top: 510px;
+    left: 200px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
+    width: 50px;
+    height: 50px;
+    background-color: #A4A4A4;
 }
