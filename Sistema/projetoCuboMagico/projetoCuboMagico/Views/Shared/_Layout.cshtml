@@ -9,26 +9,23 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<body id="index">
+    <div id="borda"></div>
+    <header id="cabecalho">
+        <img id="imgBack" src="~/Content/_imagens/cube.png" />
+        <p><span id="cubo">CUBO</span><br /> &nbsp; <span id="magico">MAGICO</span></p>
+        <nav id="menu_index">
+            <ul>
+                <li>@Html.ActionLink("Ínicio", "Index", "Home")</li>
+                <li>@Html.ActionLink("Assinaturas", "Index", "Home")</li>
+                <li>@Html.ActionLink("Meu Cubo", "Index", "Home")</li>
+                <li>@Html.ActionLink("Ajuda", "Index", "Home")</li>
+            </ul>
+        </nav>
+
+    </header>
+    <div id="borda"></div>
+
     <div>
         @RenderBody()
     </div>

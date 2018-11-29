@@ -260,7 +260,6 @@ C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projeto
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Microsoft.AspNet.TelemetryCorrelation.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Newtonsoft.Json.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Web.Helpers.dll
@@ -271,7 +270,6 @@ C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projeto
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Web.WebPages.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Web.WebPages.Razor.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\WebGrease.dll
-C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Google.Protobuf.dll
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.xml
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Web.Helpers.xml
 C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\System.Web.Mvc.xml
