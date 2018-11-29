@@ -3,22 +3,22 @@
 /* FONTES */
 @font-face {
     font-family: hallo;
-    src: url('_fontes/hallo-sans-light.otf');
+    src: url('/fonts/_Fontes/hallo-sans-light.otf');
 }
 
 @font-face {
     font-family: players;
-    src: url('_fontes/players.ttf');
+    src: url('/fonts/_Fontes/Players.ttf');
 }
 
 @font-face {
     font-family: teachers;
-    src: url('_fontes/_teachersStudent/TeachersStudent-Regular.ttf')
+    src: url('/fonts/_Fontes/_teachersStudent/TeachersStudent-Regular.ttf')
 }
 
 @font-face {
     font-family: loveh;
-    src: url('_fontes/loveHearts.otf');
+    src: url('/fonts/_Fontes/loveHearts.otf');
 }
 
 /* kEY FRAMES */

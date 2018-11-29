@@ -192,12 +192,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\_imagens\alterar.png" />
+    <Content Include="Content\_imagens\back.ico" />
     <Content Include="Content\_imagens\background_postit.png" />
+    <Content Include="Content\_imagens\back_vetor.png" />
+    <Content Include="Content\_imagens\cadastrar.png" />
     <Content Include="Content\_imagens\cadastro_vetor.png" />
     <Content Include="Content\_imagens\cartao_vetor.png" />
+    <Content Include="Content\cssFuncionario.css" />
     <Content Include="Content\_imagens\cube.png" />
     <Content Include="Content\_imagens\cube_editado.png" />
+    <Content Include="Content\_imagens\excluir.png" />
     <Content Include="Content\_imagens\finish_vetor.png" />
+    <Content Include="Content\_imagens\gerar.png" />
     <Content Include="Content\_imagens\icon_back.ico" />
     <Content Include="Content\_imagens\icon_back.png" />
     <Content Include="Content\_imagens\icon_logo.ico" />
@@ -288,6 +295,7 @@
     <Content Include="Views\Usuarios\RedefinirSenha.cshtml" />
     <Content Include="Views\Usuarios\AlterarSenha.cshtml" />
     <Content Include="Views\Unboxings\AleatorizarBox.cshtml" />
+    <Content Include="Views\Funcionarios\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

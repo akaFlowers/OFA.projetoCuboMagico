@@ -24,6 +24,7 @@ namespace projetoCuboMagico
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/cssFuncionario.css",
                       "~/Content/site.css"));
         }
     }

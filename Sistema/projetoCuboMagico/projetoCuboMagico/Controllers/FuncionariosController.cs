@@ -17,6 +17,11 @@ namespace projetoCuboMagico.Controllers
             List<Funcionario> funcionario = funcionariosRepository.listarTodos().ToList();
             return View(funcionario);
         }
+        [HttpGet]
+        public ActionResult Home()
+        {
+            return View();
+        }
 
         // GET: Funcionarios/Details/5
         [HttpGet]
