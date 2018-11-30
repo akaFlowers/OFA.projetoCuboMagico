@@ -1,0 +1,55 @@
+﻿@model projetoCuboMagico.Models.CartaoCredito
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastro Cubo Mágico</title>
+    @Styles.Render("~/Content/css")
+    <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
+
+</head>
+<body id="cadastro">
+    <div id="barra_ind1" class="ind_ativo"></div> <div id="barra_ind2" class="ind_ativo"></div>
+    <a class="linkInd" href="@Url.Action("Create", "Cliente")"><div id="circulo_ind1" class="ind_ativo linkE"> <img class="ind" src="_imagens/cadastro_vetor.png" /> </div></a>
+    <a href="cadastro2_cubo.html"><div id="circulo_ind2" class="ind_ativo linkE"> <img class="ind" src="_imagens/livro_vetor.png" /> </div></a>
+    <div id="circulo_ind3" class="ind_ativo"> <img class="ind" src="_imagens/cartao_vetor.png" /> </div>
+    <div id="circulo_ind4"> <img class="ind" src="_imagens/finish_vetor.png" /> </div>
+
+    <div id="livro">
+        <div id="livro_left">3
+
+            <form class="folha_left">
+                <img id="imgLivro3" src="~/Content/_imagens/imgLivro3.png" />
+                <h2 class="TLivro">Informações do Pagamento:</h2><br /><br />
+                @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Numero, null, new { htmlAttributes = new { @class = "input input3", id = "txtNumCartao", style = "border:0;" } })<br />
+                @Html.LabelFor(model => model.NomeImpresso, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.NomeImpresso, null, new { htmlAttributes = new { @class = "input input3", id = "txtPropCartao", style = "border:0;" } })<br />
+                @Html.LabelFor(model => model.NomeImpresso, htmlAttributes: new { @class = "label" })
+            </form>
+        </div>
+        <div id="livro_right">
+            <form class="folha_right">
+                <img id="imgLivro4" src="~/Content/_imagens/imglivro4.png" />
+                <h3 id="recFinal">
+                    Você está completando seu cadastro de 3 etapas!
+                    Avance e confirme seus dados <span class="e">:)</span>
+                </h3>
+                <input type="submit" class="btnForm" value="Avançar ->" style="border:0;" />
+            </form>
+        </div>
+        <div id="livro_centro">
+
+        </div>
+    </div>
+</body>
+
+
+</html>
+}
+

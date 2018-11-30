@@ -213,6 +213,8 @@
     <Content Include="Content\_imagens\icon_logo.ico" />
     <Content Include="Content\_imagens\imgLivro1.png" />
     <Content Include="Content\_imagens\imgLivro2.png" />
+    <Content Include="Content\_imagens\imgLivro3.png" />
+    <Content Include="Content\_imagens\imglivro4.png" />
     <Content Include="Content\_imagens\imgMeioco.png" />
     <Content Include="Content\_imagens\investigacaoIcon.png" />
     <Content Include="Content\_imagens\juvenilIcon.png" />
@@ -308,6 +310,7 @@
     <Content Include="Views\Usuarios\AlterarSenha.cshtml" />
     <Content Include="Views\Unboxings\AleatorizarBox.cshtml" />
     <Content Include="Views\Funcionarios\Home.cshtml" />
+    <Content Include="Views\Clientes\Create3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

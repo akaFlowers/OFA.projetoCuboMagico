@@ -24,7 +24,7 @@ namespace projetoCuboMagico.Repository
                 cmd = new MySqlCommand("SP_incluirUnboxing", Conexao.conexao);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idCliente", unboxing.IdCliente);
-                cmd.Parameters.AddWithValue("@dataGerada", unboxing.DataGerada);
+                cmd.Parameters.AddWithValue("@dataGerada", DateTime.Now);
                 cmd.ExecuteNonQuery();
 
                 return true;

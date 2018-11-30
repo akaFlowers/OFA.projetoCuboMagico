@@ -24,6 +24,11 @@ namespace projetoCuboMagico.Controllers
         {
             return View(clientesRepository.consultaPorID(id));
         }
+        [HttpGet]
+        public ActionResult Create3()
+        {
+            return View();
+        }
 
         // GET: Clientes/Create
         [HttpGet]

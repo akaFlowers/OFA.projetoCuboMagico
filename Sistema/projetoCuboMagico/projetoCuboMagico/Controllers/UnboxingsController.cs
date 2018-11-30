@@ -105,6 +105,7 @@ namespace projetoCuboMagico.Controllers
                 {   //Assinatura básica mensal
                     if (assinatura.Nome.Contains("Básica"))
                     {
+                        Unboxing unboxing = new Unboxing();
                         int[] aleatorio = new int[1];
                         int iDataTable = dt.Rows.Count;
                         Random random = new Random();
@@ -114,6 +115,9 @@ namespace projetoCuboMagico.Controllers
                         {
                             aleatorio[1] = random.Next(iDataTable);
                         }
+                        unboxing.DataGerada = DateTime.Now;
+
+
                     }
                     //Assinatura básica semestral
                     else if(assinatura.Nome.Contains("Premium"))

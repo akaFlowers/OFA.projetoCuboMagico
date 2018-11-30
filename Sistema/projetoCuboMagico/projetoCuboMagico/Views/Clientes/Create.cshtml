@@ -11,7 +11,10 @@
     @Html.AntiForgeryToken()
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro Cubo Mágico</title>
     @Styles.Render("~/Content/css")
+    <link rel="shortcut icon" href="_imagens/icon_logo.ico">
 </head>
     <body id="cadastro">
         <div id="barra_ind1"></div> <div id="barra_ind2"></div>
@@ -27,7 +30,7 @@
                     <h2 class="TLivro">Insira seus dados:</h2><br /><br />
                     @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Nome, null, new { htmlAttributes = new { @class = "input", id = "txtName", style = "border:0;" } })<br />
                     @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Sobrenome, null, new { htmlAttributes = new { @class = "input", id = "txtSName", style = "border:0;" } })<br />
-                    @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.DataNascimento, null, new { htmlAttributes = new { @class = "input", id = "date", style = "border:0;", placeholder = "dd/" } })<br />
+                    @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.DataNascimento, null, new { htmlAttributes = new { @class = "input", id = "date", style = "border:0;", placeholder = "dd/mm/aaaa" } })<br />
                     @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cpf, null, new { htmlAttributes = new { @class = "input", id = "cpf", style = "border:0;" } })<br />
                     @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "label" })
                     @{
