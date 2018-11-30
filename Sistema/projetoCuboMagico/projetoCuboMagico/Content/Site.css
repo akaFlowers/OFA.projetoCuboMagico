@@ -3,22 +3,22 @@
 /* FONTES */
 @font-face {
     font-family: hallo;
-    src: url('/fonts/_Fontes/hallo-sans-light.otf');
+    src: url('/fonts/hallo-sans-light.otf');
 }
 
 @font-face {
     font-family: players;
-    src: url('/fonts/_Fontes/Players.ttf');
+    src: url('/fonts/Players.ttf');
 }
 
 @font-face {
     font-family: teachers;
-    src: url('/fonts/_Fontes/_teachersStudent/TeachersStudent-Regular.ttf')
+    src: url('/fonts/TeachersStudent-Regular.ttf')
 }
 
 @font-face {
     font-family: loveh;
-    src: url('/fonts/_Fontes/loveHearts.otf');
+    src: url('/fonts/loveHearts.otf');
 }
 
 /* kEY FRAMES */
@@ -90,9 +90,6 @@
     right: -30px;
     transition: .5s;
 }
-/*img#icon:hover{
-	left: 30px;	
-}*/
 
 #circulo {
     max-width: 100%;
@@ -106,7 +103,6 @@
     background-color: #ffffff;
     box-shadow: -5px 2px 11px 4px #000000;
     animation: myanimation 30s infinite;
-    animation-delay: 2s;
 }
 
 #icon:active {
@@ -129,7 +125,6 @@
     margin-bottom: 10px;
     left: 430px;
     animation: myanimation 30s infinite;
-    animation-delay: 2s;
 }
 
 #entrar2 {
@@ -145,7 +140,6 @@
     margin-bottom: 10px;
     left: 430px;
     animation: myanimation 30s infinite;
-    animation-delay: 2s;
 }
 
 #entrar3 {
@@ -161,7 +155,6 @@
     margin-bottom: 10px;
     left: 454px;
     animation: myanimation 30s infinite;
-    animation-delay: 2s;
 }
 
 #entrar4 {
@@ -176,7 +169,6 @@
     margin-top: 0px;
     left: 430px;
     animation: myanimation 30s infinite;
-    animation-delay: 2s;
 }
 
 #entrar #selo_entrar {
@@ -209,7 +201,7 @@
     font-family: hallo;
 }
 
-.input:focus, select:focus {
+.input:focus, .select:focus {
     outline-width: 0;
 }
 
@@ -268,11 +260,6 @@
     text-align: justify;
 }
 
-    #entrar #linkCadastro:hover, #entrar #registro:hover {
-        color: #ffffff;
-        text-decoration: underline;
-    }
-
 #entrar #esqSenha {
     font-size: 12pt;
     text-decoration: none;
@@ -281,6 +268,15 @@
     margin-top: -8px;
     color: 2e2e2e;
 }
+
+#recSenha {
+    color: #2e2e2e;
+}
+
+    #linkCadastro:hover, #entrar #registro:hover, #recSenha:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
 
 /* RODAPÉ */
 
@@ -314,11 +310,38 @@
 
 
 /* TELA CADASTRO */
-body#cadastro {
+.linha1 {
+    position: absolute;
+    top: 118px;
+    left: 10px;
+    width: 400px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha2 {
+    position: absolute;
+    top: 146px;
+    left: 10px;
+    width: 400px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha3 {
+    position: absolute;
+    top: 166px;
+    left: 10px;
+    width: 400px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+#cadastro {
     background-color: #2E2E2E;
 }
 
-div#barra_ind1 {
+#barra_ind1 {
     position: absolute;
     top: 10px;
     left: 350px;
@@ -332,7 +355,7 @@ div#barra_ind1 {
     border-top-left-radius: 10px;
 }
 
-div#barra_ind2 {
+#barra_ind2 {
     position: absolute;
     top: 10px;
     right: 330px;
@@ -346,7 +369,7 @@ div#barra_ind2 {
     border-top-left-radius: 10px;
 }
 
-div#circulo_ind1 {
+#circulo_ind1 {
     position: absolute;
     top: 5px;
     left: 350px;
@@ -357,13 +380,13 @@ div#circulo_ind1 {
     background-color: #A4A4A4;
 }
 
-img.ind {
+.ind {
     position: relative;
     top: 8px;
     left: 10px;
 }
 
-div#circulo_ind2 {
+#circulo_ind2 {
     position: absolute;
     top: 5px;
     left: 656px;
@@ -374,7 +397,7 @@ div#circulo_ind2 {
     background-color: #A4A4A4;
 }
 
-div#circulo_ind3 {
+#circulo_ind3 {
     position: absolute;
     top: 5px;
     right: 350px;
@@ -385,7 +408,7 @@ div#circulo_ind3 {
     background-color: #A4A4A4;
 }
 
-div#circulo_ind4 {
+#circulo_ind4 {
     position: absolute;
     top: 5px;
     right: 260px;
@@ -400,7 +423,7 @@ div#circulo_ind4 {
     animation: myanimation .6s infinite;
 }
 
-div#livro {
+#livro {
     position: relative;
     top: 64px;
     margin: 0px auto;
@@ -410,7 +433,7 @@ div#livro {
     border: none;
 }
 
-div#livro_left {
+#livro_left {
     position: relative;
     width: 490px;
     height: 500px;
@@ -423,10 +446,9 @@ div#livro_left {
     border-right: none;
     box-shadow: -2px 2px 8px 3px #000000;
     animation: myanimation 150s infinite;
-    animation-delay: 2s;
 }
 
-#livro_left form {
+#livro_left .folha_left {
     position: relative;
     margin-right: -2px;
     padding: 5px 8px;
@@ -438,18 +460,19 @@ div#livro_left {
     font-family: teachers;
 }
 
-#livro_left h2 {
-    font-family: teachers;
-    font-size: 40pt;
-    margin-bottom: -30px;
+#livro_left .TLivro {
+        font-family: teachers;
+        font-size: 40pt;
+        margin-bottom: -30px;
 }
 
-#livro label {
+#livro .label {
     margin-left: 8px;
-    font-size: 20pt;
+    font-size: 15pt;
+    color: black;
 }
 
-#livro_left input {
+#livro_left .input {
     position: relative;
     margin: 5px 0px 0px 4px;
     padding: 4px;
@@ -458,11 +481,25 @@ div#livro_left {
     font-family: teachers;
 }
 
-input#date {
+#date {
     margin-left: 12px;
 }
 
-div#livro_centro {
+#imgLivro1 {
+    position: absolute;
+    top: 230px;
+    left: -30px;
+    transform: skewY(5deg);
+}
+
+#imgLivro2 {
+    position: absolute;
+    top: -10px;
+    left: 360px;
+    transform: skewY(-5deg);
+}
+
+#livro_centro {
     position: relative;
     top: -1000px;
     margin: 0px auto;
@@ -475,10 +512,9 @@ div#livro_centro {
     background-color: #ffffff;
     box-shadow: 0px 0px 4px #000000;
     animation: myanimation 150s infinite;
-    animation-delay: 2s;
 }
 
-div#livro_right {
+#livro_right {
     position: relative;
     top: -500px;
     left: 510px;
@@ -494,54 +530,52 @@ div#livro_right {
     border-left: none;
     box-shadow: 2px 2px 8px 3px #000000;
     animation: myanimation 150s infinite;
-    animation-delay: 2s;
 }
 
-#livro_right form {
-    position: relative;
-    margin-left: -2px;
-    padding: 80px 8px 5px 8px;
-    height: 474px;
-    -webkit-border-bottom-right-radius: 6px;
-    -webkit-border-top-right-radius: 6px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 4px 2px #ffffff;
-    font-family: teachers;
-}
+    #livro_right .folha_right {
+        position: relative;
+        margin-left: -2px;
+        padding: 80px 8px 5px 8px;
+        height: 474px;
+        -webkit-border-bottom-right-radius: 6px;
+        -webkit-border-top-right-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 4px 2px #ffffff;
+        font-family: teachers;
+    }
 
-#livro_right input {
-    position: relative;
-    margin: 5px 0px 0px 1px;
-    padding: 4px;
+    #livro_right .input {
+        position: relative;
+        margin: 5px 0px 0px 1px;
+        padding: 4px;
+    }
+
+#livro select#pais {
     width: 160px;
     font-size: 15pt;
     font-family: teachers;
 }
 
-#livro select#sexo, #livro select#est, #livro #pais option, #livro #pais optgroup, #livro #est option, #livro #est optgroup {
+#livro #sexo, #livro #est, #livro #est .opt, #livro #est .optgroup {
     font-size: 12pt;
     font-family: sans-light;
 }
 
-#livro select#pais {
-    font-size: 18pt;
-}
-
-#livro input.btn {
-    position: relative;
-    top: 100px;
-    left: 300px;
+.btnForm {
+    position: absolute;
+    top: 420px;
+    left: 360px;
     background-color: transparent;
     padding: 4px;
-    font-size: 18pt;
+    font-size: 20pt;
     transition: .8;
 }
 
-    #livro input.btn:hover {
-        font-size: 22pt;
+    .btnForm:hover {
+        -webkit-transform: scale(1.1);
     }
 
-span.link_form {
+.link_form {
     padding: 4px;
     background-color: transparent;
     font-size: 18pt;
@@ -553,20 +587,31 @@ span.link_form {
 
 /* TELA CADASTRO2 */
 
-form#optG input {
-    margin: 0px -50px 0px 20px;
+#optG .input, #optG .label {
+    margin: 0px -80px 0px 20px;
 }
 
-form#optG label {
+#optG .label {
     margin-top: -10px;
     font-size: 22pt;
 }
 
+.imgRight {
+    margin: -120px auto 0px auto;
+}
+
+#bancoImg {
+    display: none;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: 2s;
+}
 
 
 
 /* TELA CADASTRO3 */
-#cadastro3 input {
+#cadastro3 .input3 {
     position: relative;
     margin: 12px 5px 35px 10px;
     width: 160px;
@@ -582,15 +627,15 @@ form#optG label {
     width: 145px;
 }
 
-#cadastro3 h3 {
+#cadastro3 #recFinal {
     position: relative;
-    top: 30px;
+    top: -40px;
     left: 30px;
     padding: 5px;
     font-size: 40pt;
 }
 
-#cadastro span {
+#cadastro .e {
     position: relative;
     left: 20px;
     font-size: 60pt;
@@ -600,33 +645,112 @@ form#optG label {
 
 
 /* TELA CADASTRO4 */
-#pronto {
+#cadastro4 {
+    animation: myanimation .6s infinite;
+}
+
+#quadroInfo {
+    position: relative;
+    margin: 10px auto 0px auto;
+    width: 450px;
+    height: 605px;
+    background-color: #2e2e2e;
+}
+
+#quadroInd {
     position: absolute;
-    top: 458px;
-    left: 883px;
+    top: 40px;
+    left: 160px;
+    width: 100px;
+    height: 540px;
+    background-color: #2e2e2e;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
 }
 
-#back {
+#quad1 {
     position: absolute;
-    top: -10px;
-    left: 340px;
+    top: 0px;
+    left: 400px;
+    width: 45px;
+    height: 400px;
+    background-color: #2e2e2e;
 }
 
-#cadastro4 a h4 {
+#quad2 {
     position: absolute;
-    top: 455px;
-    left: 798px;
-    color: #2e2e2e;
-    font-size: 25pt;
-    font-family: hallo;
-    transition: .8;
+    top: 0px;
+    left: 623px;
+    width: 285px;
+    height: 10px;
+    background-color: #2e2e2e;
 }
 
-#cadastro4 h4:hover {
-    -webkit-transform: scale(1.1);
+#quad3 {
+    position: absolute;
+    top: 410px;
+    left: 400px;
+    width: 45px;
+    height: 205px;
+    background-color: #2e2e2e;
 }
 
-#cadastro4 div#barra_ind1 {
+#quad4 {
+    position: absolute;
+    bottom: 0px;
+    left: 800px;
+    width: 420px;
+    height: 20px;
+    background-color: #2e2e2e;
+}
+
+#quad5 {
+    position: absolute;
+    bottom: 0px;
+    left: 275px;
+    width: 110px;
+    height: 80px;
+    background-color: #2e2e2e;
+}
+
+#quad6 {
+    position: absolute;
+    bottom: 95px;
+    left: 275px;
+    width: 110px;
+    height: 420px;
+    background-color: #2e2e2e;
+}
+
+#quad7 {
+    position: absolute;
+    top: 0px;
+    left: 275px;
+    width: 110px;
+    height: 100px;
+    background-color: #2e2e2e;
+}
+
+#cam1 {
+    position: absolute;
+    top: 70px;
+    left: 150px;
+    width: 30px;
+    height: 8px;
+    animation: myanimation .6s infinite;
+}
+
+#cam2 {
+    position: absolute;
+    top: 540px;
+    left: 240px;
+    width: 30px;
+    height: 8px;
+    animation: myanimation .6s infinite;
+}
+
+#cadastro4 #barra_ind1 {
     position: absolute;
     top: 70px;
     left: 200px;
@@ -639,7 +763,7 @@ form#optG label {
     border-top-left-radius: 10px;
 }
 
-#cadastro4 div#barra_ind2 {
+#cadastro4 #barra_ind2 {
     position: absolute;
     top: 280px;
     left: 200px;
@@ -652,7 +776,7 @@ form#optG label {
     border-top-left-radius: 10px;
 }
 
-#cadastro4 div#circulo_ind1 {
+#cadastro4 #circulo_ind1 {
     position: absolute;
     top: 60px;
     left: 170px;
@@ -663,7 +787,7 @@ form#optG label {
     background-color: #A4A4A4;
 }
 
-#cadastro4 div#circulo_ind2 {
+#cadastro4 #circulo_ind2 {
     position: absolute;
     top: 210px;
     left: 200px;
@@ -674,7 +798,7 @@ form#optG label {
     background-color: #A4A4A4;
 }
 
-#cadastro4 div#circulo_ind3 {
+#cadastro4 #circulo_ind3 {
     position: absolute;
     top: 360px;
     left: 200px;
@@ -685,7 +809,7 @@ form#optG label {
     background-color: #A4A4A4;
 }
 
-#cadastro4 div#circulo_ind4 {
+#cadastro4 #circulo_ind4 {
     position: absolute;
     top: 510px;
     left: 200px;
@@ -696,22 +820,53 @@ form#optG label {
     background-color: #A4A4A4;
 }
 
+#concluir {
+    position: absolute;
+    padding: 2px;
+    width: 125px;
+    height: 50px;
+    top: 545px;
+    left: 772px;
+    background-color: transparent;
+}
+
+    #concluir:hover, #link4:hover {
+        -webkit-transform: scale(1.1);
+        text-decoration: none;
+    }
+
+#pronto {
+    position: relative;
+    top: -40px;
+    left: 90px;
+}
+
+#cadastro4 #link4 #btn4 {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    color: #ffffff;
+    font-size: 25pt;
+    font-family: hallo;
+}
+
+
 
 
 
 /* TELA INDEX */
-body#index {
+#index {
     animation: myanimation 50s infinite;
 }
 
-#index #borda {
+#borda {
     position: relative;
     height: 20px;
     background-color: rgba(0,0,0,.4);
     box-shadow: 0px 0px 4px 1px #ffffff;
 }
 
-#index #cabecalho {
+#cabecalho {
     position: relative;
     height: 120px;
     background-image: linear-gradient(to bottom, rgba(255,255,255,.1), rgba(255,255,255,.4) 49%, rgba(255,255,255,0) 50%, rgba(255,255,255,.4));
@@ -719,24 +874,24 @@ body#index {
     background-size: cover;
 }
 
-    #index #cabecalho #imgBack {
+    #cabecalho #imgBack {
         position: absolute;
     }
 
-    #index #cabecalho p {
+    #cabecalho .p {
         position: absolute;
         left: 10px;
         font-family: players;
     }
 
-    #index #cabecalho span#cubo {
+    #cabecalho #spanCubo {
         position: relative;
         top: -20px;
         left: 20px;
         font-size: 80px;
     }
 
-    #index #cabecalho span#magico {
+    #cabecalho #spanMagico {
         position: relative;
         top: -60px;
         left: 60px;
@@ -744,7 +899,7 @@ body#index {
     }
 
 
-#cabecalho #menu_index ul {
+#navUl {
     display: block;
     position: relative;
     top: 50px;
@@ -757,7 +912,7 @@ body#index {
     animation: navIndex 50s infinite;
 }
 
-#cabecalho #menu_index li {
+.navLi {
     display: inline-block;
     position: relative;
     top: 1px;
@@ -771,11 +926,15 @@ body#index {
     background-color: #BDBDBD;
 }
 
-#menu_index a {
+.navLink {
     color: #000000;
 }
 
-#cabecalho #menu_index li:active {
+    .navLink:hover {
+        color: #ffffff;
+    }
+
+.navLi:active {
     position: relative;
     top: 0px;
     border: 2px solid #A4A4A4;
@@ -784,7 +943,7 @@ body#index {
 
 
 
-div#interface_index {
+#interface_index {
     position: relative;
     height: 50px;
     background-color: #2E2E2E;
@@ -857,7 +1016,7 @@ div#interface_index {
     left: 7px;
 }
 
-#lateral_topo a {
+#lateral_topo #LPerfil {
     position: relative;
     top: 35px;
     left: 100px;
@@ -868,7 +1027,7 @@ div#interface_index {
     text-decoration: none;
 }
 
-#lateral_left a:hover {
+#lateral_left #LPerfil:hover {
     color: #ffffff;
     text-decoration: underline;
 }

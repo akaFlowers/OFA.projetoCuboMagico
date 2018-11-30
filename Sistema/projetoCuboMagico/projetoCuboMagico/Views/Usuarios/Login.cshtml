@@ -8,17 +8,15 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<head>
-    <meta charset="UTF-8" />
-    <title>Faça seu Login na Cubo Mágico!</title>
-    <link rel="stylesheet" href="~/Content/Site.css">
-    <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
-    @Styles.Render("~/Content/css")
-    <!-- BOOTSTRAP -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="_programas/node_modules/bootstrap/compiler/bootstrap.css">
-</head>
+  <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Faça seu Login na Cubo Mágico!</title>
+        <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
+        @Styles.Render("~/Content/css")
+        <!-- BOOTSTRAP -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
 
     <body id="login">
         <div id="interface_login">
@@ -26,31 +24,29 @@
             <a href="@Url.Action("Index", "Home")">
                 <div id="circulo"></div>
                 <img id="icon" src="~/Content/_imagens/icon_back.png" />
-                <div id="tampa_icon"></div>
             </a>
             <div id="entrar3"></div>
             <div id="entrar4"></div>
             <div id="entrar2"></div>
             <div id="entrar">
-                <img src="~/Content/_imagens/cube_editado.png" />
-                <form>
-                    <h2>Cubo Magico</h2><br />
-                    @Html.EditorFor(model => model.Usuarioo, new { htmlAttributes = new { placeholder = "Usuário:", id = "txtName" } })<br />
-                    @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { placeholder = "Senha: ", id = "txtSenha" } })<br />
-                    <input type="submit" value="Entrar" class="btn" />
-                    <a href="@Url.Action("Create", "Clientes")"><h3 id="registro">Sem Registro?</h3></a><br />
-                    <a href="@Url.Action("RedefinirSenha", "Usuarios")"><h3>Esqueci minha senha</h3></a>
+                <img id="selo_entrar" src="~/Content/_imagens/cube_editado.png" />
+                <form id="formEntrar">
+                    <h2 id="titleLogin">Cubo Magico</h2><br />
+                    @Html.EditorFor(model => model.Usuarioo, null, new { htmlAttributes = new { placeholder = "Usuário:", id = "txtName" } })<br />
+                    @Html.EditorFor(model => model.Senha, null, new { htmlAttributes = new { placeholder = "Senha: ", id = "txtSenha" } })<br />
+                    <input type="submit" value="Entrar" class="btn input" />
+                    <a href="@Url.Action("Create", "Clientes")" id="linkRegistro"><h3 id="registro">Sem Registro?</h3></a><br />
+                    <h3 id="esqSenha"><a id="recSenha" href="@Url.Action("RedefinirSenha", "Usuarios")">Esqueci minha senha</a></h3>
                 </form>
             </div>
-        </div>
-        <div id="rodape">
-            <footer>
+
+            <footer id="rodape">
                 <p>
                     Copyright &copy; 2018 - by One For All <br />
                     <a href="https://www.facebook.com/Matheus.Sosres" target="_blank">Facebook</a> | <a href="https://www.instagram.com/theus_silva7/" target="_blank">Instagran</a>
                 </p>
-            </footer>       
+            </footer>
         </div>
     </body>
-
+</html>
 }
