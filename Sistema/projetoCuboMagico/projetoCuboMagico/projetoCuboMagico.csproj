@@ -201,11 +201,13 @@
     <Content Include="Content\_imagens\back_vetor.png" />
     <Content Include="Content\_imagens\cadastrar.png" />
     <Content Include="Content\_imagens\cadastro_vetor.png" />
+    <Content Include="Content\_imagens\caixaIndex.jpg" />
     <Content Include="Content\_imagens\cartao_vetor.png" />
     <Content Include="Content\cssFuncionario.css" />
     <Content Include="Content\_imagens\cube.png" />
     <Content Include="Content\_imagens\cube_editado.png" />
     <Content Include="Content\_imagens\excluir.png" />
+    <Content Include="Content\_imagens\fecharIcon.png" />
     <Content Include="Content\_imagens\finish_vetor.png" />
     <Content Include="Content\_imagens\gerar.png" />
     <Content Include="Content\_imagens\icon_back.ico" />
@@ -216,6 +218,7 @@
     <Content Include="Content\_imagens\imgLivro3.png" />
     <Content Include="Content\_imagens\imglivro4.png" />
     <Content Include="Content\_imagens\imgMeioco.png" />
+    <Content Include="Content\_imagens\imgMeioco2.jpeg" />
     <Content Include="Content\_imagens\investigacaoIcon.png" />
     <Content Include="Content\_imagens\juvenilIcon.png" />
     <Content Include="Content\_imagens\livroIcon.png" />
@@ -223,7 +226,10 @@
     <Content Include="Content\_imagens\perfil_vetor.png" />
     <Content Include="Content\_imagens\pronto_vetor.png" />
     <Content Include="Content\_imagens\romanceIcon.png" />
+    <Content Include="Content\_imagens\seta.png" />
+    <Content Include="Content\_imagens\sol.png" />
     <Content Include="Content\_imagens\suspenseIcon.png" />
+    <Content Include="Content\_imagens\terra.png" />
     <Content Include="Content\_imagens\terrorIcon.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -311,6 +317,9 @@
     <Content Include="Views\Unboxings\AleatorizarBox.cshtml" />
     <Content Include="Views\Funcionarios\Home.cshtml" />
     <Content Include="Views\Clientes\Create3.cshtml" />
+    <Content Include="Views\Clientes\Create2.cshtml" />
+    <Content Include="Views\Create.cshtml" />
+    <Content Include="Views\Home\Entrar_Cubo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

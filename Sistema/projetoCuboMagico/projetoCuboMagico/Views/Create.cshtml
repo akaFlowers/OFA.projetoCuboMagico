@@ -1,0 +1,99 @@
+﻿@model projetoCuboMagico.Models.Cliente
+
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastro Cubo Mágico</title>
+    @Styles.Render("~/Content/css")
+    <link rel="shortcut icon" href="_imagens/icon_logo.ico">
+</head>
+    <body id="cadastro">
+        <div id="barra_ind1"></div> <div id="barra_ind2"></div>
+        <div id="circulo_ind1" class="ind_ativo"> <img class="ind" src="~/Content/_imagens/cadastro_vetor.png" /> </div>
+        <div id="circulo_ind2"> <img class="ind" src="~/Content/_imagens/livro_vetor.png" /> </div>
+        <div id="circulo_ind3"> <img class="ind" src="~/Content/_imagens/cartao_vetor.png" /> </div>
+        <div id="circulo_ind4"> <img class="ind" src="~/Content/_imagens/finish_vetor.png" /> </div>
+
+        <div id="livro">
+            <div id="livro_left">
+                <form class="folha_left">
+                    <img id="imgLivro2" src="~/Content/_imagens/imgLivro2.png" />
+                    <h2 class="TLivro">Insira seus dados:</h2><br /><br />
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Nome, null, new { htmlAttributes = new { @class = "input", id = "txtName", style = "border:0;" } })<br />
+                    @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Sobrenome, null, new { htmlAttributes = new { @class = "input", id = "txtSName", style = "border:0;" } })<br />
+                    @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.DataNascimento, null, new { htmlAttributes = new { @class = "input", id = "date", style = "border:0;", placeholder = "dd/mm/aaaa" } })<br />
+                    @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cpf, null, new { htmlAttributes = new { @class = "input", id = "cpf", style = "border:0;" } })<br />
+                    @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "label" })
+                    @{
+                        List<SelectListItem> sexo = new List<SelectListItem>();
+                        sexo.Add(new SelectListItem { Text = "M", Value = "Masculino", Selected = true });
+                        sexo.Add(new SelectListItem { Text = "F", Value = "Feminino" });
+                    }
+                    @Html.DropDownListFor(model => model.Sexo, sexo, htmlAttributes: new { @class = "label" })<br />
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Email, null, new { htmlAttributes = new { @class = "input", id = "email", style = "border:0;" } })
+                    <div class="linha1"></div><div class="linha2"></div><div class="linha3"></div><div class="linha4"></div><div class="linha5"></div>
+                </form>
+            </div>
+            <div id="livro_right">
+                <form class="folha_right">
+                    <img id="imgLivro1" src="~/Content/_imagens/imgLivro1.png" />
+                    @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Nome, null, new { htmlAttributes = new { @class = "input", style = "border:0;", id = "tel" } })<br />
+                    @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "label" }) @Html.EditorFor(model => model.Celular, null, new { htmlAttributes = new { @class = "input", style = "border:0;", id = "cel" } })<br />
+                    @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cep, null, new { htmlAttributes = new { @class = "input", style = "border:0;", id = "cep" } })<br />
+                    @Html.LabelFor(model => model.Pais, htmlAttributes: new { @class = "label" })
+                    @{
+                        List<SelectListItem> pais = new List<SelectListItem>();
+                        pais.Add(new SelectListItem { Text = "Brasil", Value = "Brasil", Selected = true, Disabled = true });
+                    }
+                    @Html.DropDownListFor(model => model.Pais, pais, htmlAttributes: new { @class = "select", id = "pais", @style = "border:1;" } )
+                    @Html.LabelFor(model => model.Estado)
+                    @{
+                        List<SelectListItem> estado = new List<SelectListItem>();
+                        estado.Add(new SelectListItem { Text = "AC", Value = "AC" });
+                        estado.Add(new SelectListItem { Text = "AL", Value = "AL" });
+                        estado.Add(new SelectListItem { Text = "AP", Value = "AP" });
+                        estado.Add(new SelectListItem { Text = "AM", Value = "AM" });
+                        estado.Add(new SelectListItem { Text = "BA", Value = "BA" });
+                        estado.Add(new SelectListItem { Text = "CE", Value = "CE" });
+                        estado.Add(new SelectListItem { Text = "DF", Value = "DF" });
+                        estado.Add(new SelectListItem { Text = "ES", Value = "ES" });
+                        estado.Add(new SelectListItem { Text = "GO", Value = "GO" });
+                        estado.Add(new SelectListItem { Text = "MA", Value = "MA" });
+                        estado.Add(new SelectListItem { Text = "MT", Value = "MT" });
+                        estado.Add(new SelectListItem { Text = "MS", Value = "MS" });
+                        estado.Add(new SelectListItem { Text = "MG", Value = "MG" });
+                        estado.Add(new SelectListItem { Text = "PA", Value = "PA" });
+                        estado.Add(new SelectListItem { Text = "PB", Value = "PB" });
+                        estado.Add(new SelectListItem { Text = "PR", Value = "PR" });
+                        estado.Add(new SelectListItem { Text = "PE", Value = "PE" });
+                        estado.Add(new SelectListItem { Text = "PI", Value = "PI" });
+                        estado.Add(new SelectListItem { Text = "RJ", Value = "RJ" });
+                        estado.Add(new SelectListItem { Text = "RN", Value = "RN" });
+                        estado.Add(new SelectListItem { Text = "RS", Value = "RS" });
+                        estado.Add(new SelectListItem { Text = "RO", Value = "RO" });
+                        estado.Add(new SelectListItem { Text = "RR", Value = "RR" });
+                        estado.Add(new SelectListItem { Text = "SC", Value = "SC" });
+                        estado.Add(new SelectListItem { Text = "SP", Value = "SP", Selected = true });
+                        estado.Add(new SelectListItem { Text = "SE", Value = "SE" });
+                        estado.Add(new SelectListItem { Text = "TO", Value = "TO" });
+                    }
+                    @Html.DropDownListFor(model => model.Estado, estado, new { htmlAttributes = new { @class = "select", id = "est", @style = "border:0;" } })<br />
+                    <input type="submit" value="Avançar ->" class="btnForm" style="border:0;" />
+                </form>
+            </div>
+            <div id="livro_centro">
+            </div>
+        </div>
+
+    </body>
+</html>
+}                       
