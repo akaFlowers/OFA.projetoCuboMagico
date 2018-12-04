@@ -3,7 +3,7 @@
 /* FONTES */
 @font-face {
     font-family: hallo;
-    src: url('/fonts/hallo-sans-light.otf');
+    src: url('/fonts/hallo-sans-light.otf')
 }
 
 @font-face {
@@ -19,6 +19,11 @@
 @font-face {
     font-family: loveh;
     src: url('/fonts/loveHearts.otf');
+}
+
+@font-face {
+    font-family: meatloaf;
+    src: url('/fonts/Meatloaf.ttf');
 }
 
 /* kEY FRAMES */
@@ -78,7 +83,7 @@
 /* TELA > LOGIN */
 
 #interface_login {
-    margin-top: -30px;
+    margin-top: -40px;
     padding: 10px;
     background-color: #2E2E2E;
 }
@@ -287,9 +292,9 @@
     padding: 10px;
 }
 
-    #rodape #p {
+    #rodape p {
         text-align: center;
-        margin: 20px;
+        margin: 1%;
     }
 
     #rodape #social {
@@ -312,27 +317,90 @@
 /* TELA CADASTRO */
 .linha1 {
     position: absolute;
-    top: 118px;
+    top: 116px;
     left: 10px;
-    width: 400px;
+    width: 458px;
     height: 1px;
     background-color: #d3d3d3;
 }
 
 .linha2 {
     position: absolute;
-    top: 146px;
+    top: 170px;
     left: 10px;
-    width: 400px;
+    width: 458px;
     height: 1px;
     background-color: #d3d3d3;
 }
 
 .linha3 {
     position: absolute;
-    top: 166px;
+    top: 224px;
     left: 10px;
-    width: 400px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha4 {
+    position: absolute;
+    top: 280px;
+    left: 10px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha5 {
+    position: absolute;
+    top: 330px;
+    left: 10px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha6 {
+    position: absolute;
+    top: 116px;
+    left: 0px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha7 {
+    position: absolute;
+    top: 170px;
+    left: 0px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha8 {
+    position: absolute;
+    top: 224px;
+    left: 0px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha9 {
+    position: absolute;
+    top: 280px;
+    left: 0px;
+    width: 458px;
+    height: 1px;
+    background-color: #d3d3d3;
+}
+
+.linha10 {
+    position: absolute;
+    top: 330px;
+    left: 0px;
+    width: 458px;
     height: 1px;
     background-color: #d3d3d3;
 }
@@ -360,7 +428,7 @@
     top: 10px;
     right: 330px;
     margin: 10px 0px;
-    width: 380px;
+    width: 376px;
     height: 20px;
     background-color: #A4A4A4;
     border-bottom-right-radius: 10px;
@@ -389,7 +457,7 @@
 #circulo_ind2 {
     position: absolute;
     top: 5px;
-    left: 656px;
+    left: 660px;
     border-radius: 80%;
     behavior: url(PIE.htc);
     width: 50px;
@@ -471,15 +539,18 @@
     }
 
 #livro .label {
-    margin-left: 8px;
-    font-size: 20pt;
+    margin: 0px 0px 8px 8px;
+    font-size: 22pt;
+    font-weight: bolder;
 }
 
 #livro_left .input {
     position: relative;
-    margin: 5px 0px 0px 4px;
+    top: 0px;
+    margin: 0px 0px 10px 4px;
     padding: 4px;
     width: 160px;
+    background-color: transparent;
     font-size: 15pt;
     font-family: teachers;
 }
@@ -490,7 +561,7 @@
 
 #imgLivro1 {
     position: absolute;
-    top: 230px;
+    top: 240px;
     left: -30px;
     transform: skewY(5deg);
 }
@@ -549,13 +620,13 @@
 
     #livro_right .input {
         position: relative;
-        margin: 5px 0px 0px 1px;
+        margin: 0px 0px 14px 4px;
         padding: 4px;
     }
 
-#livro select#pais {
+#livro #pais {
     width: 160px;
-    font-size: 15pt;
+    font-size: 20pt;
     font-family: teachers;
 }
 
@@ -590,6 +661,11 @@
 
 /* TELA CADASTRO2 */
 
+#cadastro2 {
+    overflow: hidden;
+    background-color: #2e2e2e;
+}
+
 #optG .input, #optG .label {
     margin: 0px -80px 0px 20px;
 }
@@ -600,17 +676,21 @@
 }
 
 .imgRight {
+    position: absolute;
     margin: -120px auto 0px auto;
 }
 
-#bancoImg {
-    display: none;
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    transition: 2s;
+#livroImg {
+    display: block;
 }
 
+#aventuraIcon {
+    display: none;
+}
+
+#acaoIcon {
+    display: none;
+}
 
 
 /* TELA CADASTRO3 */
@@ -643,7 +723,7 @@
 
 #imgLivro3 {
     position: absolute;
-    top: 275px;
+    top: 280px;
     left: -40px;
 }
 
@@ -653,6 +733,10 @@
     left: -10px;
 }
 
+#linCadastro3 .linha2, #linCadastro3 .linha3, #linCadastro3 .linha4, #linCadastro3 .linha5 {
+    position: absolute;
+    margin-top: 10px;
+}
 
 /* TELA CADASTRO4 */
 #cadastro4 {
@@ -886,6 +970,7 @@
 
     #cabecalho #imgBack {
         position: absolute;
+        top: 2px;
     }
 
     #cabecalho .p {
@@ -909,16 +994,44 @@
     }
 
 
+.navAtivo {
+    display: inline-block;
+    position: relative;
+    top: 0px;
+    margin: 5px 18px 5px 14px;
+    padding: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #BDBDBD;
+    border: 2px solid #A4A4A4;
+    box-shadow: none;
+}
+
 #navUl {
     display: block;
-    position: relative;
+    position: absolute;
     top: 50px;
-    left: 885px;
+    right: 0px;
     width: 480px;
     height: 50px;
     border-top-left-radius: 80px;
     border-bottom-left-radius: 80px;
-    box-shadow: 0px 0px 12px #000000;
+    box-shadow: -2px 0px 12px #000000;
+    animation: navIndex 50s infinite;
+}
+
+#navBack {
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 0px;
+    width: 450px;
+    height: 50px;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    box-shadow: -4px 0px 12px #000000;
     animation: navIndex 50s infinite;
 }
 
@@ -934,6 +1047,7 @@
     border-bottom-left-radius: 5px;
     box-shadow: 2px -2px 2px 2px #848484;
     background-color: #BDBDBD;
+    cursor: pointer;
 }
 
 .navLink {
@@ -951,138 +1065,684 @@
     box-shadow: none;
 }
 
-
-
-#interface_index {
+#caixa {
     position: relative;
-    height: 50px;
-    background-color: #2E2E2E;
+    top: 18px;
+    left: 400px;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 2px 2px #000000;
 }
 
 #selo {
-    position: relative;
-    top: 155px;
-    left: 900px;
+    position: absolute;
+    top: 100px;
+    left: 536px;
 }
 
 #carouselIndex {
     display: none;
     position: absolute;
-    top: 20px;
-    left: 255px;
+    top: 0px;
+    left: 110px;
+    border: none;
 }
 
 #meioco {
     position: relative;
-    left: -365px;
+    left: 0px;
     margin-top: 0px;
-    width: 1450px;
     height: 466px;
     background-color: #2E2E2E;
+}
+
+#sectionIndex {
+    position: absolute;
+    top: 0px;
+    left: 110px;
+    width: 1006px;
+    height: 466px;
+}
+
+#sectionText1 {
+    position: relative;
+    top: 20px;
+    left: 0px;
+    padding-left: 16px;
+    width: 286px;
+    color: #ffffff;
+    font-family: meatloaf;
+    font-size: 40px;
+}
+
+#seta {
+    position: relative;
+    left: 50px;
 }
 
 #lateral_left {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 140px;
+    width: 110px;
     height: 466px;
-    background-color: #000000;
+    background-color: #2E2E2E;
+    border-right: 1px solid #ffffff;
 }
 
-#lateral_info {
+#lateral_info, #lateral_infoEntrar {
     position: absolute;
     float: left;
-    top: 40px;
-    left: 40px;
-    width: 20px;
-    height: 200px;
+    top: 30px;
+    left: 16px;
+    width: 78px;
+    height: 74px;
     background-color: rgba(255,255,255,.2);
-    border-top-right-radius: 80px;
-    border-bottom-right-radius: 80px;
-    border-top-left-radius: 80px;
-    border-bottom-left-radius: 80px;
+    border-radius: 80%;
+    behavior: url(PIE.htc);
     box-shadow: 0px 0px 6px 4px #ffffff;
+    overflow: hidden;
     transition: .8s;
 }
 
     #lateral_info:hover {
-        width: 140px;
-        height: 466px;
+        position: absolute;
         top: 0px;
         left: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
+        width: 110px;
+        height: 150px;
+        border-radius: 0%;
+        behavior: url(PIE.htc);
+        background-color: rgba(110,110,110,.8);
     }
 
-#lateral_infoOpen {
-    position: absolute;
+#lateral_topo {
+    position: relative;
     top: 0px;
     left: 0px;
-    width: 140px;
+    height: 150px;
+    border-bottom: 1px solid #ffffff;
+}
+
+    #lateral_topo #foto {
+        margin: 0px auto 0px auto;
+        width: 80px;
+        height: 80px;
+        border-radius: 80%;
+        behavior: url(PIE.htc);
+        background-color: #ffffff;
+    }
+
+#foto #perfil_vetor {
+    position: relative;
+    left: 7px;
+}
+
+#lateral_topo #LPerfil {
+    position: relative;
+    top: 4px;
+    left: 40px;
+    font-size: 16pt;
+    font-family: hallo;
+    color: #000000;
+    text-decoration: none;
+}
+
+#LPerfil:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+#LSair {
+    position: relative;
+    top: 34px;
+    left: 9px;
+    font-size: 12pt;
+    font-family: hallo;
+    color: #000000;
+    text-decoration: none;
+}
+
+    #LSair:hover {
+        color: #ffffff;
+    }
+
+#barLeft1 {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    width: 90px;
+    height: 20px;
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    animation: myanimation 50s infinite;
+}
+
+#barLeft2 {
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    width: 90px;
+    height: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    animation: myanimation 50s infinite;
+}
+
+#barLeft3 {
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    width: 90px;
+    height: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    animation: myanimation 50s infinite;
+}
+
+#sobre {
+    position: relative;
+    top: 200px;
+    padding: 2px 0px 0px 30px;
+    height: 30px;
+    background-color: #d3d3d3;
+    border: 1px solid #ffffff;
+}
+
+#ajuda {
+    position: relative;
+    top: 200px;
+    padding: 2px 0px 0px 30px;
+    height: 30px;
+    background-color: #d3d3d3;
+    border: 1px solid #ffffff;
+}
+
+.a {
+    color: #000000;
+    text-decoration: none;
+}
+
+#anuncio {
+    position: absolute;
+    top: 40px;
+    right: 0px;
+    width: 250px;
+    height: 400px;
+    animation: myanimation 50s infinite;
+}
+
+#barraTime {
+    position: absolute;
+    overflow: hidden;
+    top: 440px;
+    right: 0px;
+    width: 250px;
+    height: 25px;
+    background-color: transparent;
+    background-color: transparent;
+    border: 1px solid #000000;
+    box-shadow: 0px 0px 2px 2px #000000;
+}
+
+#timer {
+    height: 25px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px 2px #000000;
+}
+
+#textAnun {
+    position: absolute;
+    padding: 4px 0px 0px 8px;
+    top: 0px;
+    right: 0px;
+    width: 250px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #000000;
+    color: #ffffff;
+    font-size: 14pt;
+    box-shadow: 0px 0px 2px 2px #000000;
+}
+
+
+
+
+
+/* TELA ASSINATURA */
+#assAviso {
+    position: absolute;
+    float: left;
+    top: 120px;
+    left: 360px;
+    width: 600px;
+    height: 300px;
+    background-color: rgba(200,200,200,.9);
+    border: 1px solid #000000;
+}
+
+.close {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.spanAviso {
+    position: relative;
+    top: 56px;
+    left: 90px;
+    font-family: loveh;
+    font-size: 40pt;
+}
+
+#assinatura {
+    animation: myanimation 50s infinite;
+}
+
+#assBase {
+    position: relative;
+    top: 0px;
+    margin: 0px auto;
     height: 466px;
-    background-color: rgba(110,110,110,.3);
+    background-color: #2e2e2e;
+}
+
+#ass1 {
+    position: absolute;
+    top: 45px;
+    left: 120px;
+    width: 340px;
+    height: 400px;
+    background-color: rgba(255,255,255,.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 16px 4px #ffffff;
+    transition: .3s;
+    cursor: pointer;
+}
+
+    #ass1:hover {
+        background-color: rgba(0,0,255,.4);
+        box-shadow: 0px 0px 4px 4px rgb(0,0,255);
+    }
+
+#ass2 {
+    position: relative;
+    top: 45px;
+    margin: 0px auto;
+    width: 340px;
+    height: 400px;
+    background-color: rgba(255,255,255,.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 16px 4px #ffffff;
+    transition: .3s;
+    cursor: pointer;
+}
+
+    #ass2:hover {
+        background-color: rgba(255,255,0,.8);
+        box-shadow: 0px 0px 4px 4px rgb(255,255,0);
+    }
+
+#ass3 {
+    position: absolute;
+    top: 45px;
+    right: 120px;
+    width: 340px;
+    height: 400px;
+    background-color: rgba(255,255,255,.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 16px 4px #ffffff;
+    transition: .3s;
+    cursor: pointer;
+}
+
+    #ass3:hover {
+        background-color: rgba(0,255,0,.8);
+        box-shadow: 0px 0px 4px 4px rgb(0,255,0);
+    }
+
+.assHover:hover {
+    color: #ffffff;
+    -webkit-transform: scale(1.04);
+}
+
+#assTi {
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    height: 40px;
+}
+
+.assTitle {
+    display: inline-block;
+    position: relative;
+    margin: 6px 100px 0px 200px;
+    font-size: 20pt;
+    color: #ffffff;
+}
+
+#assA {
+    position: relative;
+    top: 0px;
+    padding: 0px 12px 12px 12px;
+    height: 200px;
+    font-size: 25pt;
+    border-bottom: 4px solid #2e2e2e;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-weight: 600;
+}
+
+#assB {
+    position: relative;
+    top: 0px;
+    padding: 0px 12px 12px 12px;
+    height: 200px;
+    font-size: 25pt;
+    border-top: 4px solid #2e2e2e;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-weight: 600;
+}
+
+    #assA:hover, #assB:hover {
+        background-color: rgba(180,180,180,.4);
+        -webkit-transform: scale(1.06);
+    }
+
+.assLink {
+    color: #2e2e2e;
+}
+
+    .assLink:hover {
+        color: #ffffff;
+    }
+
+
+.assL {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    font-family: loveh;
+}
+
+.upL {
+    font-size: 40pt;
+}
+
+.assVal {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-family: players;
+}
+
+.upVal {
+    font-family: loveh;
+    font-size: 60pt;
+}
+
+.sup {
+    top: -40px;
+    font-size: 25pt;
+}
+
+.assLi {
+    position: absolute;
+    margin-top: 40px;
+    bottom: 0px;
+    font-size: 14pt;
+    font-family: teachers;
 }
 
 
-/*#lateral_left{
-	
-	position: absolute;
-	float: left;
-	top: 2px;
-	left: -280px;
-	width: 300px;
-	height: 466px;
-	background-color: rgba(255,255,255,.2);
-	border-top-right-radius: 10px;
-	border-top-right-radius: 10px;
-	box-shadow: 0px 4px 2px 6px #ffffff;
-	transition: .6s;
-}
-#lateral_left:hover{
-	position: absolute;
-	left: -20px;
+
+
+/* TELA MEU CUBO */
+#meuCubo {
+    animation: myanimation 50s infinite;
 }
 
-#lateral_left #lateral_topo{
-	position: relative;
-	left: 19px;
-	width: 282px;
-	height: 150px;
-	border-top-right-radius: 10px;
-	border-top-right-radius: 10px;
-	border: 1px solid #ffffff;
+#meuBtn {
+    position: relative;
+    top: 300px;
+    margin: 0px auto;
+    padding: 2px 0px 0px 12px;
+    width: 140px;
+    height: 30px;
+    background-color: #000000;
+    box-shadow: 0px 0px 8px 2px #000000;
+    color: #ffffff;
 }
 
-#lateral_topo #foto{
-	position: relative;
-	top: 20px;
-	left: 80px;
-	width: 80px;
-	height: 80px;
-	background-color: #ffffff;
-	border-radius: 80%;
-    behavior: url(PIE.htc);
+#bloco1 {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    width: 300px;
+    height: 200px;
+    background-color: #2e2e2e;
 }
 
-#foto #perfil_vetor{
-	position: absolute;
-	left: 7px;
+
+
+
+/* assMesA */
+#assPt2 {
+    overflow: hidden;
+    background-color: #000000;
 }
 
-#lateral_topo #LPerfil{
-	position: relative;
-	top: 35px;
-	left: 100px;
-	margin: 4px;
-	font-size: 16pt;
-	font-family: hallo;
-	color: #000000;
-	text-decoration: none;
+#assRolagem {
+    position: relative;
+    top: 0px;
+    width: 1366px;
+    height: 626px;
+    background-color: #000000;
 }
-#lateral_left #LPerfil:hover{
-	color: #ffffff;
-	text-decoration: underline;
-}*/
+
+#sol {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #ffff00;
+    box-shadow: 0px 0px 12px 40px #ffff00;
+}
+
+#terra {
+    position: absolute;
+    bottom: -260px;
+    left: 200px;
+}
+
+#assConfirm {
+    position: absolute;
+    top: 80px;
+    left: 480px;
+    width: 400px;
+    height: 500px;
+    background-color: rgba(0,0,255,.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 16px 4px #ffffff;
+    color: #ffffff;
+}
+
+#assConfirm2 {
+    position: absolute;
+    top: 80px;
+    left: 480px;
+    width: 400px;
+    height: 500px;
+    background-color: rgba(255,255,0,.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 16px 4px #ffffff;
+    color: #ffffff;
+}
+
+#assConfirm3 {
+    position: absolute;
+    top: 80px;
+    left: 480px;
+    width: 400px;
+    height: 500px;
+    background-color: rgba(0,255,0,.8);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0px 0px 16px 4px #ffffff;
+    color: #ffffff;
+}
+
+#TDes {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    font-size: 25pt;
+    font-family: loveh;
+    color: #ffffff;
+}
+
+#assADes {
+    position: relative;
+    top: 0px;
+    height: 240px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#assBDes {
+    position: relative;
+    top: 0px;
+    height: 260px;
+    border-top: 4px solid #000000;
+}
+
+.upLDes {
+    font-family: loveh;
+    font-size: 60pt;
+    position: relative;
+    top: 5px;
+    left: 2px;
+}
+
+.assLDes {
+    font-family: loveh;
+    font-size: 40pt;
+    position: relative;
+    top: 30px;
+    left: 18px;
+}
+
+.assValDes {
+    position: relative;
+    top: 30px;
+    right: -80px;
+    font-family: players;
+}
+
+.upValDes {
+    position: relative;
+    top: 5px;
+    right: 10px;
+    font-family: loveh;
+    font-size: 60pt;
+}
+
+.assLiDes {
+    position: relative;
+    top: 40px;
+    left: 20px;
+    font-family: hallo;
+    font-size: 20pt;
+}
+
+#estrela1 {
+    position: relative;
+    top: 200px;
+    left: 40px;
+    width: 4px;
+    height: 8px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 2px 1px #FFFF00;
+}
+
+
+
+
+/* TELA ENTRAR */
+#telaEntrar {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 440px;
+    padding: 10px;
+    width: 500px;
+    height: 300px;
+    background-color: #eeeeee;
+    font-size: 40pt;
+    font-family: players;
+}
+
+#sectionLink:hover {
+    color: #0000dd;
+    text-decoration: none;
+}
+
+#inicioLink {
+    position: absolute;
+    top: 250px;
+    left: 130px;
+    color: #0000dd;
+    font-size: 20pt;
+    font-family: players;
+}
+
+    #inicioLink:hover {
+        color: #0000ff;
+    }
+
+.close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#infoInicial {
+    position: relative;
+    top: 0px;
+    left: 20px;
+    margin: 0px 20px 0px 20px;
+    width: 1275px;
+    height: 586px;
+    background-color: #2e2e2e;
+    font-size: 20pt;
+    font-family: players;
+}
+
+#bordaEntrar {
+    position: relative;
+    height: 20px;
+    background-color: rgba(0,0,0,.4);
+    box-shadow: 0px 0px 4px 1px #ffffff;
+}

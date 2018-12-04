@@ -13,6 +13,10 @@ namespace projetoCuboMagico.Controllers
             return View();
         }
 
+        public ActionResult Meu_Cubo()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

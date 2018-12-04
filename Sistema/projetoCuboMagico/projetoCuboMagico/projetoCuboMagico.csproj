@@ -245,6 +245,7 @@
     <Content Include="fonts\mrKebab.ttf" />
     <Content Include="fonts\Players.ttf" />
     <Content Include="fonts\TeachersStudent-Regular.ttf" />
+    <Content Include="fonts\Meatloaf.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -320,6 +321,9 @@
     <Content Include="Views\Clientes\Create2.cshtml" />
     <Content Include="Views\Create.cshtml" />
     <Content Include="Views\Home\Entrar_Cubo.cshtml" />
+    <Content Include="Views\Home\Assinatura_Cubo.cshtml" />
+    <Content Include="Views\Shared\iFrameIndex.cshtml" />
+    <Content Include="Views\Home\Meu_Cubo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
