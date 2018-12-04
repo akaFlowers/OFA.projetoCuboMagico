@@ -1,0 +1,35 @@
+﻿@model projetoCuboMagico.Models.CartaoCredito
+
+@{
+                /**/
+
+                Layout = null;
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cadastro Cubo Mágico</title>
+        @Styles.Render("~/Content/css")
+        <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
+
+    </head>
+    <body id="meuCubo">
+        <div id="meuBtn">::&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Esse mês&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::</div>
+        <div id="bloco1"></div><div id="bloco2"></div><div id="bloco3"></div><div id="bloco" 4></div><div id="bloco5"></div><div id="bloco6"></div>
+
+    </body>
+
+
+
+</html>
+<script>
+    $('.close').click(function (event) {
+        $('#assAviso').fadeOut();
+        event.preventDefault();
+    });
+</script>
+}
+

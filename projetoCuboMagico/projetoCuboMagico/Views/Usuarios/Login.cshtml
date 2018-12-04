@@ -1,0 +1,44 @@
+﻿@model projetoCuboMagico.Models.Usuario
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+<html>
+    <head>
+    <meta charset="UTF-8" />
+    <title>Faça seu Login na Cubo Mágico!</title>
+    <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
+    @Styles.Render("~/Content/css")
+    </head>
+    <body id="login" style="background-color:#2E2E2E;">
+        <div id="interface_login">
+            <div id="entrar3"></div>
+            <div id="entrar4"></div>
+            <div id="entrar2"></div>
+            <div id="entrar">
+                <img id="selo_entrar" src="~/Content/_imagens/cube_editado.png" />
+                <form if="formEntrar">
+                    <h2 id="titleLogin">Cubo Magico</h2><br />
+                    @Html.EditorFor(model => model.Usuarioo, null, new { htmlAttributes = new { placeholder = "Usuário:", id = "txtName" } })<br />
+                    @Html.EditorFor(model => model.Senha, null, new { htmlAttributes = new { placeholder = "Senha: ", id = "txtSenha" } })<br />
+                    <input type="submit" value="Entrar" class="btn input" /><br />
+                    <a id="linkRegistro" href="@Url.Action("Create", "Clientes")"><h3 id="registro">Sem Registro?</h3></a><br />
+                    <h3 id="esqSenha"><a id="recSenha" href="esqSenha_cubo.html">Esqueci minha senha</a></h3>
+                </form>
+            </div>
+        </div>
+        <footer id="rodape">
+            <p id="p">
+                Copyright &copy; 2018 - by One For All <br />
+                <a id="social" href="https://www.facebook.com/Matheus.Sosres" target="_blank">Facebook</a> | <a id="social" href="https://www.instagram.com/theus_silva7/" target="_blank">Instagran<a />
+            </p>
+        </footer>
+    </body>
+</html>   
+}

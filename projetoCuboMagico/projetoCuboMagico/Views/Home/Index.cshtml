@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Seja Bem vindo a Cubo Mágico!</title>
+    <link rel="stylesheet" href="design.css">
+    <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body id="index">
+    <header id="header">
+        <div id="borda"></div>
+        <div id="cabecalho">
+
+            <img id="imgBack" src="~/Content/_imagens/cube.png" />
+            <p class="p"><span id="spanCubo">CUBO</span><br /> &nbsp; <span id="spanMagico">MAGICO</span></p>
+
+            <div id="navBack" class="fixed">  </div>
+            <nav id="menu_index" class="fixed">
+                <ul id="navUl">
+                    <li class="navAtivo">Inicio</li>
+                    <li class="navLi">Assinaturas</li>
+                    <li class="navLi">Meu Cubo</li>
+                    <li class="navLi">Novo!</li>
+                </ul>
+            </nav>
+        </div>
+        <div id="borda"></div>
+    </header>
+    <article id="meioco">
+        <img id="caixa" src="~/Content/_imagens/caixaIndex.jpg" />
+        <img id="selo" src="~/Content/_imagens/cube.png" />
+        <div id="carouselIndex" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/Content/_imagens/imgMeioco.png" class="img-fluid d-block" />
+                </div>
+                <div class="carousel-item">
+                    <img src="~/Content/_imagens/imgMeioco2.jpeg" class="img-fluid d-block" />
+                </div>
+            </div>
+        </div>
+
+        <section id="sectionIndex">
+            <div id="sectionText1">
+                Uma livraria como você nunca viu!<br /><br />&nbsp;&nbsp;Adquira já sua Caixa!
+            </div>
+        </section>
+
+        <aside id="lateral_left">
+            <div id="barLeft1"></div><div id="barLeft2"></div><div id="barLeft3"></div>
+            <a href="sobre_cubo.html" class="a"><div id="sobre">Sobre</div></a> <a href="ajuda_cubo.html" class="a"><div id="ajuda">Ajuda</div></a>
+            <div id="lateral_info">
+                <div id="lateral_topo">
+                    <div id="foto">
+                        <img id="perfil_vetor" src="~/Content/_imagens/perfil_vetor.png" />
+                    </div>
+                    <a id="LPerfil" href="perfil_cubo.html">Perfil</a>
+                    <a id="LSair" href="login_cubo.html">Sair</a>
+                </div>
+            </div>
+        </aside>
+        <div id="anuncio"></div>
+        <div id="barraAnun"></div>
+        <span id="textAnun"><marquee behavior="alternate" scrolldelay="1000">Descubra novidades!</marquee></span>
+        <div id="barraTime">
+            <marquee scrolldelay="800"><div id="timer"></div></marquee>
+        </div>
+
+    </article>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+</body>
+</html>
