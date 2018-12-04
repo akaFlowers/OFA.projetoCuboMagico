@@ -3,7 +3,7 @@
 /* FONTES */
 @font-face {
     font-family: hallo;
-    src: url('/fonts/hallo-sans-light.otf')
+    src: url('/fonts/hallo-sans-light.otf');
 }
 
 @font-face {
@@ -83,8 +83,8 @@
 /* TELA > LOGIN */
 
 #interface_login {
-    margin-top: -40px;
-    padding: 10px;
+    margin-top: 40px;
+    padding: 5%;
     background-color: #2E2E2E;
 }
 
@@ -128,7 +128,7 @@
     padding: 20px 20px 0px 20px;
     margin-top: -10px;
     margin-bottom: 10px;
-    left: 430px;
+    left: 468px;
     animation: myanimation 30s infinite;
 }
 
@@ -143,7 +143,7 @@
     padding: 20px 20px 0px 20px;
     margin-top: -10px;
     margin-bottom: 10px;
-    left: 430px;
+    left: 500px;
     animation: myanimation 30s infinite;
 }
 
@@ -158,7 +158,7 @@
     padding: 20px 20px 0px 20px;
     margin-top: -10px;
     margin-bottom: 10px;
-    left: 454px;
+    left: 505px;
     animation: myanimation 30s infinite;
 }
 
@@ -172,28 +172,26 @@
     position: absolute;
     padding: 20px 20px 0px 20px;
     margin-top: 0px;
-    left: 430px;
+    left: 530px;
     animation: myanimation 30s infinite;
 }
 
 #entrar #selo_entrar {
     max-width: 100%;
     position: relative;
-    left: 110px;
+    left: 91px;
     margin-top: 5px;
 }
 
-#entrar #formEntrar {
-    position: relative;
-    left: 112.5px;
-    margin-top: 10px;
+#formEntrar {
+    left: 50px;
 }
 
 #entrar #titleLogin {
     font-family: players;
     font-weight: 500;
     position: relative;
-    left: 14px;
+    left: 115px;
     margin-bottom: 2px;
 }
 
@@ -211,16 +209,16 @@
 }
 
 
-#entrar #txtName {
+.txtUsuario {
     padding-left: 5px;
     box-shadow: -4px 2px 0px 2px;
     -webkit-border-bottom-right-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
     -webkit-border-top-left-radius: 10px;
+    left: 150px;
 }
-
-#entrar #txtSenha {
+.txtSenha {
     padding-left: 5px;
     margin-top: 25px;
     box-shadow: -4px 2px 0px 2px;
@@ -228,6 +226,7 @@
     -webkit-border-bottom-left-radius: 10px;
     -webkit-border-top-right-radius: 10px;
     -webkit-border-top-left-radius: 10px;
+    left: 150px;
 }
 
 #entrar .btn {
@@ -241,8 +240,7 @@
     vertical-align: top;
     margin-top: 30px;
     position: relative;
-    left: 50px;
-    transition: .3;
+    left: 155px;
 }
 
     #entrar .btn:hover {
@@ -254,7 +252,7 @@
     font-size: 13pt;
     text-decoration: none;
     position: relative;
-    left: 41px;
+    left: 140px;
     margin-top: 12px;
     color: #2e2e2e;
 }
@@ -276,6 +274,7 @@
 
 #recSenha {
     color: #2e2e2e;
+    left: 135px;
 }
 
     #linkCadastro:hover, #entrar #registro:hover, #recSenha:hover {
@@ -292,9 +291,9 @@
     padding: 10px;
 }
 
-    #rodape p {
+    #rodape #p {
         text-align: center;
-        margin: 1%;
+        margin: 20px;
     }
 
     #rodape #social {
@@ -315,95 +314,6 @@
 
 
 /* TELA CADASTRO */
-.linha1 {
-    position: absolute;
-    top: 116px;
-    left: 10px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha2 {
-    position: absolute;
-    top: 170px;
-    left: 10px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha3 {
-    position: absolute;
-    top: 224px;
-    left: 10px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha4 {
-    position: absolute;
-    top: 280px;
-    left: 10px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha5 {
-    position: absolute;
-    top: 330px;
-    left: 10px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha6 {
-    position: absolute;
-    top: 116px;
-    left: 0px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha7 {
-    position: absolute;
-    top: 170px;
-    left: 0px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha8 {
-    position: absolute;
-    top: 224px;
-    left: 0px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha9 {
-    position: absolute;
-    top: 280px;
-    left: 0px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
-
-.linha10 {
-    position: absolute;
-    top: 330px;
-    left: 0px;
-    width: 458px;
-    height: 1px;
-    background-color: #d3d3d3;
-}
 
 #cadastro {
     background-color: #2E2E2E;
@@ -426,7 +336,7 @@
 #barra_ind2 {
     position: absolute;
     top: 10px;
-    right: 330px;
+    right: 395px;
     margin: 10px 0px;
     width: 376px;
     height: 20px;
@@ -524,7 +434,7 @@
         position: relative;
         margin-right: -2px;
         padding: 5px 8px;
-        height: 474px;
+        height: 480px;
         -webkit-border-bottom-right-radius: 6px;
         -webkit-border-top-right-radius: 6px;
         background-color: #ffffff;
@@ -541,7 +451,8 @@
 #livro .label {
     margin: 0px 0px 8px 8px;
     font-size: 22pt;
-    font-weight: bolder;
+    color: black;
+    font-family: teachers;
 }
 
 #livro_left .input {
@@ -575,10 +486,10 @@
 
 #livro_centro {
     position: relative;
-    top: -1000px;
+    top: -1046px;
     margin: 0px auto;
     width: 20px;
-    height: 500px;
+    height: 520px;
     -webkit-border-bottom-right-radius: 4px;
     -webkit-border-top-right-radius: 4px;
     -webkit-border-bottom-left-radius: 4px;
@@ -590,7 +501,7 @@
 
 #livro_right {
     position: relative;
-    top: -500px;
+    top: -524px;
     left: 510px;
     width: 490px;
     height: 500px;
@@ -606,23 +517,40 @@
     animation: myanimation 150s infinite;
 }
 
-    #livro_right .folha_right {
-        position: relative;
-        margin-left: -2px;
-        padding: 80px 8px 5px 8px;
-        height: 474px;
-        -webkit-border-bottom-right-radius: 6px;
-        -webkit-border-top-right-radius: 6px;
-        background-color: #ffffff;
-        box-shadow: 0px 0px 4px 2px #ffffff;
-        font-family: teachers;
-    }
+.folha_right3 {
+    position: relative;
+    margin-left: -2px;
+    height: 490px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 2px #ffffff;
+    font-family: teachers;
+    top: -66px;
+}
 
-    #livro_right .input {
-        position: relative;
-        margin: 0px 0px 14px 4px;
-        padding: 4px;
-    }
+.folha_right {
+    position: relative;
+    margin-left: -2px;
+    height: 490px;
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 4px 2px #ffffff;
+    font-family: teachers;
+}
+
+#livro_right .input {
+    position: relative;
+    margin: 0px 0px 14px 4px;
+    padding: 4px;
+}
+
+#livro_right .TLivro {
+    font-family: teachers;
+    font-size: 30pt;
+    margin-bottom: -30px;
+}
 
 #livro #pais {
     width: 160px;
@@ -637,12 +565,12 @@
 
 .btnForm {
     position: absolute;
-    top: 420px;
-    left: 360px;
+    top: 437px;
+    left: 340px;
     background-color: transparent;
     padding: 4px;
-    font-size: 20pt;
-    transition: .8;
+    font-size: 30pt;
+    font-family: teachers;
 }
 
     .btnForm:hover {
@@ -677,6 +605,7 @@
 
 .imgRight {
     position: absolute;
+    top: 90px;
     margin: -120px auto 0px auto;
 }
 
@@ -723,14 +652,14 @@
 
 #imgLivro3 {
     position: absolute;
-    top: 280px;
+    top: 300px;
     left: -40px;
 }
 
 #imgLivro4 {
     position: absolute;
     top: 340px;
-    left: -10px;
+    left: 10px;
 }
 
 #linCadastro3 .linha2, #linCadastro3 .linha3, #linCadastro3 .linha4, #linCadastro3 .linha5 {
@@ -1012,7 +941,7 @@
 #navUl {
     display: block;
     position: absolute;
-    top: 50px;
+    top: 37px;
     right: 0px;
     width: 480px;
     height: 50px;

@@ -92,7 +92,7 @@ namespace projetoCuboMagico.Repository
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@usuario", usuario.Usuarioo);
                     cmd.Parameters.AddWithValue("@senha", usuario.Senha);
-                    cmd.Parameters.AddWithValue("@nivelAcesso", usuario.NivelAcesso);
+                    cmd.Parameters.AddWithValue("@nivelAcesso", "Funcionario");
                     cmd.ExecuteNonQuery();
                     return true;
                 }

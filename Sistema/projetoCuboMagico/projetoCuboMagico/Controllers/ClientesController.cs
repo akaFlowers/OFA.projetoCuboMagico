@@ -50,15 +50,23 @@ namespace projetoCuboMagico.Controllers
                     {
                         clientesRepository.incluirCliente(cliente);
                     }
-                    return RedirectToAction(nameof(Index));
+                    
                 }
             }
             catch (Exception e)
             {
                 ModelState.AddModelError(String.Empty, e.Message);
             }
-            return View(cliente);
+            return RedirectToAction("Create2", "Clientes");
         }
+
+        [HttpGet]
+        public ActionResult Create2()
+        {
+            return View();
+        }
+
+
 
         // GET: Clientes/Edit/5
         [HttpGet]

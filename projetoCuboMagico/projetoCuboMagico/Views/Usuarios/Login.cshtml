@@ -23,14 +23,16 @@
             <div id="entrar2"></div>
             <div id="entrar">
                 <img id="selo_entrar" src="~/Content/_imagens/cube_editado.png" />
-                <form if="formEntrar">
+                <div id="formEntrar">
                     <h2 id="titleLogin">Cubo Magico</h2><br />
-                    @Html.EditorFor(model => model.Usuarioo, null, new { htmlAttributes = new { placeholder = "Usuário:", id = "txtName" } })<br />
-                    @Html.EditorFor(model => model.Senha, null, new { htmlAttributes = new { placeholder = "Senha: ", id = "txtSenha" } })<br />
+                    <div id="loginSenha">
+                        @Html.EditorFor(model => model.Usuarioo, null, new { htmlAttributes = new { placeholder = "Usuário:", id = "txtName" } })<br />
+                        @Html.EditorFor(model => model.Senha, null, new { htmlAttributes = new { placeholder = "Senha: ", id = "txtSenha" } })<br />    
+                    </div>                    
                     <input type="submit" value="Entrar" class="btn input" /><br />
                     <a id="linkRegistro" href="@Url.Action("Create", "Clientes")"><h3 id="registro">Sem Registro?</h3></a><br />
-                    <h3 id="esqSenha"><a id="recSenha" href="esqSenha_cubo.html">Esqueci minha senha</a></h3>
-                </form>
+                    <h3 id="esqSenha" style="left:117px;"><a id="recSenha" href="esqSenha_cubo.html">Esqueci minha senha</a></h3>
+                </div>
             </div>
         </div>
         <footer id="rodape">

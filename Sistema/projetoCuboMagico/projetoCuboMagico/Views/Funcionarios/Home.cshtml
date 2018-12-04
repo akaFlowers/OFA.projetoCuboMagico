@@ -2,19 +2,79 @@
 @{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Seja bem vindo!</title>
+    <title>Cubo Magico</title>
     <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
-    @Styles.Render("~/Content/css")
-    <!-- BOOTSTRAP -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="_programas/node_modules/bootstrap/compiler/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/style.css">
+
+    <script>
+        function telaL() {
+            var display = document.getElementById("telaLivro").style.display;
+            if (display == "none")
+                document.getElementById("telaLivro").style.display = 'block';
+            else
+                document.getElementById("telaLivro").style.display = 'none';
+        }
+        function telaLCad() {
+            var display = document.getElementById("LCad").style.display;
+            if (display == "none")
+                document.getElementById("LCad").style.display = 'block';
+            else
+                document.getElementById("LCad").style.display = 'none';
+        }
+        function telaLAlt() {
+            var display = document.getElementById("LAlt").style.display;
+            if (display == "none")
+                document.getElementById("LAlt").style.display = 'block';
+            else
+                document.getElementById("LAlt").style.display = 'none';
+        }
+        function telaP() {
+            var display = document.getElementById("telaProd").style.display;
+            if (display == "none")
+                document.getElementById("telaProd").style.display = 'block';
+            else
+                document.getElementById("telaProd").style.display = 'none';
+
+        }
+        function telaPCad() {
+            var display = document.getElementById("PCad").style.display;
+            if (display == "none")
+                document.getElementById("PCad").style.display = 'block';
+            else
+                document.getElementById("PCad").style.display = 'none';
+        }
+        function telaPAlt() {
+            var display = document.getElementById("PAlt").style.display;
+            if (display == "none")
+                document.getElementById("PAlt").style.display = 'block';
+            else
+                document.getElementById("PAlt").style.display = 'none';
+        }
+        function telaG() {
+            var display = document.getElementById("telaGerar").style.display;
+            if (display == "none")
+                document.getElementById("telaGerar").style.display = 'block';
+            else
+                document.getElementById("telaGerar").style.display = 'none';
+        }
+        function telaGCad() {
+            var display = document.getElementById("GCad").style.display;
+            if (display == "none")
+                document.getElementById("GCad").style.display = 'block';
+            else
+                document.getElementById("GCad").style.display = 'none';
+        }
+        function telaGAlt() {
+            var display = document.getElementById("GAlt").style.display;
+            if (display == "none")
+                document.getElementById("GAlt").style.display = 'block';
+            else
+                document.getElementById("GAlt").style.display = 'none';
+        }
+    </script>
 </head>
 <body id="index">
     <img id="logoBackground" src="~/Content/_imagens/cube.png" />
@@ -34,26 +94,19 @@
         <div id="h2"></div>
         <div id="h3"></div>
     </div>
-    <div id="quadro1">
-        <img class="quadro" src="~/Content/_imagens/cadastrar.png" />
-        <label class="leg">Cadastrar</label>
+    <div id="quadro1" onclick="telaL()">
+        <img id="ic1" src="~/Content/imgFunc/livroIcon.png" />
+        <label class="leg">Livros</label>
     </div>
-    <div id="quadro2">
-        <img class="quadro" src="~/Content/_imagens/alterar.png" />
-        <label class="leg">Alterar</label>
+    <div id="quadro2" onclick="telaP()">
+        <img id="ic2" src="~/Content/imgFunc/prodIcon.png" />
+        <label class="leg">Produtos</label>
     </div>
-    <div id="quadro3">
-        <img class="quadro" src="~/Content/_imagens/gerar.png" />
-        <label class="leg">Excluir</label>
-    </div>
-    <div id="quadro4">
-        <img class="quadro" src="~/Content/_imagens/excluir.png" />
+    <div id="quadro3" onclick="telaG()">
+        <img id="ic3" src="~/Content/imgFunc/gerarIcon.png" />
         <label class="leg">Gerador</label>
     </div>
-    <div id="quadro5">
-        <img class="quadro" src="" />
-        <label class="leg">-- -- --</label>
-    </div>
+
     <div id="borders">
         <div id="b1"></div>
         <div id="b2"></div>
@@ -64,10 +117,110 @@
         <div id="b7"></div>
     </div>
 
-    <a href="#"><img id="back" src="_imagens/back_vetor.png" /></a>
-    <!-- JAVA SCRIPT -->
-    <script src="_programas/node_modules/jquery/dist/jquery.js"></script>
-    <script src="_programas/node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="_programas/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <a href="#"><img id="back" src="~/Content/imgFunc/back_vetor.png" /></a>
+    <div id="telaLivro">
+        <div id="btnLCad" onclick="telaLCad()"><span class="btnLabel">Cadastrar</span></div>
+        <div id="btnLAlt" onclick="telaLAlt()"><span class="btnLabel">Consultar</span></div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaL()" />
+    </div>
+    <div id="LCad">
+        <div class="barraTiC">Cadastro de Livros</div><div class="barraLatC1"><span class="barraLabel">Cadastrar</span></div><div class="barraLatC2" onclick="telaLAlt()"><span class="barraLabel">Consultar</span></div>
+        <span class="tiSpan"></span>
+        <div id="formLCad">
+            <form>
+                <fieldset class="fielCad">
+                    <label for="idLivro" class="label">Código do Livro:</label><input type="number" id="idLivro" class="inputC" /><br/>
+                    <label for="txtNome" class="label">Nome:</label><input type="text" id="txtNome" class="inputC" /><br/>
+                    <label for="txtAutor" class="label">Autor:</label><input type="text" id="txtAutor" class="inputC" /><br/>
+                    <label for="idGenero" class="label">Código do Gênero:</label><input type="number" id="idGenero" class="inputC" /><br />
+                    <label for="datePubli" class="label">Data de Publicação:</label><input type="date" id="datePubli" class="inputC" /><br />
+                    <label for="txtEditora" class="label">Editora:</label><input type="text" id="txtEditora" class="inputC" /><br/>
+                    <input class="btnFiel" type="submit" value="Cadastrar" />
+                </fieldset>
+            </form>
+        </div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaLCad()" />
+    </div>
+    <div id="LAlt">
+        <div class="barraTiA">Consulta de Livros</div><div class="barraLatA1"><span class="barraLabel">Consultar</span></div><div class="barraLatA2" onclick="telaLCad()"><span class="barraLabel">Cadastrar</span></div>
+        <span class="tiSpan"></span>
+        <div id="consultLAlt">
+            <div id="consult"></div>
+            <div class="bor"></div>
+            <input type="text" id="search" class="inputA" placeholder="Buscar por:" /> <input type="text" id="filtro" class="inputA" placeholder="Filtro:" /><input type="text" id="ordem" class="inputA" placeholder="ordenada por:" />
+        </div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaLAlt()" />
+    </div>
+    <div id="telaProd">
+        <div id="btnPCad" onclick="telaPCad()"><span class="btnLabel">Cadastrar</span></div>
+        <div id="btnPAlt" onclick="telaPAlt()"><span class="btnLabel">Consultar</span></div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaP()" />
+    </div>
+    <div id="PCad">
+        <div class="barraTiC">Cadastro de Produtos</div><div class="barraLatC1"><span class="barraLabel">Cadastrar</span></div><div class="barraLatC2" onclick="telaPAlt()"><span class="barraLabel">Consultar</span></div>
+        <span class="tiSpan"></span>
+        <div id="formPCad">
+            <form>
+                <fieldset class="fielCad">
+                    <label for="idProd" class="label">Código do Produto:</label><input type="number" id="idProd" class="inputC" /><br/>
+                    <label for="txtNome" class="label">Nome:</label><input type="text" id="txtNome" class="inputC" /><br/>
+                    <label for="txtTipo" class="label">tipo:</label><input type="text" id="txtTipo" class="inputC" /><br/>
+                    <label for="design" class="label">Design:</label><textarea type="number" id="design" class="inputC"></textarea><br />
+
+                    <input class="btnFiel" type="submit" value="Cadastrar" />
+                </fieldset>
+            </form>
+        </div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaPCad()" />
+    </div>
+    <div id="PAlt">
+        <div class="barraTiA">Consulta de produtos</div><div class="barraLatA1"><span class="barraLabel">Consultar</span></div><div class="barraLatA2" onclick="telaPCad()"><span class="barraLabel">Cadastrar</span></div>
+        <span class="tiSpan"></span>
+        <div id="consultPAlt">
+            <div id="consult"></div>
+            <div class="bor"></div>
+            <input type="text" id="search" class="inputA" placeholder="Buscar por:" /> <input type="text" id="filtro" class="inputA" placeholder="Filtro:" /><input type="text" id="ordem" class="inputA" placeholder="ordenada por:" />
+        </div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaPAlt()" />
+    </div>
+    <div id="telaGerar">
+        <div id="btnGCad" onclick="telaGCad()"><span class="btnLabel">Cadastrar</span></div>
+        <div id="btnGAlt" onclick="telaGAlt()"><span class="btnLabel">Consultar</span></div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaG()" />
+    </div>
+    <div id="GCad">
+        <div class="barraTiC">Gerador de Caixas</div><div class="barraLatC1"><span class="barraLabel">Cadastrar</span></div><div class="barraLatC2" onclick="telaGAlt()"><span class="barraLabel">Consultar</span></div>
+        <span class="tiSpan"></span>
+        <img id="gerarIcon" src="~/Content/imgFunc/gerarIcon.png" />
+        <div id="listGCad">
+            <form id="buscar">
+                <input type="number" id="buscId" placeholder="Buscar código:" /><input type="text" id="buscNome" placeholder="Buscar Nome:" /><button type="text" id="buscBotao">Procurar</button>
+            </form>
+            <div id="divBuscar">
+                <div id="campGerar">
+                    <input type="number" id="idGerar" placeholder="Código" /><input type="text" id="nomeGerar" placeholder="Nome:" /><input type="text" id="cpfGerar"
+                                                                                                                                            placeholder="CPF:" />
+                </div>
+            </div>
+
+            <!--<form>
+                <><><input type="text" id="idList "/>
+                <><><input type="text" id="nomeList"/>
+                <input type="text" id="cpfList"/>
+            </form>-->
+        </div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaGCad()" />
+    </div>
+    <div id="GAlt">
+        <div class="barraTiA">Consulta de Livros</div><div class="barraLatA1"><span class="barraLabel">Consultar</span></div><div class="barraLatA2" onclick="telaGCad()"><span class="barraLabel">Cadastrar</span></div>
+        <span class="tiSpan"></span>
+        <div id="consultGAlt">
+            <div id="consult"></div>
+            <div class="bor"></div>
+            <input type="text" id="search" class="inputA" placeholder="Buscar por:" /> <input type="text" id="filtro" class="inputA" placeholder="Filtro:" /><input type="text" id="ordem" class="inputA" placeholder="ordenada por:" />
+        </div>
+        <img class="close" src="~/Content/imgFunc/fecharIcon.png" onclick="telaGAlt()" />
+    </div>
+
 </body>
 </html>

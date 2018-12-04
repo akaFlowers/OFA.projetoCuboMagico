@@ -398,3 +398,5 @@ C:\Users\3binfo\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projet
 C:\Users\3binfo\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\obj\Debug\projetoCuboMagico.dll
 C:\Users\3binfo\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\obj\Debug\projetoCuboMagico.pdb
 C:\Users\3binfo\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
+C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\MySql.Data.dll
+C:\Users\joaov\Documents\OFA.projetoCuboMagico\Sistema\projetoCuboMagico\projetoCuboMagico\bin\Google.Protobuf.dll

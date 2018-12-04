@@ -53,7 +53,7 @@ namespace projetoCuboMagico.Models
         [Display(Name = "Rua"), MaxLength(100)]
         public string Rua { get; set; }
 
-        [Display(Name = "Número"), MaxLength(10)]
+        [Display(Name = "Numero"), MaxLength(10)]
         public string Numero { get; set; }
 
         [Display(Name = "Complemento"), MaxLength(100)]

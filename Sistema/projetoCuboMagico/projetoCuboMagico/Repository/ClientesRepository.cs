@@ -128,7 +128,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@sobrenome", cliente.Sobrenome);
                     cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
                     cmd.Parameters.AddWithValue("@sexo", cliente.Sexo);
-                    cmd.Parameters.AddWithValue("@tamCamiseta", cliente.TamCamiseta);
+                    cmd.Parameters.AddWithValue("@tamCamiseta", "G");
                     cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                     cmd.Parameters.AddWithValue("@email", cliente.Email);
                     cmd.Parameters.AddWithValue("@telefone", cliente.Telefone);
@@ -136,11 +136,11 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@cep", cliente.Cep);
                     cmd.Parameters.AddWithValue("@estado", cliente.Estado);
                     cmd.Parameters.AddWithValue("@cidade", cliente.Cidade);
-                    cmd.Parameters.AddWithValue("@bairro", cliente.Bairro);
+                    cmd.Parameters.AddWithValue("@bairro", "Vila Leopoldina");
                     cmd.Parameters.AddWithValue("@rua", cliente.Rua);
                     cmd.Parameters.AddWithValue("@numero", cliente.Numero);
                     cmd.Parameters.AddWithValue("@complemento", cliente.Complemento);
-                    cmd.Parameters.AddWithValue("@pais", cliente.Pais);                   
+                    cmd.Parameters.AddWithValue("@pais", "Brasil");                   
                     cmd.Parameters.AddWithValue("@idUsuario", idUser);
                     cmd.ExecuteNonQuery();
                     return true;
@@ -165,7 +165,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@sobrenome", cliente.Sobrenome);
                     cmd.Parameters.AddWithValue("@dataNascimento", cliente.DataNascimento);
                     cmd.Parameters.AddWithValue("@sexo", cliente.Sexo);
-                    cmd.Parameters.AddWithValue("@tamCamiseta", cliente.TamCamiseta);
+                    cmd.Parameters.AddWithValue("@tamCamiseta", "G");
                     cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
                     cmd.Parameters.AddWithValue("@email", cliente.Email);
                     cmd.Parameters.AddWithValue("@telefone", cliente.Telefone);
@@ -173,7 +173,7 @@ namespace projetoCuboMagico.Repository
                     cmd.Parameters.AddWithValue("@cep", cliente.Cep);
                     cmd.Parameters.AddWithValue("@estado", cliente.Estado);
                     cmd.Parameters.AddWithValue("@cidade", cliente.Cidade);
-                    cmd.Parameters.AddWithValue("@bairro", cliente.Bairro);
+                    cmd.Parameters.AddWithValue("@bairro", "Vila Leopoldina");
                     cmd.Parameters.AddWithValue("@rua", cliente.Rua);
                     cmd.Parameters.AddWithValue("@numero", cliente.Numero);
                     cmd.Parameters.AddWithValue("@complemento", cliente.Complemento);

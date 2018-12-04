@@ -1,0 +1,92 @@
+﻿@{
+    Layout = null;
+}
+<script>
+    function mudar() {
+        var display = document.getElementById("aventuraIcon").style.display;
+        if (display == "none")
+            document.getElementById("livroImg").style.display = 'none';
+        document.getElementById("acaoIcon").style.display = 'none';
+        document.getElementById("aventuraIcon").style.display = 'block';
+        else
+        document.getElementById("aventuraIcon").style.display = 'none';
+        document.getElementById("livroImg").style.display = 'none';
+    }
+    function mudar2() {
+        var display = document.getElementById("acaoIcon").style.display;
+        if (display == "none") {
+            document.getElementById("livroImg").style.display = 'none';
+            document.getElementById("aventuraIcon").style.display = 'none';
+            document.getElementById("acaoIcon").style.display = 'block';
+        }
+        else {
+            document.getElementById("acaoIcon").style.display = 'none';
+            document.getElementById("livroImg").style.display = 'none';
+        }
+    }
+
+
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cadastro Cubo Mágico</title>
+        @Styles.Render("~/Content/css")
+        <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
+
+    </head>
+    <body id="cadastro2">
+        <div id="barra_ind1" class="ind_ativo"></div> <div id="barra_ind2"></div>
+        <a href="cadastro_cubo.html"><div id="circulo_ind1" class="ind_ativo"> <img class="ind" src="~/Content/_imagens/cadastro_vetor.png" /> </div></a>
+        <div id="circulo_ind2" class="ind_ativo"> <img class="ind" src="~/Content/_imagens/livro_vetor.png" /> </div>
+        <div id="circulo_ind3"> <img class="ind" src="~/Content/_imagens/cartao_vetor.png" /> </div>
+        <div id="circulo_ind4"> <img class="ind" src="~/Content/_imagens/finish_vetor.png" /> </div>
+
+        <div id="livro">
+            <div id="livro_left">
+                <div id="optG" class="folha_left">
+                    <form>
+                        <h2 class="TLivro">Escolha sua(s) opções de gênero:</h2><br /><br />
+                        <input type="checkbox" id="cAventura" class="input" name="optGenero" onclick="mudar()" /><label class="label" for="cAventura" onclick="mudar()">Aventura</label><br />
+                        <input type="checkbox" id="cTerror" class="input" name="optGenero" /><label class="label" for="cTerror">Terror</label><br />
+                        <input type="checkbox" id="cRomance" class="input" name="optGenero" /><label class="label" for="cRomance">Romance</label><br />
+                        <input type="checkbox" id="cInfanto" class="input" name="optGenero" /><label class="label" for="cInfanto">Infanto Juvenil</label><br />
+                        <input type="checkbox" id="cAcao" class="input" name="optGenero" onclick="mudar2()" /><label class="label" for="cAcao" onclick="mudar2()">Ação</label><br />
+                        <input type="checkbox" id="cInvestigacao" class="input" name="optGenero" /><label class="label" for="cInvestigacao">Investigação</label><br />
+                        <input type="checkbox" id="cSuspense" class="input" name="optGenero" /><label class="label" for="cSuspense">Suspense</label><br />
+                        <input type="checkbox" id="cAjuda" class="input" name="optGenero" /><label class="label" for="cAjuda">Auto Ajuda</label><br />
+                    </form>
+                </div>
+            </div>
+
+            <div id="livro_right">
+                <div class="folha_right">
+                    <img id="livroImg" class="imgRight" src="~/Content/_imagens/livroIcon.png" />
+                    <img id="aventuraIcon" class="imgRight" src="~/Content/_imagens/aventuraIcon.png" />
+                    <img id="acaoIcon" class="imgRight" src="~/Content/_imagens/acaoIcon.png" />
+                    <input type="submit" value="Avançar ->" class="btnForm" style="border:0;" />
+                    <a href="cadastro3_cubo.html"><span class="link_form"></span></a>
+                </div>
+            </div>
+
+            <div id="livro_centro">
+            </div>
+
+        </div>
+        <script>
+        function setTopo() {
+            $(#cadastro2).scrollTop(0);
+        }
+        $(#cadastro2).bind('scroll', setTopo);
+        </script>
+
+
+    </body>
+
+
+</html>
+}
+

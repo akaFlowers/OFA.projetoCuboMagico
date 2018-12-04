@@ -30,5 +30,11 @@ namespace projetoCuboMagico.Controllers
 
             return View();
         }
+
+
+        public ActionResult Entrar_Cubo()
+        {
+            return View();
+        }
     }
 }

@@ -1,54 +1,44 @@
 ﻿@model projetoCuboMagico.Models.Usuario
 
 @{
-    ViewBag.Title = "Faça seu Login na Cubo Mágico!";
+    ViewBag.Title = "Login";
     Layout = null;
 }
+
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-  <html>
+    <html>
     <head>
         <meta charset="UTF-8" />
         <title>Faça seu Login na Cubo Mágico!</title>
         <link rel="shortcut icon" href="~/Content/_imagens/icon_logo.ico">
         @Styles.Render("~/Content/css")
-        <!-- BOOTSTRAP -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
-
-    <body id="login">
+    <body id="login" style="background-color:#2E2E2E;">
         <div id="interface_login">
-
-            <a href="@Url.Action("Index", "Home")">
-                <div id="circulo"></div>
-                <img id="icon" src="~/Content/_imagens/icon_back.png" />
-            </a>
             <div id="entrar3"></div>
             <div id="entrar4"></div>
             <div id="entrar2"></div>
             <div id="entrar">
                 <img id="selo_entrar" src="~/Content/_imagens/cube_editado.png" />
-                <form id="formEntrar">
+                <div id="formEntrar">
                     <h2 id="titleLogin">Cubo Magico</h2><br />
-                    @Html.EditorFor(model => model.Usuarioo, null, new { htmlAttributes = new { placeholder = "Usuário:", id = "txtName" } })<br />
-                    @Html.EditorFor(model => model.Senha, null, new { htmlAttributes = new { placeholder = "Senha: ", id = "txtSenha" } })<br />
-                    <input type="submit" value="Entrar" class="btn input" />
-                    <a href="@Url.Action("Create", "Clientes")" id="linkRegistro"><h3 id="registro">Sem Registro?</h3></a><br />
-                    <h3 id="esqSenha"><a id="recSenha" href="@Url.Action("RedefinirSenha", "Usuarios")">Esqueci minha senha</a></h3>
-                </form>
+                     @Html.EditorFor(model => model.Usuarioo, null, new { htmlAttributes = new { style = "box-shadow: -4px 2px 0px 2px;-webkit-border-bottom-right-radius: 10px;-webkit-border-bottom-left-radius: 10px;-webkit-border-top-right-radius: 10px;-webkit-border-top-left-radius: 10px;right:1000px;font-size:14pt;margin-left:87px;", placeholder = "Usuário" } })<br />
+                     @Html.EditorFor(model => model.Senha, null, new { htmlAttributes = new { style = "box-shadow: -4px 2px 0px 2px;-webkit-border-bottom-right-radius: 10px;-webkit-border-bottom-left-radius: 10px;-webkit-border-top-right-radius: 10px;-webkit-border-top-left-radius: 10px;font-size:14pt;margin-left:87px;margin-top:25px;", placeholder = "Senha" } })<br />
+                    <input type="submit" value="Entrar" class="btn input" style="font-size:18pt;font-weight:bold;" /><br />
+                    <a id="linkRegistro" href="@Url.Action("Create", "Clientes")"><h3 id="registro">Sem Registro?</h3></a><br />
+                    <h3 id="esqSenha" style="left:117px;"><a id="recSenha" href="esqSenha_cubo.html">Esqueci minha senha</a></h3>
+                </div>
             </div>
-
-
         </div>
         <footer id="rodape">
-            <p>
+            <p id="p">
                 Copyright &copy; 2018 - by One For All <br />
-                <a href="https://www.facebook.com/Matheus.Sosres" target="_blank">Facebook</a> | <a href="https://www.instagram.com/theus_silva7/" target="_blank">Instagran</a>
+                <a id="social" href="https://www.facebook.com/Matheus.Sosres" target="_blank">Facebook</a> | <a id="social" href="https://www.instagram.com/theus_silva7/" target="_blank">Instagran<a />
             </p>
         </footer>
     </body>
-
 </html>
 }

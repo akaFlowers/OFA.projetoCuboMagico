@@ -34,6 +34,16 @@ namespace projetoCuboMagico.Controllers
             return View();
         }
 
+        public ActionResult Create2()
+        {
+            return View();
+        }
+
+        public ActionResult Create3()
+        {
+            return View();
+        }
+
         // POST: Usuarios/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)

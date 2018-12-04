@@ -9,13 +9,13 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Cadastro Cubo Mágico</title>
-    @Styles.Render("~/Content/css")
-    <link rel="shortcut icon" href="_imagens/icon_logo.ico">
-</head>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cadastro Cubo Mágico</title>
+        @Styles.Render("~/Content/css")
+        <link rel="shortcut icon" href="_imagens/icon_logo.ico">
+    </head>
     <body id="cadastro">
         <div id="barra_ind1"></div> <div id="barra_ind2"></div>
         <div id="circulo_ind1" class="ind_ativo"> <img class="ind" src="~/Content/_imagens/cadastro_vetor.png" /> </div>
@@ -25,37 +25,35 @@
 
         <div id="livro">
             <div id="livro_left">
-                <form class="folha_left">
+                <div class="folha_left">
                     <img id="imgLivro2" src="~/Content/_imagens/imgLivro2.png" />
                     <h2 class="TLivro">Insira seus dados:</h2><br /><br />
-                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Nome, null, new { htmlAttributes = new { @class = "input", id = "txtName", style = "border:0;" } })<br />
-                    @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Sobrenome, null, new { htmlAttributes = new { @class = "input", id = "txtSName", style = "border:0;" } })<br />
-                    @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.DataNascimento, null, new { htmlAttributes = new { @class = "input", id = "date", style = "border:0;", placeholder = "dd/mm/aaaa" } })<br />
-                    @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cpf, null, new { htmlAttributes = new { @class = "input", id = "cpf", style = "border:0;" } })<br />
+                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Nome, null, new { htmlAttributes = new { @class = "input", id = "txtName", style = "border:1;border-style:solid;border-radius:1000px;", placeholder = "Ex: Matheus" } })<br />
+                    @Html.LabelFor(model => model.Sobrenome, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Sobrenome, null, new { htmlAttributes = new { @class = "input", id = "txtSName", style = "border:1;border-style:solid;border-radius:1000px;", placeholder = "Ex: Soares" } })<br />
+                    @Html.LabelFor(model => model.DataNascimento, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.DataNascimento, null, new { htmlAttributes = new { @class = "input", id = "date", style = "border:1;border-style:solid;border-radius:1000px;", placeholder = "DD/MM/AAAA" } })<br />
+                    @Html.LabelFor(model => model.Cpf, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cpf, null, new { htmlAttributes = new { @class = "input", id = "cpf", style = "border:1;border-style:solid;border-radius:1000px;", placeholder = "Ex: 123.456.789-10" } })
                     @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "label" })
                     @{
                         List<SelectListItem> sexo = new List<SelectListItem>();
                         sexo.Add(new SelectListItem { Text = "M", Value = "Masculino", Selected = true });
                         sexo.Add(new SelectListItem { Text = "F", Value = "Feminino" });
                     }
-                    @Html.DropDownListFor(model => model.Sexo, sexo, htmlAttributes: new { @class = "label" })<br />
-                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Email, null, new { htmlAttributes = new { @class = "input", id = "email", style = "border:0;" } })
-                    <div class="linha1"></div><div class="linha2"></div><div class="linha3"></div><div class="linha4"></div><div class="linha5"></div>
-                </form>
+                    @Html.DropDownListFor(model => model.Sexo, sexo, htmlAttributes: new { @class = "label", style = "border:2px;border-style:solid;border-radius:1000px;font-size:15pt;" })<br />
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Email, null, new { htmlAttributes = new { @class = "input", id = "email", style = "border:1;border-style:solid;border-radius:1000px;width:300px;", placeholder = "SeuEmail@email.com" } })<br /><br />
+                    @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Telefone, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;", id = "tel" }, placeholder = "Ex: (##)1234-1234" })<br />
+                    @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "label" }) @Html.EditorFor(model => model.Celular, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;", id = "cel", placeholder = "Ex: (##)12345-1234" } })<br />
+                </div>
             </div>
             <div id="livro_right">
-                <form class="folha_right">
-                    <img id="imgLivro1" src="~/Content/_imagens/imgLivro1.png" />
-                    @Html.LabelFor(model => model.Telefone, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Nome, null, new { htmlAttributes = new { @class = "input", style = "border:0;", id = "tel" } })<br />
-                    @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "label" }) @Html.EditorFor(model => model.Celular, null, new { htmlAttributes = new { @class = "input", style = "border:0;", id = "cel" } })<br />
-                    @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cep, null, new { htmlAttributes = new { @class = "input", style = "border:0;", id = "cep" } })<br />
+                <div class="folha_right">
+                    <br /><h2 class="TLivro">&nbsp; Endereço:</h2><br /><br />
                     @Html.LabelFor(model => model.Pais, htmlAttributes: new { @class = "label" })
                     @{
                         List<SelectListItem> pais = new List<SelectListItem>();
-                        pais.Add(new SelectListItem { Text = "Brasil", Value = "Brasil", Selected = true, Disabled = true });
+                        pais.Add(new SelectListItem { Text = "Brasil", Value = "Brasil"});
                     }
-                    @Html.DropDownListFor(model => model.Pais, pais, htmlAttributes: new { @class = "select", id = "pais", @style = "border:1;" } )
-                    @Html.LabelFor(model => model.Estado)
+                    @Html.DropDownListFor(model => model.Pais, pais, htmlAttributes: new { @class = "select", id = "pais", style = "border:2px;border-style:solid;border-radius:1000px;" })
+                    @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "label" })
                     @{
                         List<SelectListItem> estado = new List<SelectListItem>();
                         estado.Add(new SelectListItem { Text = "AC", Value = "AC" });
@@ -86,9 +84,17 @@
                         estado.Add(new SelectListItem { Text = "SE", Value = "SE" });
                         estado.Add(new SelectListItem { Text = "TO", Value = "TO" });
                     }
-                    @Html.DropDownListFor(model => model.Estado, estado, new { htmlAttributes = new { @class = "select", id = "est", @style = "border:0;" } })<br />
+                    @Html.DropDownListFor(model => model.Estado, estado, htmlAttributes: new { @class = "label", id = "est", style = "border:2px;border-style:solid;border-radius:1000px;font-size:15pt;" })<br />
+                    @Html.LabelFor(model => model.Cidade, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cidade, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;", id = "tel", placeholder = "Ex: São Paulo" } })
+                    @Html.LabelFor(model => model.Cep, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Cep, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;", id = "tel", placeholder = "Ex: 12345-010" } })<br />
+                    @Html.LabelFor(model => model.Rua, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Rua, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;width:425px;", id = "tel", placeholder = "Ex: Rua Guaipá" } })<br />
+                    @Html.LabelFor(model => model.Numero, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Numero, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;width:50px;", id = "tel", placeholder = "Ex: 678" } })
+                    @Html.LabelFor(model => model.Complemento, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Complemento, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;width:200px;", id = "tel", placeholder = "Ex: Bloco 1 apto 50" } })<br />
+                    <h3 class="TLivro">&nbsp; Usuário:</h3><br /><br />
+                    @Html.LabelFor(model => model.Usuario.Usuarioo, htmlAttributes: new { @class = "label" })@Html.EditorFor(model => model.Usuario.Usuarioo, null, new { htmlAttributes = new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;width:150px;", id = "tel", placeholder = "Ex: joao123" } })<br />
+                    @Html.LabelFor(model => model.Usuario.Senha, htmlAttributes: new { @class = "label" })@Html.PasswordFor(model => model.Usuario.Senha, htmlAttributes: new { @class = "input", style = "border:1;border-style:solid;border-radius:1000px;width:150px;", id = "tel", placeholder = "Senha" })
                     <input type="submit" value="Avançar ->" class="btnForm" style="border:0;" />
-                </form>
+                </div>
             </div>
             <div id="livro_centro">
             </div>
